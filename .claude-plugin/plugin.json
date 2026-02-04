@@ -1,0 +1,11 @@
+{
+  "name": "eu-ai-governance",
+  "version": "1.0.0",
+  "description": "EU AI Act governance, risk classification, DPIA workflows, and compliance automation for European in-house legal and compliance teams. Built for DACH enterprises. Extends Anthropic's legal plugin with deep EU regulatory expertise.",
+  "author": {
+    "name": "Lexbeam Software",
+    "url": "https://lexbeam.com"
+  },
+  "license": "Apache-2.0",
+  "extends": "legal"
+}

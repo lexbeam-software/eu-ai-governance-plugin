@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "slack": {
+      "url": "https://mcp.slack.com/mcp"
+    },
+    "atlassian": {
+      "url": "https://mcp.atlassian.com/v1/mcp"
+    },
+    "microsoft365": {
+      "url": "https://microsoft365.mcp.claude.com/mcp"
+    },
+    "box": {
+      "url": "https://mcp.box.com"
+    }
+  }
+}
