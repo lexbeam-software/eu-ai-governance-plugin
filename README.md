@@ -1,4 +1,4 @@
-# EU AI Governance Plugin for Claude Cowork
+﻿# EU AI Governance Plugin for Claude Cowork
 
 **The missing governance layer for European AI compliance.**
 
@@ -93,4 +93,5 @@ Apache 2.0 — Fork it, extend it, use it commercially.
 
 ---
 
-*This plugin extends and complements Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins). It is not affiliated with or endorsed by Anthropic.*
+Last reviewed: February 12, 2026.`r`n`r`n*This plugin extends and complements Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins). It is not affiliated with or endorsed by Anthropic.*
+
