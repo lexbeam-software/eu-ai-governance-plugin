@@ -211,3 +211,7 @@ When `--lang de` is set:
 - Produce a German policy suitable for internal distribution in Germany.
 - Use German role titles where appropriate and include a note on works council involvement where relevant.
 - If the organization operates across the EU, keep key defined terms aligned with the EU AI Act terminology.
+
+---
+
+**Important:** This assessment is an orientation tool, not legal advice. Classifications must be validated by qualified legal counsel before compliance decisions. Regulatory content last reviewed February 2026.

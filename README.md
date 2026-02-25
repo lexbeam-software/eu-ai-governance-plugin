@@ -8,6 +8,8 @@
 
 **The missing governance layer for European AI compliance.**
 
+> **Disclaimer:** This plugin is an orientation tool, not legal advice. Consult qualified legal counsel before making compliance decisions. See [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md) for details.
+
 Anthropic's legal plugin handles generic contract review and NDA triage. This plugin handles what it doesn't: EU AI Act risk classification, AI-specific DPIAs, vendor assessments against deployer obligations, and compliance documentation that auditors actually accept.
 
 Built for in-house legal, compliance, and AI governance teams at European enterprises. Works standalone or alongside Anthropic's legal plugin.

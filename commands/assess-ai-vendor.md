@@ -175,3 +175,7 @@ Structure the output as:
 
 - If the vendor contract is very long, offer to focus first on the most material items: data use for training, audit rights, incident reporting, liability, and change management.
 - Always remind the user that this is not legal advice and should be reviewed by qualified counsel.
+
+---
+
+**Important:** This assessment is an orientation tool, not legal advice. Classifications must be validated by qualified legal counsel before compliance decisions. Regulatory content last reviewed February 2026.

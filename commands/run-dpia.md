@@ -302,3 +302,7 @@ For each risk:
 - If the system may be high risk under the EU AI Act, recommend running `/classify-ai-risk` and linking the results into the DPIA.
 - If cross border transfers are involved, flag the need for a transfer impact assessment and vendor review.
 - Always separate what is known from assumptions.
+
+---
+
+**Important:** This assessment is an orientation tool, not legal advice. Classifications must be validated by qualified legal counsel before compliance decisions. Regulatory content last reviewed February 2026.

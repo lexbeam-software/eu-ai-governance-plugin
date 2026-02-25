@@ -203,3 +203,7 @@ For each gap:
 - If the organization has not built an AI inventory, recommend starting there. Most obligations become unmanageable without it.
 - If any system may be high risk, recommend running `/classify-ai-risk` per system and linking results.
 - If AI systems process personal data at scale, recommend running `/run-dpia` for priority systems.
+
+---
+
+**Important:** This assessment is an orientation tool, not legal advice. Classifications must be validated by qualified legal counsel before compliance decisions. Regulatory content last reviewed February 2026.

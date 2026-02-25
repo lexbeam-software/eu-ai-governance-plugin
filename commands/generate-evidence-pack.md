@@ -278,3 +278,7 @@ When `--lang de` is set:
 - Do not invent evidence. If something is missing, list it as a gap.
 - Avoid copying sensitive personal data into the evidence pack. Prefer summaries and references to source locations.
 - If the audience is a regulator, prioritize traceability, sign-offs, and versioning.
+
+---
+
+**Important:** This assessment is an orientation tool, not legal advice. Classifications must be validated by qualified legal counsel before compliance decisions. Regulatory content last reviewed February 2026.

@@ -234,3 +234,7 @@ This output supports compliance workflows and does not constitute legal advice. 
 - Always prefer the strictest plausible classification when facts are uncertain, and list what evidence would de-risk the conclusion.
 - Cite article numbers for every obligation. Use recital references when they clarify edge cases.
 - Avoid generic advice. Provide implementable controls and concrete evidence artifacts.
+
+---
+
+**Important:** This assessment is an orientation tool, not legal advice. Classifications must be validated by qualified legal counsel before compliance decisions. Regulatory content last reviewed February 2026.
