@@ -1,5 +1,11 @@
 ﻿# EU AI Governance Plugin for Claude Cowork
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-Apache%202.0-green)
+![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-2024%2F1689-purple)
+![Last Reviewed](https://img.shields.io/badge/last%20reviewed-Feb%202026-orange)
+![Platform](https://img.shields.io/badge/platform-Claude%20Cowork-black)
+
 **The missing governance layer for European AI compliance.**
 
 Anthropic's legal plugin handles generic contract review and NDA triage. This plugin handles what it doesn't: EU AI Act risk classification, AI-specific DPIAs, vendor assessments against deployer obligations, and compliance documentation that auditors actually accept.
@@ -19,6 +25,54 @@ Anthropic's legal plugin covers GDPR basics and general compliance checklists. I
 - Schrems II transfer impact assessments for AI model providers
 
 This plugin fills that gap.
+
+## How It Classifies AI Risk
+
+The plugin uses a multi-gate decision framework aligned to the EU AI Act:
+
+```mermaid
+flowchart TD
+    A["AI System Description"] --> B{"Gate 1: Prohibited?<br/>(Article 5)"}
+    B -->|Yes| C["PROHIBITED<br/>Immediate escalation"]
+    B -->|No| D{"Gate 2A: Safety component<br/>of regulated product?<br/>(Annex I)"}
+    D -->|Yes| E["HIGH-RISK<br/>(Annex I)"]
+    D -->|No| F{"Gate 2B: High-risk<br/>use case?<br/>(Annex III)"}
+    F -->|Yes| G["HIGH-RISK<br/>(Annex III)"]
+    F -->|No| H{"Gate 2C: GPAI Model?<br/>(Articles 51–56)"}
+    H -->|Yes| I["GPAI OBLIGATIONS<br/>apply at model level"]
+    H -->|No| J{"Gate 3: Transparency<br/>duties?<br/>(Article 50)"}
+    J -->|Yes| K["LIMITED RISK<br/>Transparency obligations"]
+    J -->|No| L["MINIMAL RISK<br/>Voluntary codes of conduct"]
+
+    style C fill:#dc2626,color:#fff
+    style E fill:#ea580c,color:#fff
+    style G fill:#ea580c,color:#fff
+    style I fill:#7c3aed,color:#fff
+    style K fill:#2563eb,color:#fff
+    style L fill:#16a34a,color:#fff
+```
+
+## Compliance Timeline
+
+Key enforcement deadlines — the plugin tracks where you stand against each:
+
+```mermaid
+gantt
+    title EU AI Act Enforcement Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %b %Y
+
+    section Already in Force
+    Prohibited practices ban (Art. 5)           :done, 2025-02-02, 1d
+    AI literacy obligations (Art. 4)            :done, 2025-02-02, 1d
+    GPAI model obligations (Arts. 51–56)        :done, 2025-08-02, 1d
+
+    section Upcoming
+    High-risk Annex III obligations              :crit, 2026-08-02, 1d
+
+    section Future
+    High-risk Annex I obligations                :2027-08-02, 1d
+```
 
 ## Commands
 
@@ -83,6 +137,26 @@ No configuration required for EU AI Act workflows. The plugin ships with built-i
 - **Schrems II / EU-US DPF**: Transfer impact assessments for AI model providers
 - **ISO 42001**: AI management system alignment (optional)
 
+## Worked Examples
+
+See what the plugin actually produces — realistic, redacted sample outputs:
+
+| Example | Command | Scenario |
+|---------|---------|----------|
+| [HR Resume Screening AI](examples/classify-ai-risk-hr-screening.md) | `/classify-ai-risk` | Classifying an automated recruitment tool as HIGH-RISK (Annex III) with Works Council obligations |
+| [ChatGPT Enterprise Deployment](examples/assess-ai-vendor-chatgpt-enterprise.md) | `/assess-ai-vendor` | Vendor assessment with RED/YELLOW flags, contract redlines, and Schrems II analysis |
+| [Customer Churn Prediction](examples/run-dpia-customer-churn-prediction.md) | `/run-dpia` | Full DPIA for an ML model processing customer behavioral data |
+
+## Roadmap
+
+| Version | Focus | Status |
+|---------|-------|--------|
+| **v1.0** | EU AI Act classification, DPIAs, vendor assessments, evidence packs, policy review | Released |
+| **v1.1** | ISO 42001 full alignment — control mapping and certification readiness workflows | Planned |
+| **v1.2** | NIS2 integration — cybersecurity obligations for AI in critical infrastructure | Planned |
+| **v1.3** | Multi-jurisdiction — French CNIL, Dutch AP, and Austrian DSB-specific guidance | Planned |
+| **v2.0** | Implementing acts and harmonised standards tracking — auto-update as EU AI Office publishes guidance | Planned |
+
 ## License
 
 Apache 2.0 — Fork it, extend it, use it commercially.
@@ -93,5 +167,9 @@ Apache 2.0 — Fork it, extend it, use it commercially.
 
 ---
 
-Last reviewed: February 12, 2026.`r`n`r`n*This plugin extends and complements Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins). It is not affiliated with or endorsed by Anthropic.*
+Last reviewed: February 25, 2026.
+
+**[View Interactive Demo](demo/index.html)** | **[Changelog](CHANGELOG.md)**
+
+*This plugin extends and complements Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins). It is not affiliated with or endorsed by Anthropic.*
 

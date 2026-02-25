@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EU AI Governance Plugin for Claude Cowork — Lexbeam Software</title>
+    <meta name="description" content="The missing governance layer for European AI compliance. EU AI Act classification, DPIAs, vendor assessments, and evidence packs for Claude Cowork.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-deep: #060a12;
+            --bg-primary: #0a0f1a;
+            --bg-surface: #0f1623;
+            --bg-elevated: #161e2e;
+            --bg-card: #1a2336;
+            --border: #243044;
+            --border-light: #2e3f58;
+            --text-primary: #e4e9f0;
+            --text-secondary: #8896ab;
+            --text-muted: #586a82;
+            --accent: #c9a66b;
+            --accent-dim: rgba(201, 166, 107, 0.12);
+            --accent-glow: rgba(201, 166, 107, 0.25);
+            --risk-prohibited: #dc2626;
+            --risk-high: #ea580c;
+            --risk-gpai: #7c3aed;
+            --risk-limited: #2563eb;
+            --risk-minimal: #16a34a;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Outfit', system-ui, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── Grain overlay ── */
+        .grain {
+            position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.018;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1rem 2.5rem;
+            background: rgba(6, 10, 18, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-brand { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--accent); letter-spacing: 0.02em; text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-gh { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border: 1px solid var(--border-light); border-radius: 6px; font-size: 0.8rem !important; transition: border-color 0.2s, color 0.2s !important; }
+        .nav-gh:hover { border-color: var(--accent) !important; }
+        .nav-gh svg { width: 16px; height: 16px; fill: currentColor; }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative; min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            padding: 8rem 2rem 4rem;
+            background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,166,107,0.04) 0%, transparent 70%),
+                        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-primary) 100%);
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(201,166,107,0.025) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(201,166,107,0.025) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 70%);
+        }
+        .hero-label {
+            font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+            margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+        }
+        .hero h1 {
+            font-family: var(--font-display); font-size: clamp(2.8rem, 6vw, 5.2rem);
+            font-weight: 600; line-height: 1.1; color: var(--text-primary);
+            margin-bottom: 0.3rem; opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+        }
+        .hero h1 span { color: var(--text-secondary); font-weight: 400; }
+        .hero-tagline {
+            font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--text-secondary);
+            max-width: 36rem; margin: 1.2rem auto 2.5rem; line-height: 1.5;
+            opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+        }
+        .hero-actions {
+            display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+            opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+        }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.8rem 2rem; background: var(--accent); color: var(--bg-deep);
+            font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+            text-decoration: none; border-radius: 6px; border: none; cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 24px var(--accent-glow); }
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.8rem 2rem; background: transparent; color: var(--text-secondary);
+            font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+            text-decoration: none; border-radius: 6px; border: 1px solid var(--border-light);
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Section base ── */
+        section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem); }
+        .section-inner { max-width: 1140px; margin: 0 auto; }
+        .section-label {
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600; line-height: 1.15; margin-bottom: 1rem;
+        }
+        .section-subtitle { color: var(--text-secondary); max-width: 38rem; margin-bottom: 3rem; font-size: 1.05rem; }
+
+        /* ── Stats ── */
+        .stats {
+            background: var(--bg-surface); border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 4vw, 3rem);
+        }
+        .stats-grid {
+            max-width: 1140px; margin: 0 auto;
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem 2rem;
+        }
+        .stat { text-align: center; flex: 1; min-width: 120px; }
+        .stat-number {
+            display: block; font-family: var(--font-display); font-size: 2.6rem;
+            font-weight: 700; color: var(--accent); line-height: 1.1;
+        }
+        .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; letter-spacing: 0.03em; }
+
+        /* ── Classifier Demo ── */
+        .classifier { background: var(--bg-primary); }
+        .demo-window {
+            background: var(--bg-surface); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden; margin-top: 2rem;
+        }
+        .demo-titlebar {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.75rem 1.25rem; background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border);
+        }
+        .demo-dots { display: flex; gap: 6px; }
+        .demo-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--border-light); }
+        .demo-title { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.04em; }
+        .demo-content { padding: clamp(1.5rem, 3vw, 2.5rem); }
+
+        .scenario-tabs { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .scenario-tab {
+            padding: 0.65rem 1.3rem; background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: 8px;
+            color: var(--text-secondary); font-family: var(--font-body);
+            font-size: 0.85rem; font-weight: 500; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .scenario-tab:hover { border-color: var(--accent); color: var(--text-primary); }
+        .scenario-tab.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+
+        .system-desc {
+            padding: 1rem 1.25rem; background: var(--bg-card); border-radius: 8px;
+            border-left: 3px solid var(--accent); margin-bottom: 2.5rem;
+            font-size: 0.9rem; color: var(--text-secondary);
+        }
+        .system-desc strong { color: var(--text-primary); }
+
+        .gates-pipeline {
+            display: flex; align-items: stretch; gap: 0; margin-bottom: 2rem;
+            overflow-x: auto; padding-bottom: 0.5rem;
+        }
+        .gate {
+            position: relative; flex: 0 0 auto; width: 170px;
+            padding: 1.4rem 1rem; background: var(--bg-card);
+            border: 2px solid var(--border); border-radius: 10px;
+            text-align: center; transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        .gate::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201,166,107,0.15), transparent);
+            pointer-events: none;
+        }
+        .gate.checking { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-dim); }
+        .gate.checking::after { animation: gateScan 0.7s ease-in-out; }
+        .gate.pass { border-color: var(--risk-minimal); box-shadow: 0 0 16px rgba(22,163,106,0.15); }
+        .gate.triggered-high { border-color: var(--risk-high); box-shadow: 0 0 20px rgba(234,88,12,0.2); }
+        .gate.triggered-limited { border-color: var(--risk-limited); box-shadow: 0 0 20px rgba(37,99,235,0.2); }
+        .gate.triggered-minimal { border-color: var(--risk-minimal); box-shadow: 0 0 20px rgba(22,163,106,0.2); }
+
+        @keyframes gateScan { from { left: -100%; } to { left: 100%; } }
+
+        .gate-icon {
+            width: 36px; height: 36px; border-radius: 50%; margin: 0 auto 0.6rem;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--bg-elevated); border: 1px solid var(--border);
+            font-size: 1.1rem; transition: all 0.3s;
+        }
+        .gate.pass .gate-icon { background: rgba(22,163,106,0.15); border-color: var(--risk-minimal); color: var(--risk-minimal); }
+        .gate.triggered-high .gate-icon { background: rgba(234,88,12,0.15); border-color: var(--risk-high); color: var(--risk-high); }
+        .gate.triggered-limited .gate-icon { background: rgba(37,99,235,0.15); border-color: var(--risk-limited); color: var(--risk-limited); }
+        .gate.triggered-minimal .gate-icon { background: rgba(22,163,106,0.15); border-color: var(--risk-minimal); color: var(--risk-minimal); }
+
+        .gate-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.2rem; }
+        .gate-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin-bottom: 0.15rem; }
+        .gate-ref { font-size: 0.72rem; color: var(--text-muted); }
+        .gate-result {
+            margin-top: 0.7rem; font-size: 0.75rem; font-weight: 600; min-height: 1.2em;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .gate.pass .gate-result, .gate[class*="triggered"] .gate-result { opacity: 1; }
+        .gate.pass .gate-result { color: var(--risk-minimal); }
+        .gate.triggered-high .gate-result { color: var(--risk-high); }
+        .gate.triggered-limited .gate-result { color: var(--risk-limited); }
+        .gate.triggered-minimal .gate-result { color: var(--risk-minimal); }
+
+        .gate-connector {
+            flex: 0 0 40px; display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .gate-connector::before {
+            content: ''; width: 100%; height: 2px;
+            background: var(--border); transition: background 0.4s;
+        }
+        .gate-connector::after {
+            content: ''; position: absolute; right: -2px;
+            width: 0; height: 0;
+            border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+            border-left: 6px solid var(--border); transition: border-color 0.4s;
+        }
+        .gate-connector.active::before { background: var(--accent); }
+        .gate-connector.active::after { border-left-color: var(--accent); }
+
+        .result-badge {
+            flex: 0 0 auto; min-width: 180px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 1.2rem; border-radius: 10px; border: 2px solid var(--border);
+            background: var(--bg-card); text-align: center;
+            opacity: 0; transform: scale(0.9); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .result-badge.visible { opacity: 1; transform: scale(1); }
+        .result-badge.high { border-color: var(--risk-high); background: rgba(234,88,12,0.08); }
+        .result-badge.limited { border-color: var(--risk-limited); background: rgba(37,99,235,0.08); }
+        .result-badge.minimal { border-color: var(--risk-minimal); background: rgba(22,163,106,0.08); }
+        .badge-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem; }
+        .badge-classification { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+        .result-badge.high .badge-classification { color: var(--risk-high); }
+        .result-badge.limited .badge-classification { color: var(--risk-limited); }
+        .result-badge.minimal .badge-classification { color: var(--risk-minimal); }
+        .badge-detail { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.3rem; }
+
+        .classification-details {
+            padding: 1.25rem 1.5rem; background: var(--bg-card); border-radius: 8px;
+            border: 1px solid var(--border); font-size: 0.88rem; line-height: 1.7;
+            color: var(--text-secondary); max-height: 0; overflow: hidden;
+            opacity: 0; transition: all 0.5s ease;
+        }
+        .classification-details.visible { max-height: 500px; opacity: 1; margin-top: 0.5rem; padding: 1.25rem 1.5rem; }
+        .classification-details strong { color: var(--text-primary); }
+        .classification-details .detail-tag {
+            display: inline-block; padding: 0.15rem 0.55rem; border-radius: 4px;
+            font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem;
+        }
+        .tag-high { background: rgba(234,88,12,0.15); color: var(--risk-high); }
+        .tag-limited { background: rgba(37,99,235,0.15); color: var(--risk-limited); }
+        .tag-minimal { background: rgba(22,163,106,0.15); color: var(--risk-minimal); }
+        .tag-green { background: rgba(22,163,106,0.15); color: var(--risk-minimal); }
+
+        /* ── Timeline ── */
+        .timeline-section { background: var(--bg-surface); }
+        .timeline-track {
+            position: relative; display: flex; justify-content: space-between;
+            align-items: flex-start; padding: 3rem 0 2rem; margin-top: 2rem;
+        }
+        .timeline-track::before {
+            content: ''; position: absolute; top: 3.9rem; left: 0; right: 0; height: 3px;
+            background: var(--border); border-radius: 2px;
+        }
+        .timeline-progress {
+            position: absolute; top: 3.9rem; left: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--risk-high));
+            border-radius: 2px; transition: width 1s ease;
+        }
+        .timeline-marker {
+            position: relative; text-align: center; flex: 1; z-index: 1;
+            cursor: default;
+        }
+        .tl-dot {
+            width: 18px; height: 18px; border-radius: 50%;
+            border: 3px solid var(--border); background: var(--bg-surface);
+            margin: 2rem auto 0.8rem; position: relative; transition: all 0.3s;
+        }
+        .timeline-marker.past .tl-dot { background: var(--accent); border-color: var(--accent); }
+        .timeline-marker.next .tl-dot {
+            background: var(--risk-high); border-color: var(--risk-high);
+            box-shadow: 0 0 0 4px rgba(234,88,12,0.2);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 4px rgba(234,88,12,0.2); } 50% { box-shadow: 0 0 0 8px rgba(234,88,12,0.08); } }
+        .tl-date { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.2rem; }
+        .timeline-marker.past .tl-date { color: var(--accent); }
+        .timeline-marker.next .tl-date { color: var(--risk-high); }
+        .tl-label { font-size: 0.82rem; color: var(--text-secondary); max-width: 160px; margin: 0 auto; line-height: 1.4; }
+        .timeline-marker.next .tl-label { color: var(--text-primary); font-weight: 500; }
+        .tl-status {
+            display: inline-block; font-size: 0.65rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem;
+            border-radius: 4px; margin-top: 0.5rem;
+        }
+        .timeline-marker.past .tl-status { background: rgba(201,166,107,0.12); color: var(--accent); }
+        .timeline-marker.next .tl-status { background: rgba(234,88,12,0.15); color: var(--risk-high); }
+        .timeline-marker.future .tl-status { background: rgba(88,106,130,0.2); color: var(--text-muted); }
+        .today-marker {
+            position: absolute; top: 2.4rem; z-index: 2; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .today-label {
+            font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); background: var(--bg-elevated); padding: 0.15rem 0.5rem;
+            border-radius: 3px; border: 1px solid var(--accent); margin-bottom: 0.3rem;
+        }
+        .today-line { width: 2px; height: 28px; background: var(--accent); opacity: 0.6; }
+
+        /* ── Commands ── */
+        .commands-section { background: var(--bg-primary); }
+        .commands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+        .cmd-card {
+            background: var(--bg-surface); border: 1px solid var(--border); border-radius: 10px;
+            padding: 1.5rem; cursor: pointer; transition: all 0.25s;
+        }
+        .cmd-card:hover { border-color: var(--border-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .cmd-card.expanded { border-color: var(--accent); }
+        .cmd-header { display: flex; align-items: center; gap: 0.75rem; }
+        .cmd-icon {
+            width: 38px; height: 38px; border-radius: 8px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-dim); color: var(--accent); font-size: 1.1rem;
+        }
+        .cmd-name { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--text-primary); }
+        .cmd-desc { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.1rem; }
+        .cmd-expand-icon { margin-left: auto; color: var(--text-muted); transition: transform 0.25s; font-size: 0.9rem; }
+        .cmd-card.expanded .cmd-expand-icon { transform: rotate(180deg); }
+        .cmd-detail {
+            max-height: 0; overflow: hidden; opacity: 0; transition: all 0.35s ease;
+        }
+        .cmd-card.expanded .cmd-detail { max-height: 600px; opacity: 1; margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+        .cmd-detail h4 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
+        .cmd-detail p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6; }
+        .cmd-sample {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px;
+            padding: 0.8rem 1rem; font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+            font-size: 0.78rem; color: var(--text-secondary); line-height: 1.6;
+            white-space: pre-wrap; overflow-x: auto;
+        }
+        .cmd-sample .cmd-prompt { color: var(--accent); }
+        .cmd-sample .cmd-output { color: var(--text-muted); }
+
+        /* ── Comparison ── */
+        .comparison-section { background: var(--bg-surface); }
+        .comparison-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;
+        }
+        .comparison-col { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+        .comparison-col.theirs { opacity: 0.7; }
+        .comparison-col.ours { border-color: var(--accent); box-shadow: 0 0 40px var(--accent-dim); }
+        .comparison-header {
+            padding: 1.25rem 1.5rem; font-family: var(--font-display);
+            font-size: 1.15rem; font-weight: 600; border-bottom: 1px solid var(--border);
+        }
+        .comparison-col.theirs .comparison-header { background: var(--bg-elevated); color: var(--text-secondary); }
+        .comparison-col.ours .comparison-header { background: var(--accent-dim); color: var(--accent); }
+        .comparison-row {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.85rem 1.5rem; border-bottom: 1px solid var(--border);
+            font-size: 0.88rem; transition: opacity 0.4s;
+        }
+        .comparison-row:last-child { border-bottom: none; }
+        .comp-icon { flex-shrink: 0; font-size: 0.9rem; }
+        .comparison-col.theirs .comparison-row { color: var(--text-muted); background: var(--bg-card); }
+        .comparison-col.ours .comparison-row { color: var(--text-secondary); background: var(--bg-surface); }
+        .comparison-col.ours .comp-icon { color: var(--risk-minimal); }
+        .comparison-col.theirs .comp-icon { color: var(--text-muted); }
+
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center; padding: 3rem 2rem;
+            border-top: 1px solid var(--border); background: var(--bg-deep);
+        }
+        .footer-brand { font-family: var(--font-display); font-size: 1.2rem; color: var(--accent); font-weight: 600; }
+        .footer-desc { font-size: 0.85rem; color: var(--text-muted); margin: 0.3rem 0 1rem; }
+        .footer-link { color: var(--accent); text-decoration: none; }
+        .footer-link:hover { text-decoration: underline; }
+        .footer-legal { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .comparison-grid { grid-template-columns: 1fr; }
+            .comparison-col.theirs { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 0.75rem 1.25rem; }
+            .nav-links a:not(.nav-gh) { display: none; }
+            .gates-pipeline { flex-direction: column; align-items: center; }
+            .gate-connector { transform: rotate(90deg); flex: 0 0 30px; width: 40px; }
+            .gate { width: 90%; max-width: 260px; }
+            .result-badge { width: 90%; max-width: 260px; }
+            .timeline-track { flex-direction: column; gap: 1.5rem; padding-left: 2rem; }
+            .timeline-track::before { top: 0; bottom: 0; left: 1rem; right: auto; width: 3px; height: 100%; }
+            .timeline-progress { top: 0; left: 1rem; width: 3px !important; height: 55% !important; }
+            .tl-dot { margin: 0 0 0.5rem; position: absolute; left: -1.55rem; top: 0.1rem; }
+            .timeline-marker { text-align: left; padding-left: 0.5rem; }
+            .tl-label { margin: 0; }
+            .today-marker { display: none; }
+            .commands-grid { grid-template-columns: 1fr; }
+            .stats-grid { gap: 1rem; }
+            .stat-number { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <!-- Nav -->
+    <nav>
+        <a href="#" class="nav-brand">Lexbeam</a>
+        <div class="nav-links">
+            <a href="#classifier">Demo</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#commands">Commands</a>
+            <a href="https://github.com/lexbeam/eu-ai-governance-plugin" class="nav-gh" target="_blank" rel="noopener">
+                <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <p class="hero-label">Lexbeam Software</p>
+        <h1>EU AI Governance Plugin<br><span>for Claude Cowork</span></h1>
+        <p class="hero-tagline">The missing governance layer for European AI compliance. Risk classification, DPIAs, vendor assessments, and evidence packs — ready out of the box.</p>
+        <div class="hero-actions">
+            <a href="#classifier" class="btn-primary">See it in action &#8595;</a>
+            <a href="https://github.com/lexbeam/eu-ai-governance-plugin" class="btn-ghost" target="_blank" rel="noopener">View on GitHub &#8599;</a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat"><span class="stat-number" data-target="2889">0</span><span class="stat-label">Lines of regulatory guidance</span></div>
+            <div class="stat"><span class="stat-number" data-target="6">0</span><span class="stat-label">Governance commands</span></div>
+            <div class="stat"><span class="stat-number" data-target="6">0</span><span class="stat-label">Knowledge skills</span></div>
+            <div class="stat"><span class="stat-number" data-target="4">0</span><span class="stat-label">Enforcement deadlines tracked</span></div>
+            <div class="stat"><span class="stat-number" data-target="2">0</span><span class="stat-label">Languages (EN + DE)</span></div>
+        </div>
+    </section>
+
+    <!-- Interactive Classifier Demo -->
+    <section class="classifier" id="classifier">
+        <div class="section-inner">
+            <p class="section-label">Interactive Demo</p>
+            <h2 class="section-title">EU AI Act Risk Classifier</h2>
+            <p class="section-subtitle">Select a scenario to watch the classification engine process an AI system through the EU AI Act's regulatory gates in real-time.</p>
+
+            <div class="demo-window">
+                <div class="demo-titlebar">
+                    <div class="demo-dots"><span></span><span></span><span></span></div>
+                    <span class="demo-title">Claude Cowork &mdash; /classify-ai-risk</span>
+                </div>
+                <div class="demo-content">
+                    <div class="scenario-tabs">
+                        <button class="scenario-tab active" data-scenario="hr">HR Resume Screening AI</button>
+                        <button class="scenario-tab" data-scenario="chatbot">Customer Support Chatbot</button>
+                        <button class="scenario-tab" data-scenario="dashboard">Internal Analytics Dashboard</button>
+                    </div>
+
+                    <div class="system-desc" id="systemDesc">
+                        <strong>TalentScreen AI</strong> — Automated resume scoring and candidate shortlisting. Scores applicants 1–100; candidates below 40 are auto-rejected. Used by HR across Germany and Austria.
+                    </div>
+
+                    <div class="gates-pipeline" id="gatesPipeline">
+                        <div class="gate" id="gate1">
+                            <div class="gate-icon">&#63;</div>
+                            <div class="gate-label">Gate 1</div>
+                            <div class="gate-title">Prohibited?</div>
+                            <div class="gate-ref">Article 5</div>
+                            <div class="gate-result"></div>
+                        </div>
+                        <div class="gate-connector" id="conn1"></div>
+                        <div class="gate" id="gate2">
+                            <div class="gate-icon">&#63;</div>
+                            <div class="gate-label">Gate 2</div>
+                            <div class="gate-title">High-Risk?</div>
+                            <div class="gate-ref">Annex I &amp; III</div>
+                            <div class="gate-result"></div>
+                        </div>
+                        <div class="gate-connector" id="conn2"></div>
+                        <div class="gate" id="gate3">
+                            <div class="gate-icon">&#63;</div>
+                            <div class="gate-label">Gate 3</div>
+                            <div class="gate-title">Limited Risk?</div>
+                            <div class="gate-ref">Article 50</div>
+                            <div class="gate-result"></div>
+                        </div>
+                        <div class="gate-connector" id="conn3"></div>
+                        <div class="result-badge" id="resultBadge">
+                            <div class="badge-label">Classification</div>
+                            <div class="badge-classification"></div>
+                            <div class="badge-detail"></div>
+                        </div>
+                    </div>
+
+                    <div class="classification-details" id="classDetails"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Timeline -->
+    <section class="timeline-section" id="timeline">
+        <div class="section-inner">
+            <p class="section-label">Enforcement Timeline</p>
+            <h2 class="section-title">EU AI Act Deadlines</h2>
+            <p class="section-subtitle">The regulation is already live. The plugin tracks where your organization stands against each enforcement milestone.</p>
+
+            <div class="timeline-track" id="timelineTrack">
+                <div class="timeline-progress" id="timelineProgress" style="width: 0%"></div>
+                <div class="today-marker" id="todayMarker" style="left: 62%">
+                    <span class="today-label">Today</span>
+                    <span class="today-line"></span>
+                </div>
+
+                <div class="timeline-marker past">
+                    <div class="tl-date">Feb 2, 2025</div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-label">Prohibited practices ban &amp; AI literacy (Art. 4)</div>
+                    <span class="tl-status">In effect</span>
+                </div>
+                <div class="timeline-marker past">
+                    <div class="tl-date">Aug 2, 2025</div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-label">GPAI model obligations (Arts. 51–56)</div>
+                    <span class="tl-status">In effect</span>
+                </div>
+                <div class="timeline-marker next">
+                    <div class="tl-date">Aug 2, 2026</div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-label">Annex III high-risk system obligations</div>
+                    <span class="tl-status">5 months away</span>
+                </div>
+                <div class="timeline-marker future">
+                    <div class="tl-date">Aug 2, 2027</div>
+                    <div class="tl-dot"></div>
+                    <div class="tl-label">Annex I high-risk (regulated products)</div>
+                    <span class="tl-status">2028</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands -->
+    <section class="commands-section" id="commands">
+        <div class="section-inner">
+            <p class="section-label">Capabilities</p>
+            <h2 class="section-title">Six Governance Commands</h2>
+            <p class="section-subtitle">Each command is a structured, multi-step workflow with regulatory citations, evidence checklists, and actionable outputs.</p>
+
+            <div class="commands-grid">
+                <div class="cmd-card" data-cmd="classify">
+                    <div class="cmd-header">
+                        <div class="cmd-icon">&#9878;</div>
+                        <div>
+                            <div class="cmd-name">/classify-ai-risk</div>
+                            <div class="cmd-desc">EU AI Act risk classification</div>
+                        </div>
+                        <span class="cmd-expand-icon">&#9662;</span>
+                    </div>
+                    <div class="cmd-detail">
+                        <p>8-step gated classification: prohibited practices (Art. 5), Annex I safety components, Annex III high-risk use cases, GPAI model obligations, and limited-risk transparency duties. Produces a regulator-ready assessment with obligations, evidence checklist, and 30/60/90-day action plan.</p>
+                        <h4>Sample output</h4>
+                        <div class="cmd-sample"><span class="cmd-prompt">&gt; /classify-ai-risk "TalentScreen AI - automated resume screening"</span>
+
+<span class="cmd-output">Classification: <strong style="color:var(--risk-high)">HIGH-RISK (Annex III)</strong>
+Category: Employment, workers management (Cat. 4a)
+Role: Deployer
+Key obligations: Art. 26 deployer duties, Art. 27 FRIA,
+  Works Council consultation (BetrVG §87(1) No. 6)
+Evidence gaps: 4 items requiring vendor documentation
+Next steps: 8 actions across 30/60/90 days</span></div>
+                    </div>
+                </div>
+
+                <div class="cmd-card" data-cmd="vendor">
+                    <div class="cmd-header">
+                        <div class="cmd-icon">&#9881;</div>
+                        <div>
+                            <div class="cmd-name">/assess-ai-vendor</div>
+                            <div class="cmd-desc">Vendor contract assessment</div>
+                        </div>
+                        <span class="cmd-expand-icon">&#9662;</span>
+                    </div>
+                    <div class="cmd-detail">
+                        <p>Three-dimensional assessment of AI vendor relationships: EU AI Act deployer obligations (Art. 26), GDPR and DPA requirements, enterprise governance and commercial risk. Produces GREEN/YELLOW/RED flags with contract redline suggestions and fallback positions.</p>
+                        <h4>Sample output</h4>
+                        <div class="cmd-sample"><span class="cmd-prompt">&gt; /assess-ai-vendor "ChatGPT Enterprise - DPA and Terms"</span>
+
+<span class="cmd-output">Overall risk: <strong style="color:var(--risk-high)">Medium</strong>
+Recommendation: Proceed with conditions
+
+Key findings:
+  1. Training data opt-out — <strong style="color:#dc2626">RED</strong> — not contractually guaranteed
+  2. Sub-processor changes — <strong style="color:var(--accent)">YELLOW</strong> — no objection right
+  3. AI Act documentation — <strong style="color:var(--accent)">YELLOW</strong> — not provided
+
+Proposed redlines: 8 contract amendments (3 P1, 3 P2, 2 P3)</span></div>
+                    </div>
+                </div>
+
+                <div class="cmd-card" data-cmd="dpia">
+                    <div class="cmd-header">
+                        <div class="cmd-icon">&#9888;</div>
+                        <div>
+                            <div class="cmd-name">/run-dpia</div>
+                            <div class="cmd-desc">AI-tailored impact assessment</div>
+                        </div>
+                        <span class="cmd-expand-icon">&#9662;</span>
+                    </div>
+                    <div class="cmd-detail">
+                        <p>Full DPIA combining GDPR Art. 35 with AI Act-aligned extensions: training data assessment, transparency and explainability evaluation, automated decision-making (Art. 22), fundamental rights considerations, and feedback loop analysis. Ready for DPO review.</p>
+                        <h4>Sample output</h4>
+                        <div class="cmd-sample"><span class="cmd-prompt">&gt; /run-dpia "ChurnGuard - customer churn prediction model"</span>
+
+<span class="cmd-output">Risk rating (pre-mitigation): <strong style="color:var(--accent)">Medium</strong>
+Residual risk: <strong style="color:var(--risk-minimal)">Low–Medium</strong>
+
+Identified risks: 7 (2 High, 3 Medium, 2 Low)
+  R5: Lack of transparency — <strong style="color:#dc2626">HIGH</strong>
+  R6: No profiling opt-out — <strong style="color:#dc2626">HIGH</strong>
+
+Mitigations: 5 technical + 5 organizational measures
+Decision: Proceed with conditions (Q1 2026 measures)</span></div>
+                    </div>
+                </div>
+
+                <div class="cmd-card" data-cmd="status">
+                    <div class="cmd-header">
+                        <div class="cmd-icon">&#9632;</div>
+                        <div>
+                            <div class="cmd-name">/ai-act-status</div>
+                            <div class="cmd-desc">Compliance posture assessment</div>
+                        </div>
+                        <span class="cmd-expand-icon">&#9662;</span>
+                    </div>
+                    <div class="cmd-detail">
+                        <p>Structured organizational assessment by enforcement deadline tier. Screens for prohibited practice risks, evaluates GPAI readiness, and benchmarks high-risk system preparedness. Produces a gap analysis with prioritized action plan.</p>
+                        <h4>Sample output</h4>
+                        <div class="cmd-sample"><span class="cmd-prompt">&gt; /ai-act-status</span>
+
+<span class="cmd-output">Overall posture: <strong style="color:var(--accent)">PARTIALLY COMPLIANT</strong>
+
+Tier A (Feb 2025): Compliant — no prohibited practices
+Tier B (Aug 2025): Partial — GPAI documentation gaps
+Tier C (Aug 2026): Non-compliant — 4 critical gaps
+Tier D (Aug 2027): Not applicable
+
+Urgent actions: 3 | Quick wins: 5 | Major projects: 2</span></div>
+                    </div>
+                </div>
+
+                <div class="cmd-card" data-cmd="evidence">
+                    <div class="cmd-header">
+                        <div class="cmd-icon">&#9776;</div>
+                        <div>
+                            <div class="cmd-name">/generate-evidence-pack</div>
+                            <div class="cmd-desc">Auditor-ready documentation</div>
+                        </div>
+                        <span class="cmd-expand-icon">&#9662;</span>
+                    </div>
+                    <div class="cmd-detail">
+                        <p>Compiles governance documentation into a structured evidence pack with 10 sections: AI inventory, compliance status, DPIA summaries, vendor assessments, training records, incident log, policies, human oversight, change log, and gap analysis. Three output formats available.</p>
+                        <h4>Sample output</h4>
+                        <div class="cmd-sample"><span class="cmd-prompt">&gt; /generate-evidence-pack --format document --lang en</span>
+
+<span class="cmd-output">Evidence Pack compiled: 10 sections
+Systems covered: 8 AI systems across 3 departments
+Evidence indexed: 23 artifacts
+Gaps identified: 3 (2 medium priority, 1 low)
+
+Sections: Inventory | Compliance Status | DPIAs
+  Vendor Assessments | Training | Incidents
+  Policies | Human Oversight | Change Log | Gaps</span></div>
+                    </div>
+                </div>
+
+                <div class="cmd-card" data-cmd="policy">
+                    <div class="cmd-header">
+                        <div class="cmd-icon">&#9998;</div>
+                        <div>
+                            <div class="cmd-name">/review-ai-policy</div>
+                            <div class="cmd-desc">Policy review and drafting</div>
+                        </div>
+                        <span class="cmd-expand-icon">&#9662;</span>
+                    </div>
+                    <div class="cmd-detail">
+                        <p>Reviews existing AI governance policies or drafts new ones from scratch. Assesses 13+ required sections (governance structure, lifecycle, risk classification, human oversight, transparency, data governance, bias, incidents, vendor management) with GREEN/YELLOW/RED ratings.</p>
+                        <h4>Sample output</h4>
+                        <div class="cmd-sample"><span class="cmd-prompt">&gt; /review-ai-policy "company-ai-policy-v2.pdf"</span>
+
+<span class="cmd-output">Mode: Review
+Sections assessed: 13
+
+  Purpose and scope — <strong style="color:var(--risk-minimal)">GREEN</strong>
+  Governance structure — <strong style="color:var(--risk-minimal)">GREEN</strong>
+  Risk classification — <strong style="color:var(--accent)">YELLOW</strong> — missing Annex III mapping
+  Human oversight — <strong style="color:var(--accent)">YELLOW</strong> — needs specific roles
+  Incident management — <strong style="color:#dc2626">RED</strong> — not addressed
+
+Top 3 gaps with suggested policy text provided</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison-section" id="comparison">
+        <div class="section-inner">
+            <p class="section-label">Why This Exists</p>
+            <h2 class="section-title">Filling the Gap</h2>
+            <p class="section-subtitle">Anthropic's legal plugin handles generic compliance. This plugin handles what it doesn't.</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-col theirs reveal">
+                    <div class="comparison-header">Anthropic Legal Plugin</div>
+                    <div class="comparison-row"><span class="comp-icon">&#10003;</span> GDPR / CCPA checklists</div>
+                    <div class="comparison-row"><span class="comp-icon">&#10003;</span> Generic contract review</div>
+                    <div class="comparison-row"><span class="comp-icon">&#8211;</span> No AI Act awareness</div>
+                    <div class="comparison-row"><span class="comp-icon">&#8211;</span> US-centric defaults</div>
+                    <div class="comparison-row"><span class="comp-icon">&#8211;</span> No audit trail guidance</div>
+                    <div class="comparison-row"><span class="comp-icon">&#8211;</span> Manual playbook configuration</div>
+                    <div class="comparison-row"><span class="comp-icon">&#8211;</span> No risk classification</div>
+                </div>
+                <div class="comparison-col ours reveal">
+                    <div class="comparison-header">EU AI Governance Plugin</div>
+                    <div class="comparison-row"><span class="comp-icon">&#10003;</span> Full EU AI Act classification engine</div>
+                    <div class="comparison-row"><span class="comp-icon">&#10003;</span> AI vendor-specific deployer assessment</div>
+                    <div class="comparison-row"><span class="comp-icon">&#10003;</span> Deadline-aware compliance tracking</div>
+                    <div class="comparison-row"><span class="comp-icon">&#10003;</span> DACH-first with German templates</div>
+                    <div class="comparison-row"><span class="comp-icon">&#10003;</span> Evidence pack generation for auditors</div>
+                    <div class="comparison-row"><span class="comp-icon">&#10003;</span> Pre-built EU governance playbooks</div>
+                    <div class="comparison-row"><span class="comp-icon">&#10003;</span> Structured Annex III risk classification</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-brand">Lexbeam Software</div>
+        <div class="footer-desc">AI Governance and Legal Tech for European enterprises.</div>
+        <a href="https://lexbeam.com" class="footer-link" target="_blank" rel="noopener">lexbeam.com</a>
+        <div class="footer-legal">Apache 2.0 — Fork it, extend it, use it commercially. &middot; Not affiliated with or endorsed by Anthropic.</div>
+    </footer>
+
+    <script>
+        /* ── Scenario data ── */
+        const scenarios = {
+            hr: {
+                desc: '<strong>TalentScreen AI</strong> — Automated resume scoring and candidate shortlisting. Scores applicants 1–100; candidates below 40 are auto-rejected. Used by HR across Germany and Austria.',
+                gates: [
+                    { result: 'pass', icon: '&#10003;', text: 'Not prohibited' },
+                    { result: 'triggered-high', icon: '&#10007;', text: 'Annex III, Cat. 4: Employment' },
+                    { result: 'skip' }
+                ],
+                badge: { cls: 'high', label: 'HIGH-RISK', detail: 'Annex III — Employment' },
+                details: '<span class="detail-tag tag-high">HIGH-RISK</span> This system falls under <strong>Annex III, Category 4</strong> (Employment, workers management). It filters job applications and influences hiring decisions — a textbook high-risk use case. As deployer, you must ensure human oversight (Art. 26), conduct a fundamental rights impact assessment (Art. 27), and consult the Works Council under BetrVG §87(1) No. 6. The auto-rejection threshold is the highest-risk design choice and should be reviewed immediately.'
+            },
+            chatbot: {
+                desc: '<strong>HelpBot</strong> — Customer support chatbot handling product inquiries, order status, and FAQ responses. No access to personal accounts or ability to make changes. Deployed on website for EU customers.',
+                gates: [
+                    { result: 'pass', icon: '&#10003;', text: 'Not prohibited' },
+                    { result: 'pass', icon: '&#10003;', text: 'Not high-risk' },
+                    { result: 'triggered-limited', icon: '&#9888;', text: 'Transparency required' }
+                ],
+                badge: { cls: 'limited', label: 'LIMITED RISK', detail: 'Transparency — Art. 50' },
+                details: '<span class="detail-tag tag-limited">LIMITED RISK</span> This system interacts directly with natural persons, triggering <strong>Article 50 transparency obligations</strong>. Users must be informed they are interacting with an AI system. Required: clear disclosure at the start of interaction (e.g., "You are chatting with an AI assistant"), information about limitations, and an easy path to a human agent. No conformity assessment required, but GDPR obligations still apply if processing personal data.'
+            },
+            dashboard: {
+                desc: '<strong>InsightEngine</strong> — Internal business intelligence dashboard with AI-generated summaries of sales trends and operational KPIs. No personal data processing. Used by management team only.',
+                gates: [
+                    { result: 'pass', icon: '&#10003;', text: 'Not prohibited' },
+                    { result: 'pass', icon: '&#10003;', text: 'Not high-risk' },
+                    { result: 'triggered-minimal', icon: '&#10003;', text: 'No transparency trigger' }
+                ],
+                badge: { cls: 'minimal', label: 'MINIMAL RISK', detail: 'Voluntary codes of conduct' },
+                details: '<span class="detail-tag tag-minimal">MINIMAL RISK</span> This system does not fall into any regulated category. It processes aggregate business data (no personal data), is used internally by trained staff, and does not interact with external natural persons. <strong>No mandatory EU AI Act obligations beyond horizontal law</strong> (GDPR, consumer law, cybersecurity). Voluntary codes of conduct and good AI governance practices are recommended but not required.'
+            }
+        };
+
+        let animationTimer = null;
+
+        function resetGates() {
+            if (animationTimer) { clearTimeout(animationTimer); animationTimer = null; }
+            for (let i = 1; i <= 3; i++) {
+                const g = document.getElementById('gate' + i);
+                g.className = 'gate';
+                g.querySelector('.gate-icon').innerHTML = '&#63;';
+                g.querySelector('.gate-result').textContent = '';
+                const c = document.getElementById('conn' + i);
+                if (c) c.className = 'gate-connector';
+            }
+            const badge = document.getElementById('resultBadge');
+            badge.className = 'result-badge';
+            badge.querySelector('.badge-classification').textContent = '';
+            badge.querySelector('.badge-detail').textContent = '';
+            document.getElementById('classDetails').className = 'classification-details';
+            document.getElementById('classDetails').innerHTML = '';
+        }
+
+        function runClassification(key) {
+            resetGates();
+            const s = scenarios[key];
+            document.getElementById('systemDesc').innerHTML = s.desc;
+
+            let step = 0;
+            function nextGate() {
+                if (step >= s.gates.length || s.gates[step].result === 'skip') {
+                    showBadge(s);
+                    return;
+                }
+                const gate = s.gates[step];
+                const el = document.getElementById('gate' + (step + 1));
+                el.classList.add('checking');
+
+                animationTimer = setTimeout(() => {
+                    el.classList.remove('checking');
+                    el.classList.add(gate.result);
+                    el.querySelector('.gate-icon').innerHTML = gate.icon;
+                    el.querySelector('.gate-result').textContent = gate.text;
+
+                    if (gate.result.startsWith('triggered')) {
+                        animationTimer = setTimeout(() => showBadge(s), 400);
+                    } else {
+                        const conn = document.getElementById('conn' + (step + 1));
+                        if (conn) conn.classList.add('active');
+                        step++;
+                        animationTimer = setTimeout(nextGate, 350);
+                    }
+                }, 700);
+            }
+            animationTimer = setTimeout(nextGate, 300);
+        }
+
+        function showBadge(s) {
+            const badge = document.getElementById('resultBadge');
+            badge.className = 'result-badge ' + s.badge.cls;
+            badge.querySelector('.badge-classification').textContent = s.badge.label;
+            badge.querySelector('.badge-detail').textContent = s.badge.detail;
+            const conn3 = document.getElementById('conn3');
+            conn3.classList.add('active');
+            animationTimer = setTimeout(() => {
+                badge.classList.add('visible');
+                animationTimer = setTimeout(() => {
+                    const det = document.getElementById('classDetails');
+                    det.innerHTML = s.details;
+                    det.classList.add('visible');
+                }, 300);
+            }, 100);
+        }
+
+        /* ── Scenario tab clicks ── */
+        document.querySelectorAll('.scenario-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.scenario-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                runClassification(tab.dataset.scenario);
+            });
+        });
+
+        /* ── Command card accordion ── */
+        document.querySelectorAll('.cmd-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const wasExpanded = card.classList.contains('expanded');
+                document.querySelectorAll('.cmd-card').forEach(c => c.classList.remove('expanded'));
+                if (!wasExpanded) card.classList.add('expanded');
+            });
+        });
+
+        /* ── Stat counter animation ── */
+        function animateCounters() {
+            document.querySelectorAll('.stat-number').forEach(el => {
+                const target = parseInt(el.dataset.target);
+                const duration = 1500;
+                const start = performance.now();
+                function tick(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = Math.round(target * eased).toLocaleString();
+                    if (progress < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            });
+        }
+
+        /* ── Timeline animation ── */
+        function animateTimeline() {
+            const progress = document.getElementById('timelineProgress');
+            if (progress) progress.style.width = '62%';
+        }
+
+        /* ── Scroll reveal ── */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.closest('.stats')) animateCounters();
+                    if (entry.target.id === 'timelineTrack') animateTimeline();
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.stats .stat').forEach(el => { el.classList.add('reveal'); observer.observe(el); });
+        const tl = document.getElementById('timelineTrack');
+        if (tl) observer.observe(tl);
+
+        /* ── Auto-run first scenario on load ── */
+        window.addEventListener('load', () => {
+            setTimeout(() => runClassification('hr'), 500);
+        });
+    </script>
+</body>
+</html>
