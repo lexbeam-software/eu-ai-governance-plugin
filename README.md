@@ -9,7 +9,7 @@
 
 A Claude plugin for in-house legal, compliance, and AI governance teams. The August 2026 high-risk deadline is less than four months away. This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence — without another SaaS login.
 
-**[See it live](https://picoworx.github.io/eu-ai-governance-plugin/)** · **[Book a 20-min call with Werner](https://calendly.com/plutat/intro)**
+**[See it live](https://picoworx.github.io/eu-ai-governance-plugin/)** · **[20-min intro call with Werner](https://calendly.com/plutat/intro)**
 
 ## Install
 
@@ -24,7 +24,7 @@ claude plugin install eu-ai-governance@knowledge-work-plugins
 /ai-act-status
 ```
 
-> **Disclaimer:** This plugin is an orientation tool, not legal advice. Consult qualified legal counsel before making compliance decisions. See [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md).
+> **Disclaimer.** This plugin is an orientation tool, not legal advice. Standardized, rule-based software run by the user in their own environment — **keine Rechtsdienstleistung im Sinne des § 2 RDG**. Lexbeam Software is not a Rechtsanwaltsgesellschaft and does not provide case-specific legal analysis. For concrete legal questions, consult a registered Rechtsanwältin or Rechtsanwalt. Full text: [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md).
 
 ## Built & maintained by Werner Plutat
 
@@ -32,7 +32,7 @@ Legal Engineer · LL.M. Business Law · 10+ years in Big 4 & DAX compliance.
 
 I use this plugin daily on paid client mandates. That's why the regulatory content stays current the day new guidance drops, and why the DACH specifics — Works Council under BetrVG, BaFin, BSI — are actually right.
 
-[LinkedIn](https://linkedin.com/in/wplu) · [lexbeam.com](https://lexbeam.com) · [Book a call](https://calendly.com/plutat/intro)
+[LinkedIn](https://linkedin.com/in/wplu) · [lexbeam.com](https://lexbeam.com) · [Intro call](https://calendly.com/plutat/intro)
 
 ## Why this exists
 
@@ -166,19 +166,6 @@ See what the plugin actually produces — realistic, redacted sample outputs:
 | [HR Resume Screening AI](examples/classify-ai-risk-hr-screening.md) | `/classify-ai-risk` | Classifying an automated recruitment tool as HIGH-RISK (Annex III) with Works Council obligations |
 | [ChatGPT Enterprise Deployment](examples/assess-ai-vendor-chatgpt-enterprise.md) | `/assess-ai-vendor` | Vendor assessment with RED/YELLOW flags, contract redlines, and Schrems II analysis |
 | [Customer Churn Prediction](examples/run-dpia-customer-churn-prediction.md) | `/run-dpia` | Full DPIA for an ML model processing customer behavioral data |
-
-## Governance Pack (Q2 2026)
-
-For teams that need more than a plugin. The plugin stays free forever. The Governance Pack is the paid layer on top:
-
-- **Live regulatory updates** — pushed the day new implementing acts, harmonised standards, and EDPB/BfDI guidance drop. No more "last reviewed four months ago" panic.
-- **Audit evidence templates** — ISO 42001, BaFin, BSI-aligned. Maintained in lockstep with the plugin.
-- **Monthly office hours with Werner** — 60 minutes, your team, your open questions. Not a webinar.
-- **Private Slack channel** — async review of classifications and vendor assessments between calls.
-
-**€199 per month per team. Cancel anytime. Launching Q2 2026.** First 10 teams get a discounted founding rate.
-
-**[Join the waitlist →](mailto:info@lexbeam.com?subject=Governance%20Pack%20waitlist)**
 
 ## Roadmap
 

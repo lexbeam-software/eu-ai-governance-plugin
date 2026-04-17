@@ -196,67 +196,6 @@
             white-space: pre-wrap; word-break: break-all;
         }
 
-        /* ── Governance Pack ── */
-        .pack-section {
-            background: var(--bg-primary); position: relative; overflow: hidden;
-        }
-        .pack-section::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse 60% 50% at 80% 30%, rgba(20,184,166,0.06) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        .pack-card {
-            position: relative; background: var(--bg-surface);
-            border: 1px solid var(--accent); border-radius: 16px;
-            padding: clamp(2rem, 4vw, 3.5rem);
-            box-shadow: 0 0 60px rgba(20,184,166,0.08);
-            margin-top: 2rem;
-        }
-        .pack-eyebrow {
-            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
-            text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem;
-        }
-        .pack-title {
-            font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            font-weight: 600; line-height: 1.2; margin-bottom: 0.75rem;
-        }
-        .pack-lede {
-            font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 2rem;
-            max-width: 44rem; line-height: 1.6;
-        }
-        .pack-lede strong { color: var(--text-primary); }
-        .pack-features {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem 2rem; margin-bottom: 2.5rem;
-        }
-        .pack-feature { display: flex; gap: 0.75rem; align-items: flex-start; }
-        .pack-feature-icon {
-            flex-shrink: 0; width: 24px; height: 24px; border-radius: 6px;
-            background: var(--accent-dim); color: var(--accent);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.85rem; margin-top: 0.1rem;
-        }
-        .pack-feature-text { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55; }
-        .pack-feature-text strong { color: var(--text-primary); display: block; margin-bottom: 0.2rem; font-weight: 600; }
-        .pack-price {
-            display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 1.5rem;
-            padding-top: 1.5rem; border-top: 1px solid var(--border);
-        }
-        .pack-price-num {
-            font-family: var(--font-display); font-size: 2.2rem; font-weight: 700;
-            color: var(--text-primary);
-        }
-        .pack-price-unit { font-size: 0.95rem; color: var(--text-muted); }
-        .pack-meta { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-        .pack-cta {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.9rem 2rem; background: var(--accent); color: var(--bg-deep);
-            font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
-            text-decoration: none; border-radius: 6px;
-            transition: transform 0.15s, box-shadow 0.2s;
-        }
-        .pack-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 28px var(--accent-glow); }
-
         /* ── Section base ── */
         section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem); }
         .section-inner { max-width: 1140px; margin: 0 auto; }
@@ -603,7 +542,7 @@
         <p class="hero-tagline">The August 2026 high-risk deadline is <span id="daysUntil" class="hero-countdown">fewer than four months</span> away. This plugin gets you from &ldquo;what AI do we actually have?&rdquo; to a classified inventory, vendor redlines, and auditor-ready evidence &mdash; without another SaaS login.</p>
         <div class="hero-actions">
             <a href="#install" class="btn-primary">Install the plugin &#8595;</a>
-            <a href="https://calendly.com/plutat/intro" class="btn-ghost" target="_blank" rel="noopener">Book a 20-min call with Werner &#8599;</a>
+            <a href="https://calendly.com/plutat/intro" class="btn-ghost" target="_blank" rel="noopener">20-min intro call with Werner &#8599;</a>
         </div>
     </section>
 
@@ -619,7 +558,7 @@
                 <div class="founder-links">
                     <a href="https://linkedin.com/in/wplu" target="_blank" rel="noopener">LinkedIn &#8599;</a>
                     <a href="https://lexbeam.com" target="_blank" rel="noopener">lexbeam.com &#8599;</a>
-                    <a href="https://calendly.com/plutat/intro" target="_blank" rel="noopener">Book a call &#8599;</a>
+                    <a href="https://calendly.com/plutat/intro" target="_blank" rel="noopener">Intro call &#8599;</a>
                 </div>
             </div>
         </div>
@@ -968,55 +907,12 @@ Top 3 gaps with suggested policy text provided</span></div>
         </div>
     </section>
 
-    <!-- Governance Pack -->
-    <section class="pack-section" id="governance-pack">
-        <div class="section-inner">
-            <p class="section-label">Coming Q2 2026</p>
-            <h2 class="section-title">Governance Pack</h2>
-            <p class="section-subtitle">For teams that need more than a plugin. The plugin stays free forever. This is the paid layer on top.</p>
-
-            <div class="pack-card">
-                <p class="pack-eyebrow">What you get</p>
-                <h3 class="pack-title">The parts the open source version cannot guarantee.</h3>
-                <p class="pack-lede">Regulatory content that stays fresh. Evidence templates in sync with the plugin. A monthly hour with Werner on your real open questions. <strong>Built for one team at a time</strong>, not SaaS scale.</p>
-
-                <div class="pack-features">
-                    <div class="pack-feature">
-                        <div class="pack-feature-icon">&#8635;</div>
-                        <div class="pack-feature-text"><strong>Live regulatory updates</strong>Pushed the day new implementing acts, harmonised standards, and EDPB/BfDI guidance drop. No more &ldquo;last reviewed four months ago&rdquo; panic.</div>
-                    </div>
-                    <div class="pack-feature">
-                        <div class="pack-feature-icon">&#9776;</div>
-                        <div class="pack-feature-text"><strong>Audit evidence templates</strong>ISO 42001, BaFin, BSI-aligned. Maintained in lockstep with the plugin.</div>
-                    </div>
-                    <div class="pack-feature">
-                        <div class="pack-feature-icon">&#9742;</div>
-                        <div class="pack-feature-text"><strong>Monthly office hours with Werner</strong>60 minutes, your team, your open questions. Not a webinar.</div>
-                    </div>
-                    <div class="pack-feature">
-                        <div class="pack-feature-icon">&#9993;</div>
-                        <div class="pack-feature-text"><strong>Private Slack channel</strong>Async review of classifications and vendor assessments between calls.</div>
-                    </div>
-                </div>
-
-                <div class="pack-price">
-                    <span class="pack-price-num">&euro;199</span>
-                    <span class="pack-price-unit">/ month / team &middot; cancel anytime</span>
-                </div>
-                <p class="pack-meta">Launching Q2 2026. Waitlist open &mdash; first 10 teams get a discounted founding rate.</p>
-
-                <a href="mailto:info@lexbeam.com?subject=Governance%20Pack%20waitlist&amp;body=Hi%20Werner%2C%0A%0APlease%20add%20me%20to%20the%20Governance%20Pack%20waitlist.%0A%0AName%3A%0ACompany%3A%0ATeam%20size%3A%0A%0AOpen%20question%20I'd%20bring%20to%20the%20first%20office%20hour%3A%0A" class="pack-cta">Join the waitlist &#8599;</a>
-            </div>
-        </div>
-    </section>
-
     <!-- Disclaimer -->
     <section style="background: var(--bg-elevated); border-top: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 4vw, 3rem);">
         <div style="max-width: 1140px; margin: 0 auto;">
             <p style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--risk-high); margin-bottom: 0.75rem;">Important Notice</p>
             <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; max-width: 48rem;">
-                This plugin is an <strong style="color: var(--text-primary);">orientation tool</strong>, not legal advice. Classifications and assessments are based on simplified interpretations of complex regulatory requirements and may not reflect the latest amendments. Regulatory content was last reviewed in April 2026.
-                <strong style="color: var(--text-primary);">Consult qualified legal counsel before making any compliance decisions.</strong>
+                This plugin is an <strong style="color: var(--text-primary);">orientation tool</strong>, not legal advice. It is standardized, rule-based software that users run in their own environment &mdash; <strong style="color: var(--text-primary);">keine Rechtsdienstleistung im Sinne des &sect; 2 RDG</strong>. Lexbeam Software is not a Rechtsanwaltsgesellschaft and does not provide case-specific legal analysis. For concrete legal questions, consult a registered Rechtsanw&auml;ltin or Rechtsanwalt.
                 Use at your own risk. See <a href="https://github.com/PicoWorx/eu-ai-governance-plugin/blob/main/LEGAL-DISCLAIMER.md" style="color: var(--accent); text-decoration: underline;" target="_blank" rel="noopener">full disclaimer</a>.
             </p>
         </div>
