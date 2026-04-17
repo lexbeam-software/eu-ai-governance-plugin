@@ -125,11 +125,137 @@
             transition: color 0.2s, border-color 0.2s;
         }
         .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+        .hero-countdown {
+            color: var(--risk-high); font-weight: 600; white-space: nowrap;
+        }
 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* ── Founder ── */
+        .founder {
+            background: var(--bg-primary); border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border); padding: 3.5rem clamp(1.5rem, 4vw, 3rem);
+        }
+        .founder-inner {
+            display: flex; align-items: center; gap: clamp(1.5rem, 4vw, 3rem); flex-wrap: wrap;
+        }
+        .founder-photo {
+            width: 132px; height: 132px; border-radius: 50%; object-fit: cover;
+            border: 2px solid var(--border-light); flex-shrink: 0;
+            box-shadow: 0 0 32px rgba(20,184,166,0.08);
+        }
+        .founder-body { flex: 1; min-width: 260px; }
+        .founder-label {
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem;
+        }
+        .founder-name {
+            font-family: var(--font-display); font-size: 1.7rem; font-weight: 600;
+            color: var(--text-primary); margin-bottom: 0.25rem;
+        }
+        .founder-meta {
+            font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.9rem;
+        }
+        .founder-pitch {
+            font-size: 0.98rem; color: var(--text-secondary); line-height: 1.65;
+            max-width: 48rem; margin-bottom: 1rem;
+        }
+        .founder-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+        .founder-links a {
+            color: var(--accent); text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; transition: opacity 0.2s;
+        }
+        .founder-links a:hover { opacity: 0.75; }
+
+        /* ── Install ── */
+        .install-section { background: var(--bg-surface); }
+        .install-steps {
+            display: grid; gap: 1rem; margin-top: 2rem;
+        }
+        .install-step {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 10px; padding: 1.25rem 1.5rem;
+            display: flex; align-items: flex-start; gap: 1rem;
+        }
+        .install-num {
+            flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+            background: var(--accent-dim); color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display); font-weight: 600; font-size: 0.9rem;
+        }
+        .install-text { flex: 1; }
+        .install-text p { font-size: 0.92rem; color: var(--text-secondary); margin: 0 0 0.5rem; }
+        .install-text code, .install-cmd {
+            display: block; background: var(--bg-deep); border: 1px solid var(--border);
+            border-radius: 6px; padding: 0.65rem 0.9rem;
+            font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+            font-size: 0.82rem; color: var(--accent); line-height: 1.5;
+            white-space: pre-wrap; word-break: break-all;
+        }
+
+        /* ── Governance Pack ── */
+        .pack-section {
+            background: var(--bg-primary); position: relative; overflow: hidden;
+        }
+        .pack-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 80% 30%, rgba(20,184,166,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .pack-card {
+            position: relative; background: var(--bg-surface);
+            border: 1px solid var(--accent); border-radius: 16px;
+            padding: clamp(2rem, 4vw, 3.5rem);
+            box-shadow: 0 0 60px rgba(20,184,166,0.08);
+            margin-top: 2rem;
+        }
+        .pack-eyebrow {
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem;
+        }
+        .pack-title {
+            font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 600; line-height: 1.2; margin-bottom: 0.75rem;
+        }
+        .pack-lede {
+            font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 2rem;
+            max-width: 44rem; line-height: 1.6;
+        }
+        .pack-lede strong { color: var(--text-primary); }
+        .pack-features {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem 2rem; margin-bottom: 2.5rem;
+        }
+        .pack-feature { display: flex; gap: 0.75rem; align-items: flex-start; }
+        .pack-feature-icon {
+            flex-shrink: 0; width: 24px; height: 24px; border-radius: 6px;
+            background: var(--accent-dim); color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem; margin-top: 0.1rem;
+        }
+        .pack-feature-text { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55; }
+        .pack-feature-text strong { color: var(--text-primary); display: block; margin-bottom: 0.2rem; font-weight: 600; }
+        .pack-price {
+            display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 1.5rem;
+            padding-top: 1.5rem; border-top: 1px solid var(--border);
+        }
+        .pack-price-num {
+            font-family: var(--font-display); font-size: 2.2rem; font-weight: 700;
+            color: var(--text-primary);
+        }
+        .pack-price-unit { font-size: 0.95rem; color: var(--text-muted); }
+        .pack-meta { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .pack-cta {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 2rem; background: var(--accent); color: var(--bg-deep);
+            font-family: var(--font-body); font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; border-radius: 6px;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+        .pack-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 28px var(--accent-glow); }
 
         /* ── Section base ── */
         section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem); }
@@ -462,7 +588,7 @@
             <a href="#classifier">Demo</a>
             <a href="#timeline">Timeline</a>
             <a href="#commands">Commands</a>
-            <a href="https://github.com/lexbeam/eu-ai-governance-plugin" class="nav-gh" target="_blank" rel="noopener">
+            <a href="https://github.com/PicoWorx/eu-ai-governance-plugin" class="nav-gh" target="_blank" rel="noopener">
                 <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
                 GitHub
             </a>
@@ -471,13 +597,31 @@
 
     <!-- Hero -->
     <section class="hero">
-        <p class="hero-label">Lexbeam Software</p>
-        <h1>EU AI Governance Plugin</h1>
-        <p class="hero-platform">for Claude Cowork</p>
-        <p class="hero-tagline">The missing governance layer for European AI compliance. Risk classification, DPIAs, vendor assessments, and evidence packs. Ready out of the box.</p>
+        <p class="hero-label">EU AI Act Compliance &mdash; from Claude Cowork</p>
+        <h1>Classify your first AI system in 90 seconds.</h1>
+        <p class="hero-platform">A Claude plugin for in-house legal, compliance, and AI governance teams.</p>
+        <p class="hero-tagline">The August 2026 high-risk deadline is <span id="daysUntil" class="hero-countdown">fewer than four months</span> away. This plugin gets you from &ldquo;what AI do we actually have?&rdquo; to a classified inventory, vendor redlines, and auditor-ready evidence &mdash; without another SaaS login.</p>
         <div class="hero-actions">
-            <a href="#classifier" class="btn-primary">See it in action &#8595;</a>
-            <a href="https://github.com/lexbeam/eu-ai-governance-plugin" class="btn-ghost" target="_blank" rel="noopener">View on GitHub &#8599;</a>
+            <a href="#install" class="btn-primary">Install the plugin &#8595;</a>
+            <a href="https://calendly.com/plutat/intro" class="btn-ghost" target="_blank" rel="noopener">Book a 20-min call with Werner &#8599;</a>
+        </div>
+    </section>
+
+    <!-- Founder -->
+    <section class="founder">
+        <div class="section-inner founder-inner">
+            <img src="https://lexbeam.com/werner-plutat.jpg" alt="Werner Plutat" class="founder-photo" loading="lazy" />
+            <div class="founder-body">
+                <p class="founder-label">Built &amp; maintained by</p>
+                <h3 class="founder-name">Werner Plutat</h3>
+                <p class="founder-meta">Legal Engineer &middot; LL.M. Business Law &middot; 10+ years Big 4 &amp; DAX compliance</p>
+                <p class="founder-pitch">I use this plugin daily on paid client mandates. That is why the regulatory content stays current the day new guidance drops, and why the DACH specifics &mdash; Works Council under BetrVG, BaFin, BSI &mdash; are actually right.</p>
+                <div class="founder-links">
+                    <a href="https://linkedin.com/in/wplu" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+                    <a href="https://lexbeam.com" target="_blank" rel="noopener">lexbeam.com &#8599;</a>
+                    <a href="https://calendly.com/plutat/intro" target="_blank" rel="noopener">Book a call &#8599;</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -791,12 +935,87 @@ Top 3 gaps with suggested policy text provided</span></div>
         </div>
     </section>
 
+    <!-- Install -->
+    <section class="install-section" id="install">
+        <div class="section-inner">
+            <p class="section-label">Install</p>
+            <h2 class="section-title">Three lines. No SaaS.</h2>
+            <p class="section-subtitle">The plugin ships through Anthropic's knowledge-work-plugins marketplace. No API keys, no external infrastructure, works with what your team already has.</p>
+
+            <div class="install-steps">
+                <div class="install-step">
+                    <div class="install-num">1</div>
+                    <div class="install-text">
+                        <p>Add the marketplace in Claude Code:</p>
+                        <code>claude plugin marketplace add anthropics/knowledge-work-plugins</code>
+                    </div>
+                </div>
+                <div class="install-step">
+                    <div class="install-num">2</div>
+                    <div class="install-text">
+                        <p>Install the plugin:</p>
+                        <code>claude plugin install eu-ai-governance@knowledge-work-plugins</code>
+                    </div>
+                </div>
+                <div class="install-step">
+                    <div class="install-num">3</div>
+                    <div class="install-text">
+                        <p>See where you stand:</p>
+                        <code>/ai-act-status</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance Pack -->
+    <section class="pack-section" id="governance-pack">
+        <div class="section-inner">
+            <p class="section-label">Coming Q2 2026</p>
+            <h2 class="section-title">Governance Pack</h2>
+            <p class="section-subtitle">For teams that need more than a plugin. The plugin stays free forever. This is the paid layer on top.</p>
+
+            <div class="pack-card">
+                <p class="pack-eyebrow">What you get</p>
+                <h3 class="pack-title">The parts the open source version cannot guarantee.</h3>
+                <p class="pack-lede">Regulatory content that stays fresh. Evidence templates in sync with the plugin. A monthly hour with Werner on your real open questions. <strong>Built for one team at a time</strong>, not SaaS scale.</p>
+
+                <div class="pack-features">
+                    <div class="pack-feature">
+                        <div class="pack-feature-icon">&#8635;</div>
+                        <div class="pack-feature-text"><strong>Live regulatory updates</strong>Pushed the day new implementing acts, harmonised standards, and EDPB/BfDI guidance drop. No more &ldquo;last reviewed four months ago&rdquo; panic.</div>
+                    </div>
+                    <div class="pack-feature">
+                        <div class="pack-feature-icon">&#9776;</div>
+                        <div class="pack-feature-text"><strong>Audit evidence templates</strong>ISO 42001, BaFin, BSI-aligned. Maintained in lockstep with the plugin.</div>
+                    </div>
+                    <div class="pack-feature">
+                        <div class="pack-feature-icon">&#9742;</div>
+                        <div class="pack-feature-text"><strong>Monthly office hours with Werner</strong>60 minutes, your team, your open questions. Not a webinar.</div>
+                    </div>
+                    <div class="pack-feature">
+                        <div class="pack-feature-icon">&#9993;</div>
+                        <div class="pack-feature-text"><strong>Private Slack channel</strong>Async review of classifications and vendor assessments between calls.</div>
+                    </div>
+                </div>
+
+                <div class="pack-price">
+                    <span class="pack-price-num">&euro;199</span>
+                    <span class="pack-price-unit">/ month / team &middot; cancel anytime</span>
+                </div>
+                <p class="pack-meta">Launching Q2 2026. Waitlist open &mdash; first 10 teams get a discounted founding rate.</p>
+
+                <a href="mailto:info@lexbeam.com?subject=Governance%20Pack%20waitlist&amp;body=Hi%20Werner%2C%0A%0APlease%20add%20me%20to%20the%20Governance%20Pack%20waitlist.%0A%0AName%3A%0ACompany%3A%0ATeam%20size%3A%0A%0AOpen%20question%20I'd%20bring%20to%20the%20first%20office%20hour%3A%0A" class="pack-cta">Join the waitlist &#8599;</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Disclaimer -->
     <section style="background: var(--bg-elevated); border-top: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 4vw, 3rem);">
         <div style="max-width: 1140px; margin: 0 auto;">
             <p style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--risk-high); margin-bottom: 0.75rem;">Important Notice</p>
             <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; max-width: 48rem;">
-                This plugin is an <strong style="color: var(--text-primary);">orientation tool</strong>, not legal advice. Classifications and assessments are based on simplified interpretations of complex regulatory requirements and may not reflect the latest amendments. Regulatory content was last reviewed in February 2026.
+                This plugin is an <strong style="color: var(--text-primary);">orientation tool</strong>, not legal advice. Classifications and assessments are based on simplified interpretations of complex regulatory requirements and may not reflect the latest amendments. Regulatory content was last reviewed in April 2026.
                 <strong style="color: var(--text-primary);">Consult qualified legal counsel before making any compliance decisions.</strong>
                 Use at your own risk. See <a href="https://github.com/PicoWorx/eu-ai-governance-plugin/blob/main/LEGAL-DISCLAIMER.md" style="color: var(--accent); text-decoration: underline;" target="_blank" rel="noopener">full disclaimer</a>.
             </p>
@@ -974,6 +1193,18 @@ Top 3 gaps with suggested policy text provided</span></div>
         document.querySelectorAll('.stats .stat').forEach(el => { el.classList.add('reveal'); observer.observe(el); });
         const tl = document.getElementById('timelineTrack');
         if (tl) observer.observe(tl);
+
+        /* ── Countdown to Aug 2, 2026 ── */
+        (function () {
+            const el = document.getElementById('daysUntil');
+            if (!el) return;
+            const deadline = new Date('2026-08-02T00:00:00Z');
+            const now = new Date();
+            const days = Math.ceil((deadline - now) / (1000 * 60 * 60 * 24));
+            if (days > 0 && days < 400) {
+                el.textContent = days + ' day' + (days === 1 ? '' : 's');
+            }
+        })();
 
         /* ── Auto-run first scenario on load ── */
         window.addEventListener('load', () => {

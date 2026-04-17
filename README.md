@@ -1,24 +1,43 @@
-﻿# EU AI Governance Plugin for Claude Cowork
+﻿# EU AI Governance Plugin
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-2024%2F1689-purple)
-![Last Reviewed](https://img.shields.io/badge/last%20reviewed-Feb%202026-orange)
-![Platform](https://img.shields.io/badge/platform-Claude%20Cowork-black)
+![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%2B%20Cowork-black)
 
-**The missing governance layer for European AI compliance.**
+**Classify your first AI system in 90 seconds.**
 
-> **Disclaimer:** This plugin is an orientation tool, not legal advice. Consult qualified legal counsel before making compliance decisions. See [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md) for details.
+A Claude plugin for in-house legal, compliance, and AI governance teams. The August 2026 high-risk deadline is less than four months away. This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence — without another SaaS login.
 
-Anthropic's legal plugin handles generic contract review and NDA triage. This plugin handles what it doesn't: EU AI Act risk classification, AI-specific DPIAs, vendor assessments against deployer obligations, and compliance documentation that auditors actually accept.
+**[See it live](https://picoworx.github.io/eu-ai-governance-plugin/)** · **[Book a 20-min call with Werner](https://calendly.com/plutat/intro)**
 
-Built for in-house legal, compliance, and AI governance teams at European enterprises. Works standalone or alongside Anthropic's legal plugin.
+## Install
+
+```bash
+# 1. Add the marketplace
+claude plugin marketplace add anthropics/knowledge-work-plugins
+
+# 2. Install the plugin
+claude plugin install eu-ai-governance@knowledge-work-plugins
+
+# 3. See where you stand
+/ai-act-status
+```
+
+> **Disclaimer:** This plugin is an orientation tool, not legal advice. Consult qualified legal counsel before making compliance decisions. See [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md).
+
+## Built & maintained by Werner Plutat
+
+Legal Engineer · LL.M. Business Law · 10+ years in Big 4 & DAX compliance.
+
+I use this plugin daily on paid client mandates. That's why the regulatory content stays current the day new guidance drops, and why the DACH specifics — Works Council under BetrVG, BaFin, BSI — are actually right.
+
+[LinkedIn](https://linkedin.com/in/wplu) · [lexbeam.com](https://lexbeam.com) · [Book a call](https://calendly.com/plutat/intro)
 
 ## Why this exists
 
-The EU AI Act is live. Prohibited practices are already banned. GPAI transparency obligations are in effect. High-risk AI system obligations kick in August 2026.
+The EU AI Act is live. Prohibited practices are already banned. GPAI transparency obligations are in effect. High-risk AI system obligations kick in August 2026. Anthropic's legal plugin handles generic GDPR and contract work. This plugin handles what it doesn't:
 
-Anthropic's legal plugin covers GDPR basics and general compliance checklists. It says nothing about:
 - AI Act risk classification (is your system high-risk?)
 - Provider vs. deployer obligations (what's YOUR responsibility?)
 - Fundamental rights impact assessments
@@ -26,7 +45,7 @@ Anthropic's legal plugin covers GDPR basics and general compliance checklists. I
 - Works council considerations for AI systems (mandatory in DACH)
 - Schrems II transfer impact assessments for AI model providers
 
-This plugin fills that gap.
+Works standalone or alongside Anthropic's legal plugin.
 
 ## How It Classifies AI Risk
 
@@ -110,15 +129,14 @@ gantt
 | Manual playbook configuration | Pre-built EU governance playbooks, ready out of the box |
 | No risk classification | Structured risk classification per Annex III |
 
-## Quick Start
+## First 10 minutes after install
 
-1. Install the plugin in Claude Cowork
-2. Run `/ai-act-status` to see where your organization stands
-3. Use `/classify-ai-risk` for each AI system in your inventory
-4. Run `/assess-ai-vendor` on your AI provider contracts
-5. Generate evidence packs with `/generate-evidence-pack`
+1. Run `/ai-act-status` to see where your organization stands
+2. Use `/classify-ai-risk` for each AI system in your inventory
+3. Run `/assess-ai-vendor` on your AI provider contracts
+4. Generate evidence packs with `/generate-evidence-pack`
 
-No configuration required for EU AI Act workflows. The plugin ships with built-in regulatory knowledge current as of February 2026.
+No configuration. No API keys. Works with what your team already has.
 
 ## Language Support
 
@@ -149,6 +167,19 @@ See what the plugin actually produces — realistic, redacted sample outputs:
 | [ChatGPT Enterprise Deployment](examples/assess-ai-vendor-chatgpt-enterprise.md) | `/assess-ai-vendor` | Vendor assessment with RED/YELLOW flags, contract redlines, and Schrems II analysis |
 | [Customer Churn Prediction](examples/run-dpia-customer-churn-prediction.md) | `/run-dpia` | Full DPIA for an ML model processing customer behavioral data |
 
+## Governance Pack (Q2 2026)
+
+For teams that need more than a plugin. The plugin stays free forever. The Governance Pack is the paid layer on top:
+
+- **Live regulatory updates** — pushed the day new implementing acts, harmonised standards, and EDPB/BfDI guidance drop. No more "last reviewed four months ago" panic.
+- **Audit evidence templates** — ISO 42001, BaFin, BSI-aligned. Maintained in lockstep with the plugin.
+- **Monthly office hours with Werner** — 60 minutes, your team, your open questions. Not a webinar.
+- **Private Slack channel** — async review of classifications and vendor assessments between calls.
+
+**€199 per month per team. Cancel anytime. Launching Q2 2026.** First 10 teams get a discounted founding rate.
+
+**[Join the waitlist →](mailto:info@lexbeam.com?subject=Governance%20Pack%20waitlist)**
+
 ## Roadmap
 
 | Version | Focus | Status |
@@ -169,9 +200,9 @@ Apache 2.0 — Fork it, extend it, use it commercially.
 
 ---
 
-Last reviewed: February 25, 2026.
+**[Live demo](https://picoworx.github.io/eu-ai-governance-plugin/)** · **[Changelog](CHANGELOG.md)** · **[Legal disclaimer](LEGAL-DISCLAIMER.md)**
 
-**[View Interactive Demo](demo/index.html)** | **[Changelog](CHANGELOG.md)**
+*Extends Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins). Not affiliated with or endorsed by Anthropic.*
 
 *This plugin extends and complements Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins). It is not affiliated with or endorsed by Anthropic.*
 
