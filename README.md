@@ -9,7 +9,7 @@
 
 A Claude plugin for in-house legal, compliance, and AI governance teams. The August 2026 high-risk deadline is less than four months away. This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence — without another SaaS login.
 
-**[See it live](https://picoworx.github.io/eu-ai-governance-plugin/)** · **[20-min intro call with Werner](https://calendly.com/plutat/intro)**
+**[See it live](https://lexbeam-software.github.io/eu-ai-governance-plugin/)** · **[20-min intro call with Werner](https://calendly.com/plutat/intro)**
 
 ## Install
 
@@ -187,7 +187,7 @@ Apache 2.0 — Fork it, extend it, use it commercially.
 
 ---
 
-**[Live demo](https://picoworx.github.io/eu-ai-governance-plugin/)** · **[Changelog](CHANGELOG.md)** · **[Legal disclaimer](LEGAL-DISCLAIMER.md)**
+**[Live demo](https://lexbeam-software.github.io/eu-ai-governance-plugin/)** · **[Changelog](CHANGELOG.md)** · **[Legal disclaimer](LEGAL-DISCLAIMER.md)**
 
 *Extends Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins). Not affiliated with or endorsed by Anthropic.*
 
