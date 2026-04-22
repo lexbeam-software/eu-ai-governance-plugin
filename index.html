@@ -142,10 +142,15 @@
         .founder-inner {
             display: flex; align-items: center; gap: clamp(1.5rem, 4vw, 3rem); flex-wrap: wrap;
         }
-        .founder-photo {
-            width: 132px; height: 132px; border-radius: 50%; object-fit: cover;
+        .founder-monogram {
+            width: 132px; height: 132px; border-radius: 50%;
             border: 2px solid var(--border-light); flex-shrink: 0;
+            background: var(--bg-card);
             box-shadow: 0 0 32px rgba(20,184,166,0.08);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display);
+            font-size: 2.6rem; font-weight: 600; letter-spacing: 0.06em;
+            color: var(--accent);
         }
         .founder-body { flex: 1; min-width: 260px; }
         .founder-label {
@@ -549,7 +554,7 @@
     <!-- Founder -->
     <section class="founder">
         <div class="section-inner founder-inner">
-            <img src="https://lexbeam.com/werner-plutat.jpg" alt="Werner Plutat" class="founder-photo" loading="lazy" />
+            <div class="founder-monogram" aria-hidden="true">WP</div>
             <div class="founder-body">
                 <p class="founder-label">Built &amp; maintained by</p>
                 <h3 class="founder-name">Werner Plutat</h3>
