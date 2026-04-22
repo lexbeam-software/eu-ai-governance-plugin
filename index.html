@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EU AI Governance Plugin for Claude Cowork — Lexbeam Software</title>
+    <title>EU AI Governance Plugin for Claude Cowork, Lexbeam Software</title>
     <meta name="description" content="The missing governance layer for European AI compliance. EU AI Act classification, DPIAs, vendor assessments, and evidence packs for Claude Cowork.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -600,7 +600,7 @@
                     </div>
 
                     <div class="system-desc" id="systemDesc">
-                        <strong>TalentScreen AI</strong> — Automated resume scoring and candidate shortlisting. Scores applicants 1–100; candidates below 40 are auto-rejected. Used by HR across Germany and Austria.
+                        <strong>TalentScreen AI</strong>, Automated resume scoring and candidate shortlisting. Scores applicants 1-100; candidates below 40 are auto-rejected. Used by HR across Germany and Austria.
                     </div>
 
                     <div class="gates-pipeline" id="gatesPipeline">
@@ -664,7 +664,7 @@
                 <div class="timeline-marker past">
                     <div class="tl-date">Aug 2, 2025</div>
                     <div class="tl-dot"></div>
-                    <div class="tl-label">GPAI model obligations (Arts. 51–56)</div>
+                    <div class="tl-label">GPAI model obligations (Arts. 51-56)</div>
                     <span class="tl-status">In effect</span>
                 </div>
                 <div class="timeline-marker next">
@@ -733,9 +733,9 @@ Next steps: 8 actions across 30/60/90 days</span></div>
 Recommendation: Proceed with conditions
 
 Key findings:
-  1. Training data opt-out — <strong style="color:#dc2626">RED</strong> — not contractually guaranteed
-  2. Sub-processor changes — <strong style="color:var(--accent)">YELLOW</strong> — no objection right
-  3. AI Act documentation — <strong style="color:var(--accent)">YELLOW</strong> — not provided
+  1. Training data opt-out, <strong style="color:#dc2626">RED</strong>, not contractually guaranteed
+  2. Sub-processor changes, <strong style="color:var(--accent)">YELLOW</strong>, no objection right
+  3. AI Act documentation, <strong style="color:var(--accent)">YELLOW</strong>, not provided
 
 Proposed redlines: 8 contract amendments (3 P1, 3 P2, 2 P3)</span></div>
                     </div>
@@ -756,11 +756,11 @@ Proposed redlines: 8 contract amendments (3 P1, 3 P2, 2 P3)</span></div>
                         <div class="cmd-sample"><span class="cmd-prompt">&gt; /run-dpia "ChurnGuard - customer churn prediction model"</span>
 
 <span class="cmd-output">Risk rating (pre-mitigation): <strong style="color:var(--accent)">Medium</strong>
-Residual risk: <strong style="color:var(--risk-minimal)">Low–Medium</strong>
+Residual risk: <strong style="color:var(--risk-minimal)">Low-Medium</strong>
 
 Identified risks: 7 (2 High, 3 Medium, 2 Low)
-  R5: Lack of transparency — <strong style="color:#dc2626">HIGH</strong>
-  R6: No profiling opt-out — <strong style="color:#dc2626">HIGH</strong>
+  R5: Lack of transparency, <strong style="color:#dc2626">HIGH</strong>
+  R6: No profiling opt-out, <strong style="color:#dc2626">HIGH</strong>
 
 Mitigations: 5 technical + 5 organizational measures
 Decision: Proceed with conditions (Q1 2026 measures)</span></div>
@@ -783,9 +783,9 @@ Decision: Proceed with conditions (Q1 2026 measures)</span></div>
 
 <span class="cmd-output">Overall posture: <strong style="color:var(--accent)">PARTIALLY COMPLIANT</strong>
 
-Tier A (Feb 2025): Compliant — no prohibited practices
-Tier B (Aug 2025): Partial — GPAI documentation gaps
-Tier C (Aug 2026): Non-compliant — 4 critical gaps
+Tier A (Feb 2025): Compliant, no prohibited practices
+Tier B (Aug 2025): Partial, GPAI documentation gaps
+Tier C (Aug 2026): Non-compliant, 4 critical gaps
 Tier D (Aug 2027): Not applicable
 
 Urgent actions: 3 | Quick wins: 5 | Major projects: 2</span></div>
@@ -834,11 +834,11 @@ Sections: Inventory | Compliance Status | DPIAs
 <span class="cmd-output">Mode: Review
 Sections assessed: 13
 
-  Purpose and scope — <strong style="color:var(--risk-minimal)">GREEN</strong>
-  Governance structure — <strong style="color:var(--risk-minimal)">GREEN</strong>
-  Risk classification — <strong style="color:var(--accent)">YELLOW</strong> — missing Annex III mapping
-  Human oversight — <strong style="color:var(--accent)">YELLOW</strong> — needs specific roles
-  Incident management — <strong style="color:#dc2626">RED</strong> — not addressed
+  Purpose and scope, <strong style="color:var(--risk-minimal)">GREEN</strong>
+  Governance structure, <strong style="color:var(--risk-minimal)">GREEN</strong>
+  Risk classification, <strong style="color:var(--accent)">YELLOW</strong>, missing Annex III mapping
+  Human oversight, <strong style="color:var(--accent)">YELLOW</strong>, needs specific roles
+  Incident management, <strong style="color:#dc2626">RED</strong>, not addressed
 
 Top 3 gaps with suggested policy text provided</span></div>
                     </div>
@@ -936,27 +936,27 @@ Top 3 gaps with suggested policy text provided</span></div>
         /* ── Scenario data ── */
         const scenarios = {
             hr: {
-                desc: '<strong>TalentScreen AI</strong> — Automated resume scoring and candidate shortlisting. Scores applicants 1–100; candidates below 40 are auto-rejected. Used by HR across Germany and Austria.',
+                desc: '<strong>TalentScreen AI</strong>, Automated resume scoring and candidate shortlisting. Scores applicants 1-100; candidates below 40 are auto-rejected. Used by HR across Germany and Austria.',
                 gates: [
                     { result: 'pass', icon: '&#10003;', text: 'Not prohibited' },
                     { result: 'triggered-high', icon: '&#10007;', text: 'Annex III, Cat. 4: Employment' },
                     { result: 'skip' }
                 ],
-                badge: { cls: 'high', label: 'HIGH-RISK', detail: 'Annex III — Employment' },
-                details: '<span class="detail-tag tag-high">HIGH-RISK</span> This system falls under <strong>Annex III, Category 4</strong> (Employment, workers management). It filters job applications and influences hiring decisions — a textbook high-risk use case. As deployer, you must ensure human oversight (Art. 26), conduct a fundamental rights impact assessment (Art. 27), and consult the Works Council under BetrVG §87(1) No. 6. The auto-rejection threshold is the highest-risk design choice and should be reviewed immediately.'
+                badge: { cls: 'high', label: 'HIGH-RISK', detail: 'Annex III, Employment' },
+                details: '<span class="detail-tag tag-high">HIGH-RISK</span> This system falls under <strong>Annex III, Category 4</strong> (Employment, workers management). It filters job applications and influences hiring decisions, a textbook high-risk use case. As deployer, you must ensure human oversight (Art. 26), conduct a fundamental rights impact assessment (Art. 27), and consult the Works Council under BetrVG §87(1) No. 6. The auto-rejection threshold is the highest-risk design choice and should be reviewed immediately.'
             },
             chatbot: {
-                desc: '<strong>HelpBot</strong> — Customer support chatbot handling product inquiries, order status, and FAQ responses. No access to personal accounts or ability to make changes. Deployed on website for EU customers.',
+                desc: '<strong>HelpBot</strong>, Customer support chatbot handling product inquiries, order status, and FAQ responses. No access to personal accounts or ability to make changes. Deployed on website for EU customers.',
                 gates: [
                     { result: 'pass', icon: '&#10003;', text: 'Not prohibited' },
                     { result: 'pass', icon: '&#10003;', text: 'Not high-risk' },
                     { result: 'triggered-limited', icon: '&#9888;', text: 'Transparency required' }
                 ],
-                badge: { cls: 'limited', label: 'LIMITED RISK', detail: 'Transparency — Art. 50' },
+                badge: { cls: 'limited', label: 'LIMITED RISK', detail: 'Transparency, Art. 50' },
                 details: '<span class="detail-tag tag-limited">LIMITED RISK</span> This system interacts directly with natural persons, triggering <strong>Article 50 transparency obligations</strong>. Users must be informed they are interacting with an AI system. Required: clear disclosure at the start of interaction (e.g., "You are chatting with an AI assistant"), information about limitations, and an easy path to a human agent. No conformity assessment required, but GDPR obligations still apply if processing personal data.'
             },
             dashboard: {
-                desc: '<strong>InsightEngine</strong> — Internal business intelligence dashboard with AI-generated summaries of sales trends and operational KPIs. No personal data processing. Used by management team only.',
+                desc: '<strong>InsightEngine</strong>, Internal business intelligence dashboard with AI-generated summaries of sales trends and operational KPIs. No personal data processing. Used by management team only.',
                 gates: [
                     { result: 'pass', icon: '&#10003;', text: 'Not prohibited' },
                     { result: 'pass', icon: '&#10003;', text: 'Not high-risk' },

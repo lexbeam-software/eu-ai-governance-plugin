@@ -7,7 +7,7 @@
 
 **Classify your first AI system in 90 seconds.**
 
-A Claude plugin for in-house legal, compliance, and AI governance teams. The August 2026 high-risk deadline is less than four months away. This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence — without another SaaS login.
+A Claude plugin for in-house legal, compliance, and AI governance teams. The August 2026 high-risk deadline is less than four months away. This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence, without another SaaS login.
 
 **[See it live](https://lexbeam-software.github.io/eu-ai-governance-plugin/)** · **[20-min intro call with Werner](https://calendly.com/plutat/intro)**
 
@@ -24,13 +24,13 @@ claude plugin install eu-ai-governance@knowledge-work-plugins
 /ai-act-status
 ```
 
-> **Disclaimer.** This plugin is an orientation tool, not legal advice. Standardized, rule-based software run by the user in their own environment — **keine Rechtsdienstleistung im Sinne des § 2 RDG**. Lexbeam Software is not a Rechtsanwaltsgesellschaft and does not provide case-specific legal analysis. For concrete legal questions, consult a registered Rechtsanwältin or Rechtsanwalt. Full text: [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md).
+> **Disclaimer.** This plugin is an orientation tool, not legal advice. Standardized, rule-based software run by the user in their own environment, **keine Rechtsdienstleistung im Sinne des § 2 RDG**. Lexbeam Software is not a Rechtsanwaltsgesellschaft and does not provide case-specific legal analysis. For concrete legal questions, consult a registered Rechtsanwältin or Rechtsanwalt. Full text: [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md).
 
 ## Built & maintained by Werner Plutat
 
 Legal Engineer · LL.M. Business Law · 10+ years in Big 4 & DAX compliance.
 
-I use this plugin daily on paid client mandates. That's why the regulatory content stays current the day new guidance drops, and why the DACH specifics — Works Council under BetrVG, BaFin, BSI — are actually right.
+I use this plugin daily on paid client mandates. That's why the regulatory content stays current the day new guidance drops, and why the DACH specifics, Works Council under BetrVG, BaFin, BSI, are actually right.
 
 [LinkedIn](https://linkedin.com/in/wplu) · [lexbeam.com](https://lexbeam.com) · [Intro call](https://calendly.com/plutat/intro)
 
@@ -59,7 +59,7 @@ flowchart TD
     D -->|Yes| E["HIGH-RISK<br/>(Annex I)"]
     D -->|No| F{"Gate 2B: High-risk<br/>use case?<br/>(Annex III)"}
     F -->|Yes| G["HIGH-RISK<br/>(Annex III)"]
-    F -->|No| H{"Gate 2C: GPAI Model?<br/>(Articles 51–56)"}
+    F -->|No| H{"Gate 2C: GPAI Model?<br/>(Articles 51-56)"}
     H -->|Yes| I["GPAI OBLIGATIONS<br/>apply at model level"]
     H -->|No| J{"Gate 3: Transparency<br/>duties?<br/>(Article 50)"}
     J -->|Yes| K["LIMITED RISK<br/>Transparency obligations"]
@@ -75,7 +75,7 @@ flowchart TD
 
 ## Compliance Timeline
 
-Key enforcement deadlines — the plugin tracks where you stand against each:
+Key enforcement deadlines, the plugin tracks where you stand against each:
 
 ```mermaid
 gantt
@@ -86,7 +86,7 @@ gantt
     section Already in Force
     Prohibited practices ban (Art. 5)           :done, 2025-02-02, 1d
     AI literacy obligations (Art. 4)            :done, 2025-02-02, 1d
-    GPAI model obligations (Arts. 51–56)        :done, 2025-08-02, 1d
+    GPAI model obligations (Arts. 51-56)        :done, 2025-08-02, 1d
 
     section Upcoming
     High-risk Annex III obligations              :crit, 2026-08-02, 1d
@@ -159,7 +159,7 @@ No configuration. No API keys. Works with what your team already has.
 
 ## Worked Examples
 
-See what the plugin actually produces — realistic, redacted sample outputs:
+See what the plugin actually produces, realistic, redacted sample outputs:
 
 | Example | Command | Scenario |
 |---------|---------|----------|
@@ -172,18 +172,18 @@ See what the plugin actually produces — realistic, redacted sample outputs:
 | Version | Focus | Status |
 |---------|-------|--------|
 | **v1.0** | EU AI Act classification, DPIAs, vendor assessments, evidence packs, policy review | Released |
-| **v1.1** | ISO 42001 full alignment — control mapping and certification readiness workflows | Planned |
-| **v1.2** | NIS2 integration — cybersecurity obligations for AI in critical infrastructure | Planned |
-| **v1.3** | Multi-jurisdiction — French CNIL, Dutch AP, and Austrian DSB-specific guidance | Planned |
-| **v2.0** | Implementing acts and harmonised standards tracking — auto-update as EU AI Office publishes guidance | Planned |
+| **v1.1** | ISO 42001 full alignment, control mapping and certification readiness workflows | Planned |
+| **v1.2** | NIS2 integration, cybersecurity obligations for AI in critical infrastructure | Planned |
+| **v1.3** | Multi-jurisdiction, French CNIL, Dutch AP, and Austrian DSB-specific guidance | Planned |
+| **v2.0** | Implementing acts and harmonised standards tracking, auto-update as EU AI Office publishes guidance | Planned |
 
 ## License
 
-Apache 2.0 — Fork it, extend it, use it commercially.
+Apache 2.0, Fork it, extend it, use it commercially.
 
 ## Built by
 
-[Lexbeam Software](https://lexbeam.com) — AI Governance and Legal Tech for European enterprises.
+[Lexbeam Software](https://lexbeam.com), AI Governance and Legal Tech for European enterprises.
 
 ---
 

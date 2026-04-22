@@ -8,7 +8,7 @@ This plugin is provided as an **orientation tool** for understanding the EU AI A
 
 **Lexbeam Software erbringt keine Rechtsdienstleistungen im Sinne des § 2 Rechtsdienstleistungsgesetz (RDG).** Das Plugin ist eine technische Analyseunterstützung zur allgemeinen Orientierung im Regulierungsrahmen des AI Acts und verwandter Rechtsvorschriften. Es ist **keine Rechtsberatung im Einzelfall**, sondern eine standardisierte, regelbasierte Auswertung durch Software, die der Nutzer in seiner eigenen Umgebung auf eigene Sachverhalte anwendet.
 
-**Die Nutzung des Plugins begründet kein Mandatsverhältnis.** Für die rechtliche Prüfung konkreter Einzelfälle — insbesondere Einstufungen als Hochrisiko-KI-System, Vertragsverhandlungen unter dem AI Act, Grundrechte-Folgenabschätzungen (Art. 27), und regulatorische Stellungnahmen — ist qualifizierter Rechtsrat durch eine zugelassene Rechtsanwältin oder einen zugelassenen Rechtsanwalt erforderlich. Lexbeam Software ist keine Rechtsanwaltsgesellschaft und ist auch nicht nach § 10 RDG registriert.
+**Die Nutzung des Plugins begründet kein Mandatsverhältnis.** Für die rechtliche Prüfung konkreter Einzelfälle, insbesondere Einstufungen als Hochrisiko-KI-System, Vertragsverhandlungen unter dem AI Act, Grundrechte-Folgenabschätzungen (Art. 27), und regulatorische Stellungnahmen, ist qualifizierter Rechtsrat durch eine zugelassene Rechtsanwältin oder einen zugelassenen Rechtsanwalt erforderlich. Lexbeam Software ist keine Rechtsanwaltsgesellschaft und ist auch nicht nach § 10 RDG registriert.
 
 **English summary.** Lexbeam Software does not provide Rechtsdienstleistungen within the meaning of § 2 RDG (German Legal Services Act). The plugin is a technical, rule-based analysis tool that the user runs in their own environment against their own facts. Use of the plugin does not establish an attorney-client relationship. For case-specific legal analysis, engage a registered Rechtsanwalt / licensed attorney.
 
@@ -22,7 +22,7 @@ This plugin is provided as an **orientation tool** for understanding the EU AI A
 
 **Aus der Nutzung dieses Plugins entstehen keine Ansprüche nach PHG gegen Lexbeam.** Die Haftungsausschluss- und Haftungsbegrenzungsklauseln der Apache-2.0-Lizenz gelten uneingeschränkt. Lexbeam übernimmt keine Produkthaftung für Klassifikations- oder Analyseergebnisse, für Schäden aus dem Vertrauen auf solche Ergebnisse, oder für etwaige Mängel des Plugins selbst.
 
-**Für den produktiven Einsatz in regulierten Umgebungen** — zum Beispiel innerhalb einer Compliance-Funktion eines beaufsichtigten Finanzinstituts, eines Gesundheitsdienstleisters oder einer öffentlichen Stelle — sollte vor Nutzung dieses Plugins für Entscheidungen mit Außenwirkung qualifizierter Rechtsrat und eine interne Freigabe eingeholt werden.
+**Für den produktiven Einsatz in regulierten Umgebungen**, zum Beispiel innerhalb einer Compliance-Funktion eines beaufsichtigten Finanzinstituts, eines Gesundheitsdienstleisters oder einer öffentlichen Stelle, sollte vor Nutzung dieses Plugins für Entscheidungen mit Außenwirkung qualifizierter Rechtsrat und eine interne Freigabe eingeholt werden.
 
 **English summary.** The EU Product Liability Directive 2024/2853 is transposed in Germany as the revised Produkthaftungsgesetz (PHG), effective 9 December 2026. Software can qualify as a "product" under the new framework. This plugin is free open-source software under Apache 2.0. It is not placed on the market as a commercial product. Lexbeam does not act as an economic operator ("Wirtschaftsakteur") under § 2 PHG-neu in providing this plugin. The plugin is provided "as is" without warranty of fitness, regulatory compliance, or ongoing accuracy. No claim under PHG arises from use of this plugin. Users validate outputs, integrate them into their own controls, and accept sole responsibility for compliance decisions. For commercial deployment in regulated environments, engage qualified legal counsel and obtain internal sign-off before relying on any output.
 
@@ -62,7 +62,7 @@ This plugin is licensed under Apache 2.0, which includes a warranty disclaimer a
 ## Contact
 
 For questions about this disclaimer or the plugin's limitations:
-**Lexbeam Software** — [lexbeam.com](https://lexbeam.com)
+**Lexbeam Software**, [lexbeam.com](https://lexbeam.com)
 
 ---
 

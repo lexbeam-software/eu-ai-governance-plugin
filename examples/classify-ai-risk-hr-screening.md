@@ -1,12 +1,12 @@
-# Example: /classify-ai-risk — HR Resume Screening AI
+# Example: /classify-ai-risk, HR Resume Screening AI
 
 > This is a sample output showing what the `/classify-ai-risk` command produces. The system, company, and details below are fictional.
 
 ---
 
-## EU AI Act Classification — Result
+## EU AI Act Classification, Result
 
-**System**: TalentScreen AI — Automated Resume Screening and Shortlisting
+**System**: TalentScreen AI, Automated Resume Screening and Shortlisting
 **Your role(s)**: Deployer
 **Deployment context**: EU (Germany, Austria), internal HR use, employment sector
 
@@ -20,7 +20,7 @@
 
 - **Inputs reviewed**: Product datasheet (vendor), DPA excerpt, internal use case description
 - **Key facts**:
-  - TalentScreen AI receives job applications (CVs, cover letters) and scores candidates on a 1–100 fit scale
+  - TalentScreen AI receives job applications (CVs, cover letters) and scores candidates on a 1-100 fit scale
   - Scores are used by HR recruiters to shortlist candidates; candidates below 40 are auto-rejected without human review
   - System processes name, education, work history, age (inferred from dates), nationality (inferred from language and location)
   - Vendor is a US-based SaaS provider; inference runs on AWS eu-central-1 (Frankfurt)
@@ -51,18 +51,18 @@
 - **Why**: Resume screening software is not a safety component of a product covered by EU harmonisation legislation in Annex I.
 
 ### Annex III (high-risk use cases)
-- **Applicable category**: **Category 4 — Employment, workers management, and access to self-employment**
+- **Applicable category**: **Category 4, Employment, workers management, and access to self-employment**
   - Specifically: AI systems intended to be used for recruitment or selection of natural persons, in particular to place targeted job advertisements, to analyse and filter job applications, and to evaluate candidates
 - **Why it matches**: TalentScreen AI filters and scores job applications. It directly influences which candidates proceed to interviews and which are rejected. This falls squarely within Annex III, point 4(a).
 - **Boundary notes**: Even if the system were positioned as "decision support" only, the auto-rejection of candidates below score 40 means the system is making or materially influencing employment decisions. Removing the auto-rejection threshold and requiring human review for all candidates would not change the classification (the system still filters applications), but would improve the human oversight posture.
 
 ---
 
-## 4) GPAI Model Check (Articles 51–56)
+## 4) GPAI Model Check (Articles 51-56)
 
-- **Is it a GPAI model?**: Unknown — the vendor markets it as a specialized recruitment AI, but the underlying model architecture is not disclosed.
+- **Is it a GPAI model?**: Unknown, the vendor markets it as a specialized recruitment AI, but the underlying model architecture is not disclosed.
 - **Systemic risk?**: Unlikely at this stage.
-- **Provider obligations implicated**: If the vendor uses a GPAI foundation model internally, the GPAI provider has separate obligations under Articles 53–55. As deployer, you should request confirmation.
+- **Provider obligations implicated**: If the vendor uses a GPAI foundation model internally, the GPAI provider has separate obligations under Articles 53-55. As deployer, you should request confirmation.
 - **Downstream actions needed**:
   - Request vendor disclosure on whether a GPAI model underpins the system
   - If yes, request the GPAI technical documentation summary and copyright compliance evidence
@@ -73,27 +73,27 @@
 ## 5) Applicable Obligations and Who Owns Them
 
 ### Provider obligations (high-risk systems)
-- Risk management system — Article 9 — Owner: Vendor (Provider)
-- Data governance and data quality — Article 10 — Owner: Vendor (Provider)
-- Technical documentation — Article 11 — Owner: Vendor (Provider)
-- Record-keeping and logging — Article 12 — Owner: Vendor (Provider)
-- Transparency and provision of information to deployers — Article 13 — Owner: Vendor (Provider)
-- Human oversight design — Article 14 — Owner: Vendor (Provider)
-- Accuracy, robustness, and cybersecurity — Article 15 — Owner: Vendor (Provider)
-- EU declaration of conformity — Article 47 — Owner: Vendor (Provider)
-- CE marking — Article 48 — Owner: Vendor (Provider)
-- Post-market monitoring — Article 72 — Owner: Vendor (Provider)
-- Serious incident reporting to authorities — Article 73 — Owner: Vendor (Provider)
+- Risk management system, Article 9, Owner: Vendor (Provider)
+- Data governance and data quality, Article 10, Owner: Vendor (Provider)
+- Technical documentation, Article 11, Owner: Vendor (Provider)
+- Record-keeping and logging, Article 12, Owner: Vendor (Provider)
+- Transparency and provision of information to deployers, Article 13, Owner: Vendor (Provider)
+- Human oversight design, Article 14, Owner: Vendor (Provider)
+- Accuracy, robustness, and cybersecurity, Article 15, Owner: Vendor (Provider)
+- EU declaration of conformity, Article 47, Owner: Vendor (Provider)
+- CE marking, Article 48, Owner: Vendor (Provider)
+- Post-market monitoring, Article 72, Owner: Vendor (Provider)
+- Serious incident reporting to authorities, Article 73, Owner: Vendor (Provider)
 
 ### Deployer obligations
-- Use the system in accordance with instructions for use — Article 26(1) — Owner: Your organization
-- Assign competent persons for human oversight — Article 26(2) — Owner: Your organization
-- Ensure input data is relevant and representative — Article 26(4) — Owner: Your organization
-- Monitor operation and report malfunctions to provider — Article 26(5) — Owner: Your organization
-- Conduct a fundamental rights impact assessment — Article 27 — Owner: Your organization
-- Inform affected persons that they are subject to a high-risk AI system — Article 26(11) — Owner: Your organization
-- Inform workers' representatives and affected workers — Article 26(7) — Owner: Your organization
-- **Works council notification (Germany-specific)**: Inform and consult the Betriebsrat under BetrVG §87(1) No. 6 (technical monitoring) and potentially §95 (selection guidelines) — Owner: Your organization + HR
+- Use the system in accordance with instructions for use, Article 26(1), Owner: Your organization
+- Assign competent persons for human oversight, Article 26(2), Owner: Your organization
+- Ensure input data is relevant and representative, Article 26(4), Owner: Your organization
+- Monitor operation and report malfunctions to provider, Article 26(5), Owner: Your organization
+- Conduct a fundamental rights impact assessment, Article 27, Owner: Your organization
+- Inform affected persons that they are subject to a high-risk AI system, Article 26(11), Owner: Your organization
+- Inform workers' representatives and affected workers, Article 26(7), Owner: Your organization
+- **Works council notification (Germany-specific)**: Inform and consult the Betriebsrat under BetrVG §87(1) No. 6 (technical monitoring) and potentially §95 (selection guidelines), Owner: Your organization + HR
 
 ---
 
@@ -128,21 +128,21 @@
 
 ## 8) Practical Next Steps (30/60/90 Days)
 
-### 0–30 days (triage)
-- [ ] Notify vendor that you require high-risk system documentation per Articles 11–15
-- [ ] Remove or review the auto-rejection threshold (score < 40) — ensure meaningful human review for all rejections
+### 0-30 days (triage)
+- [ ] Notify vendor that you require high-risk system documentation per Articles 11-15
+- [ ] Remove or review the auto-rejection threshold (score < 40), ensure meaningful human review for all rejections
 - [ ] Brief the Betriebsrat and initiate consultation under BetrVG §87(1) No. 6
 - [ ] Draft a transparency notice for job applicants informing them that AI is used in the screening process
 
-### 30–60 days (documentation and controls)
+### 30-60 days (documentation and controls)
 - [ ] Conduct fundamental rights impact assessment (Article 27)
 - [ ] Assign a named human oversight officer for the recruitment AI
 - [ ] Review vendor DPA for AI-specific gaps (training data use, audit rights, incident reporting)
 - [ ] Establish an internal incident reporting path for recruiter-flagged issues (bias, errors, unexplainable rejections)
 
-### 60–90 days (conformity readiness)
+### 60-90 days (conformity readiness)
 - [ ] Validate vendor-provided technical documentation against Article 11 requirements
-- [ ] Implement logging review process — periodic spot-checks of scoring decisions
+- [ ] Implement logging review process, periodic spot-checks of scoring decisions
 - [ ] Complete AI literacy training for all HR recruiters and hiring managers using TalentScreen AI
 - [ ] Assemble initial evidence pack for this system (link: `/generate-evidence-pack --systems TalentScreen`)
 
@@ -151,8 +151,8 @@
 ## 9) Escalations
 
 - **Works council**: Immediate consultation required. Deployment without Betriebsrat involvement in Germany risks injunctive relief and operational disruption.
-- **Vendor cooperation**: If the vendor cannot provide Article 11–15 documentation, escalate to procurement and legal. Consider whether to continue the vendor relationship or seek alternatives.
-- **Auto-rejection**: The auto-rejection threshold represents the highest-risk design choice in this system. If it cannot be removed, ensure robust appeal and human review mechanisms.
+- **Vendor cooperation**: If the vendor cannot provide Article 11-15 documentation, escalate to procurement and legal. Consider whether to continue the vendor relationship or seek alternatives.
+- **Auto-rejection**: The auto-rejection threshold represents the highest-risk design choice in this system. If it cannot be removed, build a working appeal path and a human review step with clear criteria.
 
 ---
 

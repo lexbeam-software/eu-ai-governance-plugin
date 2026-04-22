@@ -93,7 +93,7 @@ Clarify whether the policy covers:
 
 ### Step 4B - Generate a complete policy
 
-Generate a comprehensive policy with the sections below, tailored to the context.
+Generate a full policy with the sections below, tailored to the context.
 
 Include:
 - Clear definitions (AI system, GPAI, high-risk, personal data)
