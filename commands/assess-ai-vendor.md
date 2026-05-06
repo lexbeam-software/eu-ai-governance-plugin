@@ -178,4 +178,4 @@ Structure the output as:
 
 ---
 
-**Important:** This assessment is an orientation tool, not legal advice. Classifications must be validated by qualified legal counsel before compliance decisions. Regulatory content last reviewed February 2026.
+**Important:** Orientation tool, not legal advice. Validate against current official sources and qualified legal counsel before any compliance decision. Keine Rechtsdienstleistung iSd § 2 RDG; see LEGAL-DISCLAIMER.md.
