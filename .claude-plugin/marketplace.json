@@ -1,0 +1,24 @@
+{
+  "name": "lexbeam",
+  "owner": {
+    "name": "Lexbeam Software",
+    "email": "info@lexbeam.com"
+  },
+  "description": "Lexbeam plugin marketplace. EU AI Act and DACH regulatory tooling for Claude Code.",
+  "plugins": [
+    {
+      "name": "eu-ai-governance",
+      "source": ".",
+      "description": "EU AI Act governance from Claude Code: risk classification, DPIAs, vendor assessments, evidence packs. DACH-first, built and maintained by Werner Plutat.",
+      "homepage": "https://lexbeam-software.github.io/eu-ai-governance-plugin/",
+      "repository": "https://github.com/lexbeam-software/eu-ai-governance-plugin",
+      "license": "Apache-2.0",
+      "keywords": ["eu-ai-act", "compliance", "dach", "governance", "legal-tech", "dpia", "rdg", "ai-act"],
+      "category": "compliance",
+      "author": {
+        "name": "Lexbeam Software",
+        "email": "info@lexbeam.com"
+      }
+    }
+  ]
+}
