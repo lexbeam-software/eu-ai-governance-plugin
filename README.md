@@ -14,11 +14,11 @@ A Claude plugin for in-house legal, compliance, and AI governance teams. The Aug
 ## Install
 
 ```bash
-# 1. Add the marketplace
-claude plugin marketplace add anthropics/knowledge-work-plugins
+# 1. Add the Lexbeam marketplace
+claude plugin marketplace add lexbeam-software/eu-ai-governance-plugin
 
 # 2. Install the plugin
-claude plugin install eu-ai-governance@knowledge-work-plugins
+claude plugin install eu-ai-governance@lexbeam
 
 # 3. See where you stand
 /ai-act-status
