@@ -7,7 +7,7 @@
 
 **Classify your first AI system in 90 seconds.**
 
-A Claude plugin for in-house legal, compliance, and AI governance teams. The August 2026 high-risk deadline is less than four months away. This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence, without another SaaS login.
+A Claude plugin for in-house legal, compliance, and AI governance teams. The Annex III high-risk obligations apply from 2 August 2026 in current law (a 7 May 2026 provisional Council/Parliament agreement would shift this to 2 December 2027, but is not yet adopted; current law remains authoritative until formal adoption and OJ publication). This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence, without another SaaS login.
 
 **[See it live](https://lexbeam-software.github.io/eu-ai-governance-plugin/)** · **[20-min intro call with Werner](https://calendly.com/plutat/intro)**
 
@@ -36,7 +36,7 @@ I use this plugin daily on paid client mandates. That's why the regulatory conte
 
 ## Why this exists
 
-The EU AI Act is live. Prohibited practices are already banned. GPAI transparency obligations are in effect. High-risk AI system obligations kick in August 2026. Anthropic's legal plugin handles generic GDPR and contract work. This plugin handles what it doesn't:
+The EU AI Act is live. Prohibited practices are already banned. GPAI transparency obligations are in effect. High-risk Annex III obligations apply from 2 August 2026 in current law (a 7 May 2026 provisional Council/Parliament agreement would shift this to 2 December 2027 if formally adopted; not yet adopted, current law authoritative). Anthropic's legal plugin handles generic GDPR and contract work. This plugin handles what it doesn't:
 
 - AI Act risk classification (is your system high-risk?)
 - Provider vs. deployer obligations (what's YOUR responsibility?)
@@ -75,11 +75,11 @@ flowchart TD
 
 ## Compliance Timeline
 
-Key enforcement deadlines, the plugin tracks where you stand against each:
+Key enforcement deadlines, the plugin tracks where you stand against each. Dates shown are **current-law dates**. A 7 May 2026 provisional Council/Parliament agreement would shift Annex III to 2 Dec 2027 and Annex I to 2 Aug 2028 if formally adopted; not yet adopted, current law authoritative.
 
 ```mermaid
 gantt
-    title EU AI Act Enforcement Timeline
+    title EU AI Act Enforcement Timeline (current law)
     dateFormat YYYY-MM-DD
     axisFormat %b %Y
 
