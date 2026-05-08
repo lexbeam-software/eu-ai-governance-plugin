@@ -334,6 +334,8 @@ Use this matrix as a practical starting point. Confirm exact duties based on the
 
 Use these dates to structure compliance roadmaps and escalate urgency.
 
+**Current law (authoritative for compliance advice):**
+
 - Feb 2, 2025
   - Prohibited practices ban applies.
   - AI literacy obligations apply.
@@ -344,14 +346,19 @@ Use these dates to structure compliance roadmaps and escalate urgency.
 
 - Aug 2, 2026
   - High-risk AI system obligations for Annex III systems apply.
+  - Article 50 transparency obligations apply.
+  - Commission enforcement powers and fines for GPAI start applying.
 
 - Aug 2, 2027
   - High-risk obligations for Annex I regulated product AI systems apply.
+  - Legacy GPAI compliance deadline (models placed on market before 2 Aug 2025).
+
+**Provisional agreement (NOT yet adopted):** A 7 May 2026 provisional Council/Parliament agreement would shift Annex III to 2 Dec 2027, Annex I to 2 Aug 2028, and Article 50 watermarking to 2 Dec 2026. The agreement is provisional and pending formal adoption plus OJ publication; until then current-law dates above remain authoritative for compliance advice.
 
 Practical planning:
 - If the system is prohibited, it must be stopped and remediated immediately.
-- If the system is high-risk Annex III, treat 2026-08-02 as the hard compliance readiness date, with evidence packs prepared earlier.
-- If the system relies on a GPAI model, treat 2025-08-02 as the vendor evidence and contract update readiness date.
+- If the system is high-risk Annex III, treat 2026-08-02 as the hard compliance readiness date in current law (a 7 May 2026 provisional agreement would shift this to 2027-12-02 if formally adopted; not yet adopted, plan against current law). Prepare evidence packs earlier.
+- If the system relies on a GPAI model, treat 2025-08-02 as the vendor evidence and contract update readiness date. Commission enforcement powers and fines for GPAI start 2026-08-02 (unchanged in provisional agreement).
 
 ## 8) Penalties Framework (high-level)
 
