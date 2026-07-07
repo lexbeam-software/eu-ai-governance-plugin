@@ -345,20 +345,24 @@ Use these dates to structure compliance roadmaps and escalate urgency.
   - Governance rules and penalties apply.
 
 - Aug 2, 2026
-  - High-risk AI system obligations for Annex III systems apply.
   - Article 50 transparency obligations apply.
   - Commission enforcement powers and fines for GPAI start applying.
 
 - Aug 2, 2027
-  - High-risk obligations for Annex I regulated product AI systems apply.
   - Legacy GPAI compliance deadline (models placed on market before 2 Aug 2025).
 
-**Provisional agreement (NOT yet adopted):** A 7 May 2026 provisional Council/Parliament agreement would shift Annex III to 2 Dec 2027, Annex I to 2 Aug 2028, and Article 50 watermarking to 2 Dec 2026. The agreement is provisional and pending formal adoption plus OJ publication; until then current-law dates above remain authoritative for compliance advice.
+- Dec 2, 2027
+  - High-risk AI system obligations for Annex III systems apply (deferred from Aug 2, 2026 by the Digital Omnibus).
+
+- Aug 2, 2028
+  - High-risk obligations for Annex I regulated product AI systems apply (deferred from Aug 2, 2027 by the Digital Omnibus).
+
+**Digital Omnibus (adopted and in force):** The Digital Omnibus simplification package amending the EU AI Act was adopted by the European Parliament (16 June 2026) and the Council (29 June 2026) and published in the Official Journal on [[OJ_DATE]] as [[OJ_CELEX]], entering into force on [[OJ_ENTRY_INTO_FORCE]]. It defers stand-alone Annex III high-risk obligations to 2 December 2027 (previously 2 August 2026) and Annex I product-integrated high-risk obligations to 2 August 2028 (previously 2 August 2027). Article 50 transparency obligations and the start of Commission GPAI enforcement powers were not deferred and continue to apply from 2 August 2026. Article 50(2) synthetic-content marking (watermarking): [[ART50_2_DATE_RECONCILE]].
 
 Practical planning:
 - If the system is prohibited, it must be stopped and remediated immediately.
-- If the system is high-risk Annex III, treat 2026-08-02 as the hard compliance readiness date in current law (a 7 May 2026 provisional agreement would shift this to 2027-12-02 if formally adopted; not yet adopted, plan against current law). Prepare evidence packs earlier.
-- If the system relies on a GPAI model, treat 2025-08-02 as the vendor evidence and contract update readiness date. Commission enforcement powers and fines for GPAI start 2026-08-02 (unchanged in provisional agreement).
+- If the system is high-risk Annex III, treat 2027-12-02 as the hard compliance readiness date (deferred from 2026-08-02 by the Digital Omnibus). Prepare evidence packs earlier.
+- If the system relies on a GPAI model, treat 2025-08-02 as the vendor evidence and contract update readiness date. Commission enforcement powers and fines for GPAI start 2026-08-02 (not deferred by the Digital Omnibus).
 
 ## 8) Penalties Framework (high-level)
 

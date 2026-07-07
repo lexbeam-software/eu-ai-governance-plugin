@@ -121,8 +121,8 @@
 |------|-----------|------------------------------|
 | Feb 2, 2025 | Prohibited practices ban + AI literacy | Not prohibited; AI literacy training for HR recruiters should be in place |
 | Aug 2, 2025 | GPAI obligations apply | Request GPAI disclosure from vendor |
-| **Aug 2, 2026** | **Annex III high-risk obligations apply** | **Full deployer compliance required by this date** |
-| Aug 2, 2027 | Annex I high-risk (regulated products) | Not applicable |
+| **Dec 2, 2027** | **Annex III high-risk obligations apply (deferred from Aug 2, 2026 by the Digital Omnibus)** | **Full deployer compliance required by this date** |
+| Aug 2, 2028 | Annex I high-risk (regulated products) | Not applicable |
 
 ---
 

@@ -212,8 +212,8 @@ Use this structure:
 ## 7) Timeline and Enforcement Dates
 - Feb 2, 2025 - prohibited practices ban applies; AI literacy obligations apply
 - Aug 2, 2025 - GPAI model obligations apply; governance rules and penalties apply
-- Aug 2, 2026 - Annex III high-risk obligations apply
-- Aug 2, 2027 - Annex I high-risk obligations apply
+- Dec 2, 2027 - Annex III high-risk obligations apply (deferred from Aug 2, 2026 by the Digital Omnibus)
+- Aug 2, 2028 - Annex I high-risk obligations apply (deferred from Aug 2, 2027 by the Digital Omnibus)
 
 ## 8) Practical Next Steps (30/60/90 days)
 - 0 to 30 days: <triage actions>

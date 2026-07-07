@@ -83,7 +83,7 @@ Use the checklist in the `ai-act-compliance` skill.
 - Transparency and documentation intake from providers
 - Downstream integration risk controls
 
-#### Tier C: Aug 2026 (upcoming)
+#### Tier C: Dec 2027 (upcoming; deferred from Aug 2026 by the Digital Omnibus)
 High risk AI under Annex III obligations readiness:
 - AI inventory complete with classification status
 - Risk management process for high risk systems
@@ -93,7 +93,7 @@ High risk AI under Annex III obligations readiness:
 - Post market monitoring and incident reporting
 - Conformity assessment planning and CE marking pathway (if provider)
 
-#### Tier D: Aug 2027
+#### Tier D: Aug 2028 (deferred from Aug 2027 by the Digital Omnibus)
 High risk AI under Annex I (regulated products) readiness:
 - Integration with product compliance (e.g., medical devices, machinery, vehicles)
 - Coordination with notified bodies and sector regulators
@@ -157,7 +157,7 @@ Gaps:
 Evidence:
 Gaps:
 
-### Tier C - Aug 2026 (High risk Annex III)
+### Tier C - Dec 2027 (High risk Annex III)
 - Inventory and classification: [status]
 - Risk management and monitoring: [status]
 - Data governance: [status]
@@ -167,7 +167,7 @@ Gaps:
 Evidence:
 Gaps:
 
-### Tier D - Aug 2027 (High risk Annex I regulated products)
+### Tier D - Aug 2028 (High risk Annex I regulated products)
 - Product compliance integration: [status]
 - Notified body readiness: [status]
 - QMS alignment: [status]

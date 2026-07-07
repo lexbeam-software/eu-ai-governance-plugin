@@ -7,7 +7,7 @@
 
 **Classify your first AI system in 90 seconds.**
 
-A Claude plugin for in-house legal, compliance, and AI governance teams. The Annex III high-risk obligations apply from 2 August 2026 in current law (a 7 May 2026 provisional Council/Parliament agreement would shift this to 2 December 2027, but is not yet adopted; current law remains authoritative until formal adoption and OJ publication). This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence, without another SaaS login.
+A Claude plugin for in-house legal, compliance, and AI governance teams. The Annex III high-risk obligations apply from 2 December 2027, deferred from 2 August 2026 by the Digital Omnibus ([[OJ_CELEX]], published in the Official Journal on [[OJ_DATE]]). This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence, without another SaaS login.
 
 **[See it live](https://lexbeam-software.github.io/eu-ai-governance-plugin/)** · **[20-min intro call with Werner](https://calendly.com/plutat/intro)**
 
@@ -36,7 +36,7 @@ I use this plugin daily on paid client mandates. That's why the regulatory conte
 
 ## Why this exists
 
-The EU AI Act is live. Prohibited practices are already banned. GPAI transparency obligations are in effect. High-risk Annex III obligations apply from 2 August 2026 in current law (a 7 May 2026 provisional Council/Parliament agreement would shift this to 2 December 2027 if formally adopted; not yet adopted, current law authoritative). Anthropic's legal plugin handles generic GDPR and contract work. This plugin handles what it doesn't:
+The EU AI Act is live. Prohibited practices are already banned. GPAI transparency obligations are in effect. High-risk Annex III obligations apply from 2 December 2027, deferred from 2 August 2026 by the Digital Omnibus ([[OJ_CELEX]]); Article 50 transparency obligations and Commission GPAI enforcement powers were not deferred and apply from 2 August 2026. Anthropic's legal plugin handles generic GDPR and contract work. This plugin handles what it doesn't:
 
 - AI Act risk classification (is your system high-risk?)
 - Provider vs. deployer obligations (what's YOUR responsibility?)
@@ -75,11 +75,11 @@ flowchart TD
 
 ## Compliance Timeline
 
-Key enforcement deadlines, the plugin tracks where you stand against each. Dates shown are **current-law dates**. A 7 May 2026 provisional Council/Parliament agreement would shift Annex III to 2 Dec 2027 and Annex I to 2 Aug 2028 if formally adopted; not yet adopted, current law authoritative.
+Key enforcement deadlines, the plugin tracks where you stand against each. The Digital Omnibus simplification package amending the EU AI Act was adopted by the European Parliament (16 June 2026) and the Council (29 June 2026) and published in the Official Journal on [[OJ_DATE]] as [[OJ_CELEX]], entering into force on [[OJ_ENTRY_INTO_FORCE]]. It defers the application of high-risk obligations: stand-alone Annex III systems now apply from **2 December 2027** (previously 2 August 2026) and Annex I product-integrated systems from **2 August 2028** (previously 2 August 2027). Article 50 transparency obligations and the start of Commission GPAI enforcement powers were **not** deferred and continue to apply from 2 August 2026. (Art. 50(2) synthetic-content marking: [[ART50_2_DATE_RECONCILE]].)
 
 ```mermaid
 gantt
-    title EU AI Act Enforcement Timeline (current law)
+    title EU AI Act Enforcement Timeline (as amended by the Digital Omnibus)
     dateFormat YYYY-MM-DD
     axisFormat %b %Y
 
@@ -89,10 +89,10 @@ gantt
     GPAI model obligations (Arts. 51-56)        :done, 2025-08-02, 1d
 
     section Upcoming
-    High-risk Annex III obligations              :crit, 2026-08-02, 1d
+    High-risk Annex III obligations              :crit, 2027-12-02, 1d
 
     section Future
-    High-risk Annex I obligations                :2027-08-02, 1d
+    High-risk Annex I obligations                :2028-08-02, 1d
 ```
 
 ## Commands
@@ -123,7 +123,7 @@ gantt
 |----------------------|------------------------|
 | GDPR/CCPA checklists | Full EU AI Act classification engine with regulatory citations |
 | Generic contract review | AI vendor-specific assessment against deployer obligations |
-| No AI Act awareness | Deadline-aware compliance (Feb 25, Aug 25, Aug 26, Aug 27) |
+| No AI Act awareness | Deadline-aware compliance (Feb 25, Aug 25, Dec 27, Aug 28) |
 | US-centric defaults | DACH-first with German templates and works council integration |
 | No audit trail guidance | Evidence pack generation for regulatory inspection |
 | Manual playbook configuration | Pre-built EU governance playbooks, ready out of the box |

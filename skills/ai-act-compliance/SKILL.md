@@ -32,7 +32,7 @@ GPAI and foundation model related controls where applicable:
 - [ ] Copyright and data sourcing assurance where relevant
 - [ ] Internal guidance on prompt and data handling (no sensitive data unless approved)
 
-### Tier C. Aug 2026 (upcoming)
+### Tier C. Dec 2027 (upcoming; deferred from Aug 2026 by the Digital Omnibus)
 
 High risk AI under Annex III readiness. Focus on deployer obligations, and provider obligations if you build or substantially modify systems.
 
@@ -63,7 +63,7 @@ Quality management system (QMS) and provider readiness:
 - [ ] Conformity assessment approach defined and scheduled
 - [ ] Supplier and component governance (data, models, tools)
 
-### Tier D. Aug 2027
+### Tier D. Aug 2028 (deferred from Aug 2027 by the Digital Omnibus)
 
 High risk AI under Annex I (regulated products) readiness:
 - [ ] Integration with sector product compliance (medical device, machinery, vehicles, aviation)
