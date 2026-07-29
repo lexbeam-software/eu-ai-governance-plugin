@@ -7,7 +7,7 @@
 
 **Classify your first AI system in 90 seconds.**
 
-A Claude plugin for in-house legal, compliance, and AI governance teams. The Annex III high-risk obligations apply from 2 December 2027, deferred from 2 August 2026 by the Digital Omnibus ([[OJ_CELEX]], published in the Official Journal on [[OJ_DATE]]). This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence, without another SaaS login.
+A Claude plugin for in-house legal, compliance, and AI governance teams. The Annex III high-risk obligations apply from 2 December 2027, deferred from 2 August 2026 by the Digital Omnibus (32026R1744, published in the Official Journal on 24 July 2026). This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence, without another SaaS login.
 
 **[See it live](https://lexbeam-software.github.io/eu-ai-governance-plugin/)** · **[20-min intro call with Werner](https://calendly.com/plutat/intro)**
 
@@ -36,7 +36,7 @@ I use this plugin daily on paid client mandates. That's why the regulatory conte
 
 ## Why this exists
 
-The EU AI Act is live. Prohibited practices are already banned. GPAI transparency obligations are in effect. High-risk Annex III obligations apply from 2 December 2027, deferred from 2 August 2026 by the Digital Omnibus ([[OJ_CELEX]]); Article 50 transparency obligations and Commission GPAI enforcement powers were not deferred and apply from 2 August 2026. Anthropic's legal plugin handles generic GDPR and contract work. This plugin handles what it doesn't:
+The EU AI Act is live. Prohibited practices are already banned. GPAI transparency obligations are in effect. High-risk Annex III obligations apply from 2 December 2027, deferred from 2 August 2026 by the Digital Omnibus (32026R1744); Article 50 transparency obligations and Commission GPAI enforcement powers were not deferred and apply from 2 August 2026. Anthropic's legal plugin handles generic GDPR and contract work. This plugin handles what it doesn't:
 
 - AI Act risk classification (is your system high-risk?)
 - Provider vs. deployer obligations (what's YOUR responsibility?)
@@ -75,7 +75,7 @@ flowchart TD
 
 ## Compliance Timeline
 
-Key enforcement deadlines, the plugin tracks where you stand against each. The Digital Omnibus simplification package amending the EU AI Act was adopted by the European Parliament (16 June 2026) and the Council (29 June 2026) and published in the Official Journal on [[OJ_DATE]] as [[OJ_CELEX]], entering into force on [[OJ_ENTRY_INTO_FORCE]]. It defers the application of high-risk obligations: stand-alone Annex III systems now apply from **2 December 2027** (previously 2 August 2026) and Annex I product-integrated systems from **2 August 2028** (previously 2 August 2027). Article 50 transparency obligations and the start of Commission GPAI enforcement powers were **not** deferred and continue to apply from 2 August 2026. (Art. 50(2) synthetic-content marking: [[ART50_2_DATE_RECONCILE]].)
+Key enforcement deadlines, the plugin tracks where you stand against each. The Digital Omnibus simplification package amending the EU AI Act was adopted by the European Parliament (16 June 2026) and the Council (29 June 2026) and published in the Official Journal on 24 July 2026 as 32026R1744, entering into force on 27 July 2026. It defers the application of high-risk obligations: stand-alone Annex III systems now apply from **2 December 2027** (previously 2 August 2026) and Annex I product-integrated systems from **2 August 2028** (previously 2 August 2027). Article 50 transparency obligations and the start of Commission GPAI enforcement powers were **not** deferred and continue to apply from 2 August 2026. (Art. 50(2) synthetic-content marking: from 2 August 2026 for systems placed on the market from that date, and by 2 December 2026 for systems placed on the market before then, under the new Art. 111(4).)
 
 ```mermaid
 gantt
