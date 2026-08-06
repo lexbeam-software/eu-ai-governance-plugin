@@ -1,209 +1,33 @@
 ---
-description: Assess your organization's EU AI Act compliance posture by deadline. Produces an executive summary, gap analysis, and prioritized action plan.
-argument-hint: "[--lang de]"
+description: Assess EU AI Act readiness by actor, control domain, evidence, and operative deadline.
+argument-hint: "[inventory or evidence sources] [--lang en|de]"
 ---
 
-# /ai-act-status -- EU AI Act Compliance Posture
+# /eu-ai-governance:ai-act-status
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
-
-Assess where your organization stands with the EU AI Act. This command is a structured posture review by deadline tier with clear statuses, gap analysis, and a prioritized action plan.
-
-**Important**: This command supports governance and compliance work but does not provide legal advice. Confirm interpretations and obligations with qualified counsel.
-
-## Invocation
-
-```
-/ai-act-status
-/ai-act-status --lang de
-```
-
-If `--lang de` is provided, ask questions and generate the report in German.
+Assess organisational readiness using the `ai-act-compliance` skill. Follow [the legal source protocol](../references/LEGAL-SOURCE-PROTOCOL.md). See [connected sources](../CONNECTORS.md).
 
 ## Workflow
 
-### Step 1: Organization Intake
+1. Confirm entities, jurisdictions, sector, assessment date, evidence sources, and whether the review covers providers, deployers, importers, distributors, product manufacturers, or GPAI providers.
+2. Obtain or build an inventory. Do not infer completeness from a sample.
+3. Use `euaiact_check_deadlines`, `euaiact_get_obligations`, and the versioned summary and official URL from `euaiact_get_article` when available. Read the complete official provision for exact wording.
+4. Assess inventory and roles, Article 5 controls, Article 4 literacy, classification and change control, high-risk provider and deployer controls, GPAI governance, Article 50 transparency, incidents, and evidence assurance.
+5. Mark every item `effective`, `partly effective`, `absent`, `not established`, or `not applicable with reason`. Attach evidence, owner, and due date.
 
-Ask the user for baseline context. If they do not know, accept estimates.
+## Output
 
-1. **Organization profile**
-   - Country and EU footprint
-   - Size (employees, revenue) and whether SME
-   - Sector (finance, healthcare, manufacturing, retail, public sector, etc.)
-2. **AI systems in use**
-   - How many AI systems are deployed today? (rough count)
-   - Internal vs customer facing
-   - Any systems used in HR, education, credit, insurance, healthcare, law enforcement, border control, justice, essential services
-   - Any use of biometric identification, emotion recognition, or workplace monitoring
-3. **GPAI and foundation model usage**
-   - Use of third party LLM APIs
-   - Use of open weights models
-   - Any in house model training or fine tuning
-4. **Current governance measures**
-   - AI policy and acceptable use policy
-   - AI inventory or register
-   - Risk classification process
-   - Vendor due diligence process
-   - DPIA process for AI
-   - Incident reporting and escalation
-   - Human oversight and review processes
-   - Training and AI literacy program
-   - Technical documentation and logging
+Provide:
 
-### Step 2: Identify urgent red flags (Prohibited practices)
+- executive status, scope, and as-of date
+- inventory and role-map coverage
+- deadline table with operative dates, not proposal-era triggers
+- control-domain heatmap with evidence links
+- top five gaps by urgency and consequence
+- 30/60/90-day remediation plan
+- unresolved national and sector questions
+- source note
 
-Before scoring maturity, screen for prohibited practice indicators. Ask targeted questions:
+If reporting a score, explain weighting, denominator, missing-evidence treatment, and exclusions. Never convert unknowns into compliant results.
 
-- Any AI used for social scoring of individuals?
-- Any AI that uses subliminal techniques or manipulative practices to materially distort behaviour and cause harm?
-- Any AI exploiting vulnerabilities of children or persons with disabilities to cause harm?
-- Any use of biometric categorisation or emotion recognition in workplace or education settings?
-- Any use of real time remote biometric identification in public spaces by or on behalf of public authorities?
-
-If any answers are Yes or Unclear, flag as **URGENT** and recommend immediate legal review and suspension pending assessment.
-
-### Step 3: Assess compliance by deadline tier
-
-For each tier, assess each area as:
-- **COMPLIANT**
-- **PARTIALLY COMPLIANT**
-- **NON COMPLIANT**
-- **NOT APPLICABLE**
-
-Use the checklist in the `ai-act-compliance` skill.
-
-#### Tier A: Feb 2025 (already passed)
-- Prohibited practices check completed and documented
-- AI literacy program in place (Art. 4) and role based
-- Governance owner assigned and escalation path defined
-
-#### Tier B: Aug 2025 (already passed)
-- GPAI obligations addressed where applicable
-- Procurement controls for foundation models and providers
-- Transparency and documentation intake from providers
-- Downstream integration risk controls
-
-#### Tier C: Dec 2027 (upcoming; deferred from Aug 2026 by the Digital Omnibus)
-High risk AI under Annex III obligations readiness:
-- AI inventory complete with classification status
-- Risk management process for high risk systems
-- Data governance and quality management for training and validation data
-- Technical documentation and logging
-- Human oversight design and instructions for use
-- Post market monitoring and incident reporting
-- Conformity assessment planning and CE marking pathway (if provider)
-
-#### Tier D: Aug 2028 (deferred from Aug 2027 by the Digital Omnibus)
-High risk AI under Annex I (regulated products) readiness:
-- Integration with product compliance (e.g., medical devices, machinery, vehicles)
-- Coordination with notified bodies and sector regulators
-- Quality management system alignment
-
-### Step 4: Evidence and documentation check
-
-Ask what evidence exists for each area, for example:
-- AI policy, training records, inventory
-- Vendor due diligence files
-- DPIAs and risk assessments
-- Model cards and evaluation reports
-- Incident log and monitoring metrics
-
-Record evidence gaps as action items.
-
-### Step 5: Generate action plan
-
-Generate a prioritized plan:
-- **Urgent actions**: prohibited practice risks, high severity gaps
-- **Quick wins**: low effort, high impact items
-- **Major projects**: cross functional programs and tooling
-
-For each action include:
-- Owner role (legal, compliance, security, HR, product)
-- Effort estimate: S, M, L (or weeks)
-- Dependencies
-- Target deadline tier
-
-## Output Format
-
-Provide the report as:
-
-```
-# EU AI Act Compliance Status Report
-
-## Executive Summary
-- Overall posture: [COMPLIANT/PARTIAL/NON COMPLIANT]
-- Highest risk exposures:
-- Prohibited practice indicators: [None / Present / Unclear]
-- Next 30 days priorities:
-
-## Scope and Assumptions
-- Organization:
-- Included systems:
-- Assumptions:
-
-## Deadline Tier Assessment
-
-### Tier A - Feb 2025 (Prohibited practices and AI literacy)
-- Prohibited practices screening: [status]
-- AI literacy (Art. 4): [status]
-- Governance ownership and escalation: [status]
-Evidence:
-Gaps:
-
-### Tier B - Aug 2025 (GPAI)
-- GPAI usage identification: [status]
-- Provider documentation intake: [status]
-- Downstream integration controls: [status]
-Evidence:
-Gaps:
-
-### Tier C - Dec 2027 (High risk Annex III)
-- Inventory and classification: [status]
-- Risk management and monitoring: [status]
-- Data governance: [status]
-- Technical documentation and logging: [status]
-- Human oversight: [status]
-- Incident reporting: [status]
-Evidence:
-Gaps:
-
-### Tier D - Aug 2028 (High risk Annex I regulated products)
-- Product compliance integration: [status]
-- Notified body readiness: [status]
-- QMS alignment: [status]
-Evidence:
-Gaps:
-
-## Detailed Gap Analysis
-For each gap:
-- Requirement:
-- Current state:
-- Target state:
-- Risk if not addressed:
-- Evidence needed:
-
-## Prioritized Action Plan
-### Urgent
-1.
-
-### Quick wins (low effort, high impact)
-1.
-
-### Major projects
-1.
-
-## Appendix
-- Systems flagged for prohibited practice review:
-- High risk candidates (Annex III and Annex I):
-- References and evidence list:
-```
-
-## Notes
-
-- If the organization has not built an AI inventory, recommend starting there. Most obligations become unmanageable without it.
-- If any system may be high risk, recommend running `/classify-ai-risk` per system and linking results.
-- If AI systems process personal data at scale, recommend running `/run-dpia` for priority systems.
-
----
-
-**Important:** Orientation tool, not legal advice. Validate against current official sources and qualified legal counsel before any compliance decision. Keine Rechtsdienstleistung iSd § 2 RDG; see LEGAL-DISCLAIMER.md.
+With `--lang de`, produce idiomatic German and retain exact legal citations.

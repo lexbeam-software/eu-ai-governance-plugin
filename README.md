@@ -1,195 +1,129 @@
-﻿# EU AI Governance Plugin
+# EU AI Governance Plugin
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
-![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-2024%2F1689-purple)
+![EU AI Act](https://img.shields.io/badge/legal%20baseline-6%20Aug%202026-purple)
 ![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%2B%20Cowork-black)
+![Validate](https://github.com/lexbeam-software/eu-ai-governance-plugin/actions/workflows/validate.yml/badge.svg)
 
-**Classify your first AI system in 90 seconds.**
+Source-grounded EU AI Act governance for European in-house legal, compliance, privacy, security, and AI governance teams. Classify systems, coordinate DPIA and FRIA workflows, review vendors and policies, and assemble traceable evidence packs.
 
-A Claude plugin for in-house legal, compliance, and AI governance teams. The Annex III high-risk obligations apply from 2 December 2027, deferred from 2 August 2026 by the Digital Omnibus (32026R1744, published in the Official Journal on 24 July 2026). This plugin gets you from "what AI do we actually have?" to a classified inventory, vendor redlines, and auditor-ready evidence, without another SaaS login.
+[Website](https://lexbeam-software.github.io/eu-ai-governance-plugin/) · [Lawve](https://lawve.ai/%40werner-plutat/plugin/eu-ai-governance) · [Issues](https://github.com/lexbeam-software/eu-ai-governance-plugin/issues)
 
-**[See it live](https://lexbeam-software.github.io/eu-ai-governance-plugin/)** · **[20-min intro call with Werner](https://calendly.com/plutat/intro)**
+## Why it is useful
 
-## Install
+- Six bounded commands for recurring governance work
+- Six reusable skills with role-specific workflows
+- Current enacted-law map for Regulation (EU) 2024/1689 as amended by Regulation (EU) 2026/1744
+- Bundled connection to Lexbeam’s open EU AI Act MCP, when connected tools are supported and permitted, for versioned article summaries and official links, classification, deadlines, obligations, Article 6(3), and Annex IV checks
+- Embedded fallback for local-only work, with an explicit source-date warning
+- Fact-specific DACH escalation instead of treating Germany, Austria, and Switzerland as one legal regime
+- Deterministic validation of manifests, links, versions, legal anchors, and stale-law regressions
+
+The project supports professional judgment. It does not certify compliance or replace legal advice. See [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md).
+
+## Install in Claude Code
 
 ```bash
-# 1. Add the Lexbeam marketplace
 claude plugin marketplace add lexbeam-software/eu-ai-governance-plugin
-
-# 2. Install the plugin
 claude plugin install eu-ai-governance@lexbeam
-
-# 3. See where you stand
-/ai-act-status
 ```
 
-> **Disclaimer.** This plugin is an orientation tool, not legal advice. Standardized, rule-based software run by the user in their own environment, **keine Rechtsdienstleistung im Sinne des § 2 RDG**. Lexbeam Software is not a Rechtsanwaltsgesellschaft and does not provide case-specific legal analysis. For concrete legal questions, consult a registered Rechtsanwältin or Rechtsanwalt. Full text: [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md).
+Then run:
 
-## Built & maintained by Werner Plutat
-
-Legal Engineer · LL.M. Business Law · 10+ years in Big 4 & DAX compliance.
-
-I use this plugin daily on paid client mandates. That's why the regulatory content stays current the day new guidance drops, and why the DACH specifics, Works Council under BetrVG, BaFin, BSI, are actually right.
-
-[LinkedIn](https://linkedin.com/in/wplu) · [lexbeam.com](https://lexbeam.com) · [Intro call](https://calendly.com/plutat/intro)
-
-## Why this exists
-
-The EU AI Act is live. Prohibited practices are already banned. GPAI transparency obligations are in effect. High-risk Annex III obligations apply from 2 December 2027, deferred from 2 August 2026 by the Digital Omnibus (32026R1744); Article 50 transparency obligations and Commission GPAI enforcement powers were not deferred and apply from 2 August 2026. Anthropic's legal plugin handles generic GDPR and contract work. This plugin handles what it doesn't:
-
-- AI Act risk classification (is your system high-risk?)
-- Provider vs. deployer obligations (what's YOUR responsibility?)
-- Fundamental rights impact assessments
-- AI inventory and documentation requirements
-- Works council considerations for AI systems (mandatory in DACH)
-- Schrems II transfer impact assessments for AI model providers
-
-Works standalone or alongside Anthropic's legal plugin.
-
-## How It Classifies AI Risk
-
-The plugin uses a multi-gate decision framework aligned to the EU AI Act:
-
-```mermaid
-flowchart TD
-    A["AI System Description"] --> B{"Gate 1: Prohibited?<br/>(Article 5)"}
-    B -->|Yes| C["PROHIBITED<br/>Immediate escalation"]
-    B -->|No| D{"Gate 2A: Safety component<br/>of regulated product?<br/>(Annex I)"}
-    D -->|Yes| E["HIGH-RISK<br/>(Annex I)"]
-    D -->|No| F{"Gate 2B: High-risk<br/>use case?<br/>(Annex III)"}
-    F -->|Yes| G["HIGH-RISK<br/>(Annex III)"]
-    F -->|No| H{"Gate 2C: GPAI Model?<br/>(Articles 51-56)"}
-    H -->|Yes| I["GPAI OBLIGATIONS<br/>apply at model level"]
-    H -->|No| J{"Gate 3: Transparency<br/>duties?<br/>(Article 50)"}
-    J -->|Yes| K["LIMITED RISK<br/>Transparency obligations"]
-    J -->|No| L["MINIMAL RISK<br/>Voluntary codes of conduct"]
-
-    style C fill:#dc2626,color:#fff
-    style E fill:#ea580c,color:#fff
-    style G fill:#ea580c,color:#fff
-    style I fill:#7c3aed,color:#fff
-    style K fill:#2563eb,color:#fff
-    style L fill:#16a34a,color:#fff
+```text
+/eu-ai-governance:ai-act-status
+/eu-ai-governance:classify-ai-risk <system description>
 ```
 
-## Compliance Timeline
+Requires Claude Code or Cowork with plugin support. The embedded workflow content has no package dependency. Connected MCP services are optional and may process selected context under their own terms; see [CONNECTORS.md](CONNECTORS.md).
 
-Key enforcement deadlines, the plugin tracks where you stand against each. The Digital Omnibus simplification package amending the EU AI Act was adopted by the European Parliament (16 June 2026) and the Council (29 June 2026) and published in the Official Journal on 24 July 2026 as 32026R1744, entering into force on 27 July 2026. It defers the application of high-risk obligations: stand-alone Annex III systems now apply from **2 December 2027** (previously 2 August 2026) and Annex I product-integrated systems from **2 August 2028** (previously 2 August 2027). Article 50 transparency obligations and the start of Commission GPAI enforcement powers were **not** deferred and continue to apply from 2 August 2026. (Art. 50(2) synthetic-content marking: from 2 August 2026 for systems placed on the market from that date, and by 2 December 2026 for systems placed on the market before then, under the new Art. 111(4).)
+## Install in Cowork
 
-```mermaid
-gantt
-    title EU AI Act Enforcement Timeline (as amended by the Digital Omnibus)
-    dateFormat YYYY-MM-DD
-    axisFormat %b %Y
+1. Download the validated release ZIP from GitHub or the matching Lawve release.
+2. In Claude, open **Settings → Plugins → Add → Create plugin → Upload a plugin**.
+3. Upload the ZIP and start with `/eu-ai-governance:ai-act-status`.
 
-    section Already in Force
-    Prohibited practices ban (Art. 5)           :done, 2025-02-02, 1d
-    AI literacy obligations (Art. 4)            :done, 2025-02-02, 1d
-    GPAI model obligations (Arts. 51-56)        :done, 2025-08-02, 1d
-
-    section Upcoming
-    High-risk Annex III obligations              :crit, 2027-12-02, 1d
-
-    section Future
-    High-risk Annex I obligations                :2028-08-02, 1d
-```
+Verify that the uploaded package shows version `1.1.0`, Apache 2.0, and the 6 August 2026 legal baseline. Do not upload the stale Lawve v1 package.
 
 ## Commands
 
-| Command | What it does |
-|---------|-------------|
-| `/classify-ai-risk` | Determine if an AI system is high-risk under the EU AI Act. Step-by-step classification with regulatory citations. |
-| `/assess-ai-vendor` | Review an AI vendor/provider contract against AI Act deployer obligations, GDPR requirements, and enterprise governance standards. |
-| `/run-dpia` | Conduct a Data Protection Impact Assessment specifically designed for AI systems. Covers both GDPR Art. 35 and AI Act requirements. |
-| `/ai-act-status` | Assess your organization's compliance posture against EU AI Act deadlines. Gap analysis with prioritized action items. |
-| `/generate-evidence-pack` | Compile governance documentation for auditors, regulators, or internal review. Structured output ready for regulatory inspection. |
-| `/review-ai-policy` | Review or draft an AI governance policy against EU AI Act requirements and industry best practices. |
+| Command | Outcome |
+|---|---|
+| `/eu-ai-governance:classify-ai-risk` | Cited classification, actor-specific duties, deadlines, evidence gaps, and next actions |
+| `/eu-ai-governance:ai-act-status` | Evidence-based readiness assessment by control domain and operative date |
+| `/eu-ai-governance:assess-ai-vendor` | Role map, evidence matrix, ranked risks, conditions, and contractual redlines |
+| `/eu-ai-governance:run-dpia` | GDPR Article 35 DPIA with separate EU AI Act Article 27 FRIA scoping |
+| `/eu-ai-governance:review-ai-policy` | Section-level policy findings or a versioned governance-policy draft |
+| `/eu-ai-governance:generate-evidence-pack` | Requirement-to-evidence index and scoped review pack without false completeness claims |
 
 ## Skills
 
-| Skill | When it activates |
-|-------|-------------------|
-| AI Act Classification | Determining risk levels, prohibited practices, GPAI obligations |
-| AI Vendor Assessment | Evaluating AI provider contracts and compliance posture |
-| DPIA for AI Systems | Impact assessments combining GDPR and AI Act requirements |
-| Governance Documentation | Creating audit trails, evidence packs, compliance records |
-| EU Compliance (Extended) | GDPR, AI Act, works council, and cross-border transfer requirements |
-| Risk Management | AI-specific risk assessment frameworks and controls |
+| Skill | Use it for |
+|---|---|
+| `ai-act-classification` | Article 5, Article 6, Annex I/III, Article 6(3), Article 50, GPAI, roles, and dates |
+| `ai-act-compliance` | Inventories, AI literacy, programme controls, gaps, and roadmaps |
+| `ai-vendor-assessment` | Provider evidence, DPA and contract review, model changes, incidents, and exit |
+| `dpia-ai` | DPIA triggers, people-centred risks, DPO advice, Article 36, and FRIA coordination |
+| `governance-documentation` | Annex IV, logs, conformity records, registrations, monitoring, and evidence indexes |
+| `risk-management` | Risk registers, controls, metrics, monitoring, and incident escalation |
 
-## What makes this different from the generic legal plugin
+## Source-grounding model
 
-| Anthropic Legal Plugin | EU AI Governance Plugin |
-|----------------------|------------------------|
-| GDPR/CCPA checklists | Full EU AI Act classification engine with regulatory citations |
-| Generic contract review | AI vendor-specific assessment against deployer obligations |
-| No AI Act awareness | Deadline-aware compliance (Feb 25, Aug 25, Dec 27, Aug 28) |
-| US-centric defaults | DACH-first with German templates and works council integration |
-| No audit trail guidance | Evidence pack generation for regulatory inspection |
-| Manual playbook configuration | Pre-built EU governance playbooks, ready out of the box |
-| No risk classification | Structured risk classification per Annex III |
+The plugin follows [a documented legal source protocol](references/LEGAL-SOURCE-PROTOCOL.md):
 
-## First 10 minutes after install
+1. Use the Lexbeam EU AI Act MCP when available.
+2. Use the MCP summary and official URL to locate the decisive provision, then read the complete official text before stating a prohibition, exception, duty, deadline, or negative legal conclusion.
+3. Prefer consolidated official text and verify amended wording against the amending act.
+4. Separate enacted law, guidance, national law, contractual controls, and recommended practice.
+5. Report the source mode and as-of date.
 
-1. Run `/ai-act-status` to see where your organization stands
-2. Use `/classify-ai-risk` for each AI system in your inventory
-3. Run `/assess-ai-vendor` on your AI provider contracts
-4. Generate evidence packs with `/generate-evidence-pack`
+The connected server is also available independently:
 
-No configuration. No API keys. Works with what your team already has.
+- Public MCP: `https://mcp.lexbeam.com/mcp`
+- npm: [`@lexbeam-software/eu-ai-act-mcp`](https://www.npmjs.com/package/@lexbeam-software/eu-ai-act-mcp)
+- Source: [lexbeam-software/eu-ai-act-mcp](https://github.com/lexbeam-software/eu-ai-act-mcp)
 
-## Language Support
+## Current legal baseline
 
-- **English**: Full support for all commands and outputs
-- **German (Deutsch)**: Templates, governance documents, and compliance reports available in German. Use `--lang de` with any command.
+Embedded content was reviewed on **6 August 2026** against CELEX `02024R1689-20260727` and Regulation (EU) 2026/1744.
 
-## Requirements
+| Date | Milestone |
+|---|---|
+| 2 February 2025 | Article 4 and most Article 5 prohibitions apply |
+| 2 August 2025 | GPAI duties and most penalty provisions apply |
+| 27 July 2026 | Regulation (EU) 2026/1744 enters into force |
+| 2 August 2026 | Article 50 and Commission GPAI enforcement apply |
+| 2 December 2026 | New Article 5(1)(ba), (bb), 5(1a), and 5(1b) apply |
+| 2 August 2027 | Legacy GPAI transition date |
+| 2 December 2027 | Article 6(2)/Annex III high-risk rules apply |
+| 2 August 2028 | Article 6(1)/Annex I high-risk rules apply |
 
-- Claude Cowork or Claude Code
-- No external dependencies, no API keys, no infrastructure
-- Works offline with local files
+The 2027 and 2028 dates are enacted, unconditional calendar dates. They are not proposal-era backstops.
 
-## Regulatory Coverage
+## Examples
 
-- **EU AI Act** (Regulation 2024/1689): Full classification, obligations, and timeline
-- **GDPR**: Extended DPA review with AI-specific considerations
-- **German Works Constitution Act (BetrVG)**: Works council consultation requirements for AI systems
-- **Schrems II / EU-US DPF**: Transfer impact assessments for AI model providers
-- **ISO 42001**: AI management system alignment (optional)
+The examples are fictional demonstrations, not current vendor findings or legal opinions:
 
-## Worked Examples
+- [HR resume screening classification](examples/classify-ai-risk-hr-screening.md)
+- [AI assistant vendor assessment](examples/assess-ai-vendor-chatgpt-enterprise.md)
+- [Customer churn DPIA](examples/run-dpia-customer-churn-prediction.md)
 
-See what the plugin actually produces, realistic, redacted sample outputs:
+## Validate a contribution
 
-| Example | Command | Scenario |
-|---------|---------|----------|
-| [HR Resume Screening AI](examples/classify-ai-risk-hr-screening.md) | `/classify-ai-risk` | Classifying an automated recruitment tool as HIGH-RISK (Annex III) with Works Council obligations |
-| [ChatGPT Enterprise Deployment](examples/assess-ai-vendor-chatgpt-enterprise.md) | `/assess-ai-vendor` | Vendor assessment with RED/YELLOW flags, contract redlines, and Schrems II analysis |
-| [Customer Churn Prediction](examples/run-dpia-customer-churn-prediction.md) | `/run-dpia` | Full DPIA for an ML model processing customer behavioral data |
+```bash
+npm run validate
+claude plugin validate .
+```
 
-## Roadmap
+The local validator checks component structure, versions, links, license presence, MCP configuration, exact legal anchors, and known stale-law phrases. Legal review remains necessary for substantive changes; use the [protected legal claim matrix](references/LEGAL-CLAIM-MATRIX.md). Maintainers should also complete the [distribution checklist](DISTRIBUTION-CHECKLIST.md) before publishing.
 
-| Version | Focus | Status |
-|---------|-------|--------|
-| **v1.0** | EU AI Act classification, DPIAs, vendor assessments, evidence packs, policy review | Released |
-| **v1.1** | ISO 42001 full alignment, control mapping and certification readiness workflows | Planned |
-| **v1.2** | NIS2 integration, cybersecurity obligations for AI in critical infrastructure | Planned |
-| **v1.3** | Multi-jurisdiction, French CNIL, Dutch AP, and Austrian DSB-specific guidance | Planned |
-| **v2.0** | Implementing acts and harmonised standards tracking, auto-update as EU AI Office publishes guidance | Planned |
+## Distribution and version integrity
 
-## License
+GitHub releases are the source of truth. Before using a Lawve or other third-party copy, compare its version, license, and legal baseline with this repository. Distribution packages should be produced from a validated release commit.
 
-Apache 2.0, Fork it, extend it, use it commercially.
+## License and attribution
 
-## Built by
+Apache License 2.0. See [LICENSE](LICENSE). Built and maintained by [Lexbeam Software](https://lexbeam.com), led by Werner Plutat. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
-[Lexbeam Software](https://lexbeam.com), AI Governance and Legal Tech for European enterprises.
-
----
-
-**[Live demo](https://lexbeam-software.github.io/eu-ai-governance-plugin/)** · **[Changelog](CHANGELOG.md)** · **[Legal disclaimer](LEGAL-DISCLAIMER.md)**
-
-*Extends Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins). Not affiliated with or endorsed by Anthropic.*
-
-*This plugin extends and complements Anthropic's [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins). It is not affiliated with or endorsed by Anthropic.*
-
+The plugin can work standalone or alongside Anthropic’s public knowledge-work plugins. It is not affiliated with or endorsed by Anthropic.

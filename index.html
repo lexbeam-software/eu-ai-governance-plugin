@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Lexbeam · EU AI Act Governance Plugin for Claude</title>
-<meta name="description" content="An open-source Claude plugin for EU AI Act compliance work. Classification, DPIAs, vendor assessments, evidence packs. Built by a legal engineer for senior in-house counsel." />
+<title>Lexbeam · Source-grounded EU AI Act governance for Claude</title>
+<meta name="description" content="Open-source EU AI Act governance for Claude. Classify systems, coordinate DPIA and FRIA work, assess vendors, review policies, and assemble traceable evidence." />
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.bunny.net" />
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+<link href="https://fonts.bunny.net/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
 
 <style>
   :root{
@@ -24,7 +24,7 @@
     --ink:#1a2230;
     --ink-soft:#384455;
 
-    --f-sans:'Inter', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    --f-sans:'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
     --f-mono:'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
     --f-serif:'Source Serif 4', ui-serif, Georgia, 'Times New Roman', serif;
 
@@ -47,17 +47,6 @@
     text-rendering:optimizeLegibility;
     position:relative;
     min-height:100vh;
-  }
-
-  /* Subtle paper grain overlay */
-  body::before{
-    content:"";
-    position:fixed; inset:0;
-    pointer-events:none;
-    z-index:1;
-    opacity:.035;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    mix-blend-mode:multiply;
   }
 
   a{color:inherit}
@@ -277,21 +266,10 @@
   /* ------- Section scaffolding ------- */
   section{ padding:112px 0; position:relative;}
   .section-head{
-    display:grid;
-    grid-template-columns: 200px 1fr;
-    gap:48px;
+    display:block;
     margin-bottom:56px;
     align-items:start;
   }
-  .kicker{
-    font-family:var(--f-mono);
-    font-size:11.5px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    padding-top:10px;
-  }
-  .kicker .num{ color:var(--slate); margin-right:8px;}
   .section-title{
     font-family:var(--f-sans);
     font-weight:500;
@@ -335,6 +313,7 @@
     color:var(--slate);
     font-weight:500;
     letter-spacing:-0.005em;
+    overflow-wrap:anywhere;
   }
   .cmd-desc{
     color:var(--ink-soft);
@@ -469,6 +448,7 @@
     color:var(--slate-deep);
     font-weight:500;
     font-size:12.5px;
+    overflow-wrap:anywhere;
   }
   .ev .hint{ color:var(--tert); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase;}
 
@@ -568,12 +548,9 @@
   }
   .install::before{
     content:""; position:absolute; inset:0;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.25 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    opacity:.04; pointer-events:none;
+    pointer-events:none;
   }
   .install .wrap{ position:relative; z-index:1;}
-  .install .kicker{ color:rgba(244,239,229,.55);}
-  .install .kicker .num{ color:var(--amber);}
   .install .section-title{ color:var(--cream);}
   .install .section-sub{ color:rgba(244,239,229,.7);}
   .install-block{
@@ -774,14 +751,12 @@
     .cmd-grid{ grid-template-columns:repeat(2,1fr);}
     .evidence{ grid-template-columns:repeat(2,1fr);}
     .founder{ gap:48px;}
-    .section-head{ grid-template-columns: 160px 1fr; gap:32px;}
   }
   @media (max-width: 840px){
     :root{ --gutter:28px; }
     .hero{ padding:88px 0 72px;}
     section{ padding:88px 0;}
-    .section-head{ grid-template-columns:1fr; gap:12px;}
-    .kicker{ padding-top:0;}
+    .section-head{ display:block;}
     .founder{ grid-template-columns:1fr; gap:40px;}
     .legal-grid{ grid-template-columns:1fr; gap:16px;}
     .foot{ grid-template-columns:1fr 1fr; gap:32px;}
@@ -831,17 +806,12 @@
 <!-- ============== HERO ============== -->
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">
-      <span class="dot" aria-hidden="true"></span>
-      <span>Open source · Claude plugin · v1.0.0</span>
-    </div>
-
     <h1>
-      EU AI Act <span class="hl">compliance work</span>, run from the command line of your legal practice.
+      EU AI Act <span class="hl">governance work</span>, grounded at the point of decision.
     </h1>
 
     <p class="hero-lede">
-      A plugin for Claude that classifies systems against the AI Act, runs structured DPIAs, assesses vendors, and assembles evidence packs your auditor will accept. Built by a legal engineer for senior in-house counsel preparing for the Dec&nbsp;2, 2027 high-risk deadline.
+      An open-source Claude plugin for classification, DPIA and FRIA coordination, vendor and policy review, and traceable evidence packs. Embedded guidance is reviewed against enacted law; the Lexbeam MCP returns versioned legal summaries, obligations, deadlines, and official source links.
     </p>
 
     <div class="hero-actions">
@@ -854,9 +824,9 @@
     </div>
 
     <div class="hero-meta">
-      <span><b>Apache 2.0</b> · MIT-compatible</span>
-      <span><b>No telemetry</b> · runs locally in Claude</span>
-      <span><b>DE / EN</b> · drafted in both jurisdictions</span>
+      <span><b>v1.1.0</b> · Apache 2.0</span>
+      <span><b>Source dated</b> · 6 Aug 2026</span>
+      <span><b>EN / DE</b> · bilingual output</span>
     </div>
   </div>
 </header>
@@ -867,7 +837,7 @@
     <div class="deadline-row">
       <span class="deadline-label">
         <span class="dot" aria-hidden="true"></span>
-        EU AI Act · high-risk obligations
+        EU AI Act · Annex III high-risk rules
       </span>
       <span class="deadline-today">today · <span id="today-date">—</span></span>
       <span class="deadline-target">target · Dec 2, 2027</span>
@@ -880,41 +850,40 @@
 <section id="commands">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><span class="num">01 /</span> What it does</div>
       <div>
-        <h2 class="section-title">Six commands, each mapped to an obligation you already carry.</h2>
-        <p class="section-sub">Nothing speculative. Each command mirrors a discrete workflow an in-house compliance team runs today, now structured, cited, and version-controllable.</p>
+        <h2 class="section-title">Six bounded workflows, each with evidence and a source note.</h2>
+        <p class="section-sub">The commands separate supplied facts, legal duties, national-law questions, contractual controls, and recommended practice.</p>
       </div>
     </div>
 
     <div class="cmd-grid">
       <article class="cmd">
-        <div class="cmd-name">/classify-ai-risk</div>
-        <p class="cmd-desc">Classifies a system against Annex III and Article 6. Returns tier, citations, and the minimum obligation set that follows.</p>
-        <div class="cmd-meta"><span>art. 6 · annex iii</span></div>
+        <div class="cmd-name">/eu-ai-governance:classify-ai-risk</div>
+        <p class="cmd-desc">Tests scope, every Article 5 prohibition, Article 6 and Annex I/III, Article 50, GPAI duties, roles, and dates.</p>
+        <div class="cmd-meta"><span>art. 5 · art. 6 · annex i/iii</span></div>
       </article>
       <article class="cmd">
-        <div class="cmd-name">/run-dpia</div>
+        <div class="cmd-name">/eu-ai-governance:run-dpia</div>
         <p class="cmd-desc">Runs a structured Data Protection Impact Assessment with GDPR Art. 35 scaffolding and AI-specific risk prompts.</p>
         <div class="cmd-meta"><span>gdpr art. 35</span></div>
       </article>
       <article class="cmd">
-        <div class="cmd-name">/assess-ai-vendor</div>
-        <p class="cmd-desc">Reads vendor documentation and produces a gap list against AI Act provider obligations with suggested contract language.</p>
-        <div class="cmd-meta"><span>art. 16 · art. 28</span></div>
+        <div class="cmd-name">/eu-ai-governance:assess-ai-vendor</div>
+        <p class="cmd-desc">Builds a role map and evidence matrix, then ranks contractual, data-protection, security, change, and incident gaps.</p>
+        <div class="cmd-meta"><span>roles · evidence · redlines</span></div>
       </article>
       <article class="cmd">
-        <div class="cmd-name">/generate-evidence-pack</div>
-        <p class="cmd-desc">Assembles a signed, timestamped evidence bundle in Article 11 technical documentation style, export-ready.</p>
+        <div class="cmd-name">/eu-ai-governance:generate-evidence-pack</div>
+        <p class="cmd-desc">Maps requirements to approved artifacts and assembles a scoped review pack without claiming false completeness.</p>
         <div class="cmd-meta"><span>art. 11 · annex iv</span></div>
       </article>
       <article class="cmd">
-        <div class="cmd-name">/review-ai-policy</div>
-        <p class="cmd-desc">Reviews an internal AI policy against the Act and flags the clauses that will not survive a regulator's first read.</p>
+        <div class="cmd-name">/eu-ai-governance:review-ai-policy</div>
+        <p class="cmd-desc">Maps an internal AI policy to applicable controls and returns section-level gaps, owners, and proposed edits.</p>
         <div class="cmd-meta"><span>internal policy</span></div>
       </article>
       <article class="cmd">
-        <div class="cmd-name">/ai-act-status</div>
+        <div class="cmd-name">/eu-ai-governance:ai-act-status</div>
         <p class="cmd-desc">Snapshot of your organisation's readiness across classifications, DPIAs, vendors, and evidence, with the things that are still open.</p>
         <div class="cmd-meta"><span>readiness dashboard</span></div>
       </article>
@@ -926,24 +895,23 @@
 <section id="example" style="padding-top:24px;">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><span class="num">02 /</span> Worked example</div>
       <div>
-        <h2 class="section-title">A real classification, run inline. No screenshot, no demo video.</h2>
-        <p class="section-sub">The output below is what the plugin actually returns. Chips are structured fields; the analysis is model-written against the Act, and every reference is citable.</p>
+        <h2 class="section-title">A fictional classification, shown with its decisive boundary.</h2>
+        <p class="section-sub">The example demonstrates output structure. It is not a current vendor finding or legal opinion.</p>
       </div>
     </div>
 
     <div class="example" role="group" aria-label="Worked classification example">
       <div class="example-bar">
-        <span>session · claude-sonnet-4.7 · eu-ai-gov v1.0.0</span>
-        <span class="session">we 22 apr · 11:04 CET</span>
+        <span>example · fictional system · eu-ai-gov v1.1.0</span>
+        <span class="session">legal baseline · 6 aug 2026</span>
       </div>
 
       <div class="example-body">
 
         <div class="turn">
           <div class="turn-label"><span class="caret">›</span> you</div>
-          <div class="turn-prompt">/classify-ai-risk<br>
+          <div class="turn-prompt">/eu-ai-governance:classify-ai-risk<br>
             system: "CV-Screen", an applicant tracking tool we are procuring from a German vendor. It ranks incoming CVs for role fit and filters out the bottom 40% before a recruiter sees them. Used across DE, FR, NL entities.
           </div>
         </div>
@@ -961,20 +929,20 @@
           </div>
 
           <p class="analysis">
-            CV-Screen sits squarely within <span class="ref">Annex III § 4(a)</span>, AI systems used for recruitment or selection, specifically to filter applications. Under <span class="ref">Art. 6(2)</span> that makes it high-risk regardless of vendor claims. As deployer across three jurisdictions, obligations under <span class="ref">Art. 26</span> attach to your entities. A <span class="ref">Fundamental Rights Impact Assessment (Art. 27)</span> is mandatory for public-sector deployers and recommended as good practice for private employers in this use case. A <span class="ref">GDPR DPIA (Art. 35)</span> is required given the automated decision-making on applicants.
+            CV-Screen matches <span class="ref">Annex III point 4(a)</span> because it analyses and filters applications. Profiling defeats the <span class="ref">Article 6(3)</span> exception on these facts. Deployer duties under <span class="ref">Article 26</span> attach when the high-risk rules apply. <span class="ref">Article 27</span> does not make a FRIA mandatory for every private employer, so scope must be established separately. Automated rejection makes a <span class="ref">GDPR Article 35</span> DPIA highly likely, subject to the controller’s documented test.
           </p>
 
           <div class="evidence">
-            <div class="ev"><span class="hint">Next</span><b>Run /run-dpia CV-Screen</b></div>
-            <div class="ev"><span class="hint">Then</span><b>Run /assess-ai-vendor on provider</b></div>
-            <div class="ev"><span class="hint">Output</span><b>/generate-evidence-pack</b></div>
+            <div class="ev"><span class="hint">Next</span><b>Run /eu-ai-governance:run-dpia</b></div>
+            <div class="ev"><span class="hint">Then</span><b>Run /eu-ai-governance:assess-ai-vendor</b></div>
+            <div class="ev"><span class="hint">Output</span><b>/eu-ai-governance:generate-evidence-pack</b></div>
           </div>
         </div>
 
       </div>
 
       <div class="example-foot">
-        <span>rendered live · this is html, not a screenshot</span>
+        <span>fictional example · verify current law and facts</span>
         <a href="#install">install to run this yourself →</a>
       </div>
     </div>
@@ -985,9 +953,8 @@
 <section id="founder" style="padding-top:24px;">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><span class="num">03 /</span> Who built this</div>
       <div>
-        <h2 class="section-title">A legal engineer, not a vendor.</h2>
+        <h2 class="section-title">Built in public by a legal engineer.</h2>
       </div>
     </div>
 
@@ -998,11 +965,11 @@
           <div class="founder-meta">
             <div class="name">Werner Plutat</div>
             <div class="title">Legal Engineer · LL.M. Business Law</div>
-            <div class="cv">Ten years · Big Four · DAX compliance</div>
+            <div class="cv">Legal engineering · EU AI governance</div>
           </div>
         </div>
         <p style="color:var(--ink-soft); margin-top:28px; font-size:15.5px; max-width:44ch; line-height:1.6;">
-          This plugin was written against real in-house files, the kind a board asks about on a Friday afternoon. It is open source because compliance work should be inspectable, not proprietary. It is a passion project, not a company.
+          This plugin is shaped around recurring in-house governance tasks: classification, vendor evidence, impact assessment, policy, and review packs. It is open source because compliance workflows should be inspectable and reusable.
         </p>
       </div>
 
@@ -1018,10 +985,9 @@
 <section id="install" class="install">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><span class="num">04 /</span> Install</div>
       <div>
-        <h2 class="section-title">Two lines. Tonight, before the deadline clock moves again.</h2>
-        <p class="section-sub">Requires Claude with plugin support. The plugin is Apache 2.0 licensed and runs locally; nothing is sent to Lexbeam.</p>
+        <h2 class="section-title">Two commands, then start with your inventory.</h2>
+        <p class="section-sub">Use the two commands below in Claude Code. In Cowork, upload the validated release ZIP from Settings → Plugins → Add → Create plugin. The Lexbeam MCP connects when the plugin is enabled and receives tool arguments when invoked.</p>
       </div>
     </div>
 
@@ -1036,8 +1002,8 @@
     </div>
 
     <div class="install-note">
-      <b>You get</b><span>six slash commands, citable against Act articles, with evidence export.</span>
-      <b>You don't</b><span>get telemetry, an account, a paywall, or a newsletter.</span>
+      <b>You get</b><span>six commands, six skills, source discipline, and optional current-law retrieval.</span>
+      <b>You control</b><span>which documents and connected sources are placed in scope.</span>
     </div>
   </div>
 </section>
@@ -1046,24 +1012,23 @@
 <section id="legal">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><span class="num">05 /</span> Legal posture</div>
       <div>
         <h2 class="section-title">We are serious about what this is, and what it is not.</h2>
-        <p class="section-sub">This plugin is a tool for licensed professionals. It does not replace legal advice, and it is published under the limitations set out below in full.</p>
+        <p class="section-sub">This plugin supports professional governance work. It does not replace legal advice, and it is published under the limitations set out below in full.</p>
       </div>
     </div>
 
     <div class="legal-grid">
       <article class="legal-card">
-        <span class="stub">§ 1 · RDG</span>
-        <h4>Not a provision of legal services under § 2 RDG.</h4>
-        <p>This plugin does not render legal services within the meaning of the German Legal Services Act (Rechtsdienstleistungsgesetz). Outputs are informational scaffolding for qualified counsel and must be reviewed before any external use or filing.</p>
+        <span class="stub">Use boundary</span>
+        <h4>Workflow support, not a legal opinion or certification.</h4>
+        <p>Whether a particular use is a legal service depends on the facts, user, workflow, and degree of individual assessment. Outputs require appropriate professional review before consequential use.</p>
         <a href="./LEGAL-DISCLAIMER.md">Read full disclaimer →</a>
       </article>
       <article class="legal-card">
-        <span class="stub">§ 2 · ProdHaftG</span>
-        <h4>Product liability limitations under the Produkthaftungsgesetz.</h4>
-        <p>Provided as-is under Apache 2.0. The author disclaims liability to the fullest extent permitted under the German Product Liability Act. Users are responsible for validation against the current text of the AI Act and their national implementing measures.</p>
+        <span class="stub">License and sources</span>
+        <h4>Apache 2.0 terms, with no categorical liability claim.</h4>
+        <p>The license applies according to its terms and only to the extent permitted by law. The project does not predetermine which liability rules apply to a distribution or use.</p>
         <a href="./LEGAL-DISCLAIMER.md">Read full disclaimer →</a>
       </article>
     </div>
@@ -1074,7 +1039,6 @@
 <section id="changelog" style="padding-top:24px;">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><span class="num">06 /</span> Changelog</div>
       <div>
         <h2 class="section-title">Shipped recently.</h2>
       </div>
@@ -1082,8 +1046,8 @@
 
     <div class="changelog">
       <div class="log-row">
-        <div class="log-date"><span class="ver">v1.0.0</span>04 Feb 2026</div>
-        <div class="log-entry"><span class="label">launch</span>Initial public release · six commands (<code style="font-family:var(--f-mono); font-size:13px; color:var(--slate);">/classify-ai-risk</code>, <code style="font-family:var(--f-mono); font-size:13px; color:var(--slate);">/run-dpia</code>, <code style="font-family:var(--f-mono); font-size:13px; color:var(--slate);">/assess-ai-vendor</code>, <code style="font-family:var(--f-mono); font-size:13px; color:var(--slate);">/generate-evidence-pack</code>, <code style="font-family:var(--f-mono); font-size:13px; color:var(--slate);">/review-ai-policy</code>, <code style="font-family:var(--f-mono); font-size:13px; color:var(--slate);">/ai-act-status</code>) plus six skills covering classification, compliance, vendor assessment, DPIA, governance documentation, and risk management. DACH-specific guidance (Works Council, BaFin, BSI) included. German language support via <code style="font-family:var(--f-mono); font-size:13px; color:var(--slate);">--lang de</code>.</div>
+        <div class="log-date"><span class="ver">v1.1.0</span>06 Aug 2026</div>
+        <div class="log-entry"><span class="label">source-grounded</span>Connected Lexbeam’s EU AI Act MCP, corrected Article 5, Article 6, Annex III, FRIA, documentation and DPO boundaries, added deterministic validation, completed Apache licensing, and removed categorical liability and currency claims.</div>
         <div class="log-more">see CHANGELOG.md →</div>
       </div>
     </div>
@@ -1098,7 +1062,7 @@
         <h5>Lexbeam</h5>
         <a href="mailto:werner@lexbeam.com">werner@lexbeam.com</a>
         <a href="https://github.com/lexbeam-software/eu-ai-governance-plugin">github.com/lexbeam-software</a>
-        <p class="disclaimer" style="margin-top:14px;">A passion project by a legal engineer. Not a commercial product, not a venture, not a vendor pitch.</p>
+        <p class="disclaimer" style="margin-top:14px;">Open-source legal engineering designed to make governance work inspectable and reusable.</p>
       </div>
       <div>
         <h5>Plugin</h5>
@@ -1118,12 +1082,13 @@
         <h5>Meta</h5>
         <a href="#founder">Who built it</a>
         <a href="https://github.com/lexbeam-software/eu-ai-governance-plugin/issues">Issues</a>
+        <a href="https://lawve.ai/%40werner-plutat/plugin/eu-ai-governance">Lawve distribution</a>
         <a href="https://github.com/lexbeam-software/eu-ai-governance-plugin/blob/main/CHANGELOG.md">CHANGELOG.md</a>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Werner Plutat · Lexbeam</span>
-      <span>Apache 2.0 · no warranty · no telemetry</span>
+      <span>Apache 2.0 · source dated · no Lexbeam account</span>
     </div>
   </div>
 </footer>

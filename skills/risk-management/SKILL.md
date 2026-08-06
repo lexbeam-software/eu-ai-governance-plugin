@@ -1,219 +1,55 @@
 ---
 name: risk-management
-description: AI-specific risk management taxonomy, assessment method, controls, monitoring KPIs, and incident response aligned to enterprise risk frameworks.
+description: Build or review an AI risk-management system, risk register, controls, monitoring plan, incident taxonomy, or remediation workflow. Use for EU AI Act Article 9 and Article 72 alignment, enterprise-risk integration, model and system monitoring, or serious-incident escalation.
 ---
 
-# Risk Management Skill
+# Manage AI risk
 
-You help teams identify, assess, mitigate, monitor, and respond to AI-specific risks across the AI system lifecycle.
+Separate three layers: legal requirements, organisational risk appetite, and operating controls. Do not present an internal score as a legal classification.
 
-Important: You support risk management work but do not provide legal advice. Use this as a structured reference and adapt it to the organization risk appetite and sector obligations.
+## Scope the system
 
-## 1. AI risk taxonomy
+Record intended purpose, foreseeable misuse, actors, affected persons, lifecycle stage, model and data dependencies, environment, change history, and legal classification. Follow [LEGAL-SOURCE-PROTOCOL.md](../../references/LEGAL-SOURCE-PROTOCOL.md) for legal conclusions.
 
-Use this taxonomy to structure risk identification and to populate a risk register.
+## Identify risk
 
-Core AI risk categories:
-- Bias and discrimination risk
-  - Disparate impact, proxy variables, representation bias
-- Hallucination and misinformation risk
-  - Fabricated facts, unverifiable outputs, citation errors
-- Privacy and data protection risk
-  - Personal data exposure, re-identification, unlawful processing
-- Security risk
-  - Prompt injection, data exfiltration, model theft, supply chain compromise
-- Safety risk
-  - Physical or psychological harm, unsafe recommendations, misuse
-- Accountability and governance risk
-  - Unclear ownership, lack of approvals, missing audit trail
-- Transparency and explainability risk
-  - Inadequate user notices, inability to explain decisions, opacity of limitations
-- Reliability and performance risk
-  - Drift, degraded accuracy, brittleness, failure under edge cases
-- Legal and regulatory risk
-  - Misclassification under the AI Act, non-compliance with deployer duties, sector regulation
-- Operational and business continuity risk
-  - Vendor outages, dependency lock-in, lack of fallback
+Assess concrete harms and failure modes across:
 
-## 2. Risk assessment methodology for AI systems
+- health, safety, and fundamental rights
+- discrimination, accessibility, and representation
+- privacy, confidentiality, and data governance
+- accuracy, robustness, cybersecurity, and resilience
+- transparency, explainability, contestability, and human oversight
+- manipulation, misuse, prohibited practices, and synthetic content
+- supplier, model-chain, concentration, and change risk
+- legal, operational, financial, reputational, and environmental effects
 
-### 2.1 Define the assessment unit
+Identify affected groups, exposure paths, existing controls, and uncertainty. Do not treat a generic taxonomy as evidence that a risk exists.
 
-Assess at a useful granularity:
-- System level (product or internal tool)
-- Model level (foundation model, fine-tune, classifier)
-- Feature level (a specific automated decision or recommendation)
+## Evaluate and treat
 
-### 2.2 Likelihood x impact matrix
+Use the organisation’s approved likelihood and severity scales. Record inherent risk, control design, control operation, residual risk, owner, treatment, due date, evidence, and acceptance authority. Define measurable thresholds and stop-use criteria where feasible.
 
-Score each risk using likelihood and impact and document rationale.
+For high-risk providers, map the iterative lifecycle process to Article 9 and connect testing, technical documentation, instructions, post-market monitoring, and corrective action. Do not imply Article 9 applies to every deployer or minimal-risk system.
 
-Likelihood (1 to 5):
-- 1 Remote
-- 2 Unlikely
-- 3 Possible
-- 4 Likely
-- 5 Almost certain
+## Monitor
 
-Impact (1 to 5) with AI specific criteria:
-- 1 Negligible - minor user inconvenience, no sensitive data, no regulatory concern
-- 2 Low - limited internal impact, reversible harm, minimal user exposure
-- 3 Moderate - material user impact, potential complaints, measurable operational disruption
-- 4 High - significant harm potential, sensitive data exposure, likely regulatory attention
-- 5 Critical - severe harm, systemic discrimination, major breach, enforcement likely
+Define metric, population, threshold, frequency, owner, data source, response, and limitations. Include performance, drift, subgroup effects, override rates, complaints, incidents, uptime, security events, input changes, model changes, and human-oversight effectiveness where relevant.
 
-Risk score = Likelihood x Impact
+## Handle incidents
 
-Risk bands (example):
-- 1 to 4 - GREEN
-- 5 to 9 - YELLOW
-- 10 to 15 - ORANGE
-- 16 to 25 - RED
+Keep the internal incident taxonomy separate from the EU AI Act definition of a `serious incident` and from GDPR personal-data breaches or cybersecurity-reporting events.
 
-### 2.3 Inherent vs residual risk
+When an event occurs:
 
-For each risk:
-- Inherent risk: before controls
-- Controls: preventive and detective measures
-- Residual risk: after controls
-- Acceptance: who accepts residual risk and under what conditions
+1. Protect people and preserve evidence; suspend or constrain use when required by the risk.
+2. Record system version, time, context, outputs, decisions, impact, and immediate controls.
+3. Route high-risk deployer notifications under Article 26(5), provider obligations under Article 73, and other regimes separately.
+4. Retrieve the current provision through the Lexbeam EU AI Act MCP before stating a recipient or deadline.
+5. Investigate root cause, corrective action, effectiveness, reclassification, documentation updates, and lessons.
 
-### 2.4 AI Act linkage
+Do not invent a universal EU AI Act reporting deadline. Apply the event and actor-specific statutory route.
 
-When relevant, include:
-- AI Act risk tier and obligation mapping
-- Human oversight expectations
-- Logging and traceability expectations
-- Transparency duties
+## Output
 
-## 3. Standard control catalog for AI risks
-
-Use this control catalog as a baseline. Select controls based on risk tier and context.
-
-Governance and lifecycle controls:
-- AI inventory entry with owner, purpose, and classification
-- Risk assessment and DPIA triggers defined and followed
-- Approval gates for procurement, launch, and major changes
-- Document control, versioning, and evidence retention
-
-Data and privacy controls:
-- Data minimization and purpose limitation
-- Dataset documentation (sources, licenses, quality checks)
-- PII handling rules for prompts and outputs
-- Access controls and secrets management
-- Retention schedule and deletion workflows
-
-Model and output quality controls:
-- Pre-deployment evaluation plan and acceptance criteria
-- Bias testing and subgroup analysis where appropriate
-- Robustness testing and adversarial testing
-- Guardrails: refusal rules, content filters, policy prompts
-- Human in the loop review for sensitive decisions
-- Explainability artifacts: model cards, limitations, confidence cues
-
-Security controls:
-- Threat modeling for LLM usage and AI pipelines
-- Prompt injection defenses and output sanitization
-- Isolation of tools and least privilege for agents
-- Supply chain risk management for models and dependencies
-- Incident detection for anomalous usage and exfiltration
-
-Operational controls:
-- Monitoring for drift, performance, and safety regressions
-- Canary releases and rollback procedures
-- Fallback modes and business continuity plans
-- Vendor SLAs and exit plans
-
-## 4. Monitoring and KPI framework for AI systems in production
-
-Define KPIs by risk category and system purpose. Tie KPIs to alert thresholds and response actions.
-
-Suggested KPI families:
-- Quality and performance
-  - Accuracy, precision, recall, calibration where applicable
-  - Task success rate, user satisfaction, deflection rates
-- Safety and misuse
-  - Rate of policy violations, unsafe outputs, blocked attempts
-  - Red team findings and closure rate
-- Fairness
-  - Disparity metrics by subgroup, equalized odds proxies, false positive disparity
-- Reliability
-  - Latency, timeouts, error rates, vendor outage minutes
-- Security
-  - Prompt injection attempts detected, tool abuse events, secrets exposure attempts
-- Privacy
-  - PII leakage rate, DSAR related incidents, retention policy exceptions
-- Oversight
-  - Human review rate, override rate, appeal rate, time to resolution
-
-Monitoring operating model:
-- Define owners for each KPI
-- Define review cadence (daily, weekly, monthly)
-- Define stop conditions and rollback criteria
-- Maintain a monitoring report archive as evidence
-
-## 5. Incident classification and response for AI-related incidents
-
-### 5.1 Incident classes
-
-Classify incidents to drive consistent response:
-- Model behavior incident
-  - Unsafe output, hallucination causing harm, policy violation
-- Bias and fairness incident
-  - Evidence of discriminatory outcomes
-- Security incident
-  - Prompt injection leading to unauthorized action, exfiltration, model theft
-- Privacy incident
-  - Personal data leakage, unlawful data use
-- Compliance incident
-  - Use outside approved scope, missing transparency notice, logging failure
-- Vendor incident
-  - Provider outage, breach, material change without notice
-
-### 5.2 Severity tiers
-
-Example severity tiers:
-- SEV 1 - Critical harm, major breach, enforcement likely
-- SEV 2 - Significant user harm potential or sensitive data exposure
-- SEV 3 - Limited impact, contained, reversible
-- SEV 4 - Near miss or low impact issue
-
-### 5.3 Response playbook
-
-For each incident:
-- Detect and triage
-- Contain and mitigate
-- Preserve evidence (logs, prompts, outputs)
-- Notify internal stakeholders (security, DPO, legal, business owner)
-- Decide on external notifications where required
-- Root cause analysis and corrective actions
-- Post-incident review and control improvements
-
-Maintain an incident register that links to:
-- Timeline
-- Impact assessment
-- Communications
-- Fixes and prevention
-
-## 6. Connection to enterprise risk management frameworks
-
-Position AI risk management as an extension of existing ERM.
-
-ISO 31000 alignment:
-- Establish context - AI scope, stakeholders, risk criteria
-- Risk assessment - identify, analyze, evaluate
-- Risk treatment - select controls, accept, avoid, transfer
-- Communication and consultation - cross-functional governance
-- Monitoring and review - KPIs, audits, management review
-
-COSO alignment:
-- Governance and culture - roles, accountability, ethics
-- Strategy and objective setting - risk appetite for AI use
-- Performance - risk identification, assessment, response
-- Review and revision - incident learnings and drift monitoring
-- Information, communication, reporting - evidence packs and board reporting
-
-Practical integration tips:
-- Use the same risk register format and scoring conventions where possible
-- Add AI-specific categories, controls, and KPIs
-- Ensure Board risk reporting includes AI systems and material incidents
+Produce scope, risk register, control plan, monitoring plan, incident and escalation matrix, residual-risk decision, review triggers, open evidence gaps, and source note.

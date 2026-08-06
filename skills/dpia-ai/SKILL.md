@@ -1,155 +1,52 @@
 ---
 name: dpia-ai
-description: Run and review AI specific DPIAs. Use for GDPR Art. 35 DPIA triggers, AI risk assessment (bias, explainability, automation), and documenting mitigations and consultation steps. Supports AI Act aligned fundamental rights impact considerations.
+description: Run or review a GDPR data protection impact assessment for an AI system. Use for Article 35 trigger screening, necessity and proportionality, profiling and automated decisions, bias and explainability risks, mitigations, DPO consultation, Article 36 prior consultation, or DPIA and EU AI Act FRIA coordination.
 ---
 
-# DPIA for AI Systems Skill
+# Run an AI DPIA
 
-You help teams run Data Protection Impact Assessments (DPIAs) for AI systems. You cover GDPR Article 35 requirements and add AI specific sections that align with EU AI Act governance expectations.
+Support the controller’s assessment; do not claim approval or legal advice. The controller remains accountable. If a DPO is designated, seek and document the DPO’s advice under GDPR Article 35(2); the GDPR does not make DPO approval a universal legal condition.
 
-**Important**: You support compliance work but do not provide legal advice. DPIAs must be reviewed and approved by the DPO or qualified counsel.
+Follow [LEGAL-SOURCE-PROTOCOL.md](../../references/LEGAL-SOURCE-PROTOCOL.md) for legal conclusions and source notes.
 
-## 1. When is a DPIA mandatory?
+## Determine whether a DPIA is required
 
-### GDPR Article 35 mandatory triggers
-A DPIA is required where processing is likely to result in a **high risk** to rights and freedoms of natural persons. Common triggers include:
+Apply GDPR Article 35 to the specific processing. Consider:
 
-- **Systematic and extensive evaluation** of personal aspects based on automated processing, including profiling, where decisions produce legal effects or similarly significantly affect individuals
-- **Large scale processing** of special categories of data (GDPR Art. 9) or personal data relating to criminal convictions and offenses (GDPR Art. 10)
-- **Systematic monitoring** of publicly accessible areas on a large scale
+- systematic and extensive evaluation based on automated processing, including profiling, where decisions have legal or similarly significant effects
+- large-scale special-category or criminal-offence data
+- systematic monitoring of publicly accessible areas on a large scale
+- relevant supervisory-authority lists and EDPB/WP29 guidance
 
-Additional DPIA indicators (from supervisory authority guidance) often include:
-- New technology or novel use of existing technology
-- Matching or combining datasets
-- Processing of vulnerable persons (children, employees, patients)
-- Inference of sensitive attributes
-- Processing that prevents data subjects from exercising rights or accessing services
+Label the familiar “two or more criteria” approach as guidance, not statutory text. Record the trigger analysis even when the conclusion is that no DPIA is required.
 
-Practical approach:
-- If two or more high risk criteria apply, a DPIA is usually expected.
-- Check your national supervisory authority lists for processing operations that require a DPIA.
+When decisive facts are missing, issue a provisional trigger decision and list the facts needed to finalise it. Do not pause without giving the user the safe analysis available from supplied facts.
 
-### AI Act aligned triggers to treat as DPIA escalation signals
-The EU AI Act does not replace GDPR DPIAs, but high risk AI use and fundamental rights exposure should be treated as DPIA escalation signals. In particular, escalate DPIA rigor when:
+## Describe the processing
 
-- The AI system may be **high risk** under Annex III (common sectors include employment, education, essential private and public services, law enforcement, migration, and administration of justice)
-- The system is used for **biometric identification or categorisation**, emotion recognition, or workplace monitoring
-- The system could materially affect fundamental rights such as non discrimination, dignity, privacy, and freedom of expression
-- A GPAI or foundation model is integrated and the deployer relies on provider transparency and downstream risk controls
+Document controller, processors, joint controllers, purpose, users, affected persons, data sources and categories, model and system flow, recipients, transfers, storage, retention, automated effects, human intervention, and lifecycle changes. Use a data-flow diagram when it clarifies the processing.
 
-## 2. DPIA template structure with AI specific sections
+## Assess necessity and proportionality
 
-A DPIA for an AI system should include at least:
+Test purpose specification, legal basis, data minimisation, accuracy, retention, transparency, rights handling, Article 22 where relevant, alternatives, human intervention, and processor controls. Do not use an AI Act classification as a GDPR lawful basis.
 
-1. **Administrative information**: owner, scope, versioning, reviewers, DPO consultation record
-2. **Systematic description of processing** (GDPR Art. 35(7)(a))
-3. **Necessity and proportionality** (GDPR Art. 35(7)(b))
-4. **Risk assessment** to rights and freedoms (GDPR Art. 35(7)(c))
-5. **Measures and safeguards** (GDPR Art. 35(7)(d))
-6. **Residual risk decision and approvals**
+## Assess risks to people
 
-AI specific additions that should be separate sections:
-- Training and fine tuning data assessment (sources, representativeness, bias checks)
-- Transparency and explainability evaluation (what can be explained to whom, traceability)
-- Automated decision making assessment (GDPR Art. 22) and safeguards
-- Fundamental rights impact considerations (AI Act aligned)
-- Feedback loops, drift, and emergent behaviour risks
-- Security of AI pipeline (prompt injection, data leakage, poisoning)
+Describe concrete harms, affected groups, likelihood, severity, uncertainty, and controls. Include discrimination, proxy effects, erroneous decisions, opacity, manipulation, security, data leakage, function creep, exclusion, chilling effects, feedback loops, and contestability where relevant.
 
-## 3. Risk matrix (likelihood x severity) with AI specific risk categories
+Distinguish inherent risk, control effectiveness, and residual risk. Link every mitigation to an owner, evidence, due date, and verification method.
 
-Use a simple matrix to keep DPIAs consistent and auditable.
+## Decide and escalate
 
-### Scales
-- Likelihood: Low, Medium, High
-- Severity: Low, Medium, High
+- Record the DPO advice and the controller’s response where a DPO is designated.
+- Consult data subjects or representatives where appropriate under Article 35(9), subject to the stated exceptions.
+- If high residual risk remains in the absence of measures, route to prior consultation under Article 36 before processing.
+- Set review triggers for purpose, data, model, provider, population, performance, incident, complaint, or legal change.
 
-### Example matrix
+## Coordinate with the EU AI Act
 
-| Severity \\ Likelihood | Low | Medium | High |
-|---|---|---|---|
-| Low | Low | Low to Medium | Medium |
-| Medium | Low to Medium | Medium | High |
-| High | Medium | High | Very High |
+Read [AI-ACT-DECISION-MAP.md](../../references/AI-ACT-DECISION-MAP.md) and validate relevant articles through the Lexbeam EU AI Act MCP. Use provider information under Article 13 for the DPIA where Article 26(9) applies. Assess Article 27 FRIA scope separately. Cross-reference overlapping DPIA sections under Article 27(4); do not say a DPIA automatically replaces a FRIA.
 
-### AI specific risk categories (add to standard privacy risks)
-- Bias and discrimination (protected characteristics, proxy discrimination)
-- Automated decision making impacts (legal or similarly significant effects)
-- Lack of explainability and contestability
-- Unreliable outputs (hallucinations, unsafe recommendations)
-- Sensitive attribute inference and profiling
-- Data leakage (memorization, training data extraction)
-- Security attacks (prompt injection, model inversion, poisoning)
-- Manipulation and undue influence (dark patterns, targeted persuasion)
-- Feedback loops and drift that increase harm over time
-- Over reliance by operators (automation bias)
+## Output
 
-## 4. Common AI risks and standard mitigation measures
-
-### Common risks
-- Disparate impact in hiring, performance management, or credit like decisions
-- Use of employee data without appropriate transparency or works council process
-- Inference of health or other sensitive attributes from seemingly benign data
-- Users treating probabilistic outputs as facts
-- Lack of meaningful human review where outcomes significantly affect individuals
-- Training or fine tuning on data with unclear legal basis or licensing
-
-### Standard mitigations (map to identified risks)
-
-Technical controls:
-- Data minimization and strict retention limits for prompts, logs, and outputs
-- Pseudonymization and encryption, least privilege access
-- Differential privacy or privacy preserving methods where feasible
-- Evaluation datasets for bias, performance, and safety
-- Explainability tooling and decision trace logs
-- Confidence thresholds and abstain mechanisms
-- Content filtering, jailbreak and prompt injection defenses
-- Red teaming and adversarial testing
-
-Organizational controls:
-- Clear accountability (RACI) and human oversight design
-- Training and AI literacy for users and reviewers
-- Escalation paths for complaints and incidents
-- Periodic re assessment (model updates, drift monitoring)
-- Vendor governance: contractual transparency, audit rights, incident notification
-
-## 5. Supervisory authority guidance on AI DPIAs
-
-Key guidance sources to reference during DPIA work:
-
-- **EDPB Guidelines on DPIAs**: criteria for likely high risk processing and how to structure DPIAs
-- **Article 29 Working Party guidance (historical, still referenced)**: risk criteria and examples
-- **German DSK** guidance and processing activity lists: DPIA triggers and expectations for documentation
-- National supervisory authority examples and blacklists of processing that require DPIAs
-
-Practical note:
-- Authorities typically expect DPIAs to show specific data flows, concrete safeguards, and a residual risk decision. Generic statements are a common audit finding.
-
-## 6. Connection between DPIA and AI Act fundamental rights impact assessment
-
-Many organizations combine or tightly link:
-- GDPR DPIA (privacy and data protection focus)
-- AI Act aligned fundamental rights assessment (broader rights and societal impacts)
-
-Good practice:
-- Use the DPIA risk register as the central log.
-- Add a fundamental rights layer that maps each risk to the right impacted and the mitigation and monitoring plan.
-- If the system may be high risk under the AI Act, link to classification results and high risk obligations (risk management, technical documentation, logging, human oversight, quality management).
-
-## 7. Documentation requirements for regulatory inspection
-
-Maintain DPIA artifacts so they are inspection ready:
-
-- Final DPIA with version history and sign offs
-- Evidence of DPO consultation and outcomes
-- Data flow diagrams and records of processing activities (GDPR Art. 30)
-- Processor contracts and Art. 28 clauses, sub processor list
-- Security documentation: threat model, TOMs, pen test or red team summaries
-- Model documentation: model card, dataset documentation, evaluation results
-- Bias and performance test reports and monitoring metrics
-- Records of changes: model updates, prompt changes, retraining events
-- Incident log and complaint handling records
-- If applicable, prior consultation package for supervisory authority (GDPR Art. 36)
-
-Operating principle:
-- Separate facts, assumptions, and decisions. Regulators look for traceability.
+Produce administrative details, trigger decision, system and data-flow description, necessity and proportionality assessment, risk register, measures, residual-risk decision, consultation record, controller decision and governance record, review triggers, evidence list, and source note. Keep DPO advice separate from the controller decision.

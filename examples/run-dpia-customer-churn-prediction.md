@@ -1,6 +1,6 @@
-# Example: /run-dpia, Customer Churn Prediction Model
+# Example: /eu-ai-governance:run-dpia, Customer Churn Prediction Model
 
-> This is a sample output showing what the `/run-dpia` command produces. The system, company, and details below are fictional.
+> This is a fictional sample output. Dates, systems, and findings are illustrative and do not represent a current legal or vendor assessment.
 
 ---
 
@@ -147,11 +147,11 @@ The processing purpose is specific: predict churn risk to enable proactive reten
 
 ### 6.3 Automated Decision Making (GDPR Art. 22)
 - **Solely automated decisions with significant effects**: Partially, the email retention campaign is triggered automatically for scores > 70. However, the effects (receiving a retention offer) are generally **beneficial** to the customer, not adverse.
-- **Assessment**: Does not likely constitute a decision with legal or similarly significant effects under Art. 22. However, if churn scores were used to reduce service levels or deny benefits, this assessment would change.
+- **Illustrative assessment**: A significant-effect threshold is not established on the fictional facts because the automated action is a retention email. This is provisional; pricing, service, eligibility, contract, or comparable effects could change the Article 22 analysis and require fact-specific legal review.
 - **Safeguards**: Human review exists for high-score accounts (> 85). Email campaigns include unsubscribe option.
 
 ### 6.4 Fundamental Rights Considerations
-- **Dignity**: No impact, retention offers do not affect human dignity.
+- **Dignity**: No specific dignity impact established on the fictional facts; monitor for manipulative, exclusionary, or stigmatising use.
 - **Non-discrimination**: Medium concern, if model systematically deprioritizes SME customers for retention, this could create unequal service quality. Requires bias audit.
 - **Privacy**: Primary concern, profiling of customer behavior. Mitigated by data minimization and purpose limitation.
 - **Freedom of expression**: No impact.
@@ -185,22 +185,22 @@ The processing purpose is specific: predict churn risk to enable proactive reten
 
 ## 8. Residual Risk and Decision
 
-**Residual risk assessment**: Low-Medium after mitigations. The two highest risks (R5: transparency gap, R6: no objection mechanism) are addressed by measures O1 and T3, both targeted for Q1 2026. Bias risk (R2) requires ongoing monitoring.
+**Illustrative residual risk assessment**: Low-Medium only if the listed controls are implemented and shown effective. This fictional rating cannot be used as an organisational risk-acceptance decision.
 
-**Go/no-go recommendation**: **Proceed with conditions**, implement Q1 2026 measures (privacy policy update, opt-out mechanism, acceptable use policy) before expanding the system to additional customer segments or geographies.
+**Controller decision**: **Proceed with conditions**, implement the listed measures before expanding the system to additional customer segments or geographies. Record the DPO’s advice separately; the controller remains accountable for the decision.
 
 **Conditions for deployment**:
 1. Privacy policy updated with profiling disclosure (O1), before next campaign cycle
 2. Opt-out mechanism operational (T3), before next campaign cycle
 3. Bias audit completed (O3), before next model retraining
 
-## 9. Consultation and Approvals
+## 9. Consultation and Controller Decision Record
 
 | Consultation | Required | Status |
 |-------------|----------|--------|
-| DPO opinion | Yes | Preliminary review completed Feb 10, 2026. Final review pending after mitigations committed. |
-| Works council consultation | No, system profiles customers, not employees | N/A |
-| Prior consultation with supervisory authority (Art. 36) | No, residual risk can be mitigated to acceptable level | N/A |
+| DPO advice | Yes in this fictional scenario | Preliminary advice recorded; controller response and final advice pending after control evidence |
+| Works council consultation | Not established as required on supplied facts | Reassess if employee data, monitoring, or national-law triggers enter scope |
+| Prior consultation with supervisory authority (Art. 36) | To be determined after control testing | Required before processing if high residual risk remains in the absence of measures |
 
 ## 10. Open Items and Evidence
 
@@ -219,6 +219,6 @@ The processing purpose is specific: predict churn risk to enable proactive reten
 
 ---
 
-## Disclaimer
+## Source note
 
-This DPIA supports compliance workflows and does not constitute legal advice. The resulting assessment must be reviewed and approved by your Data Protection Officer and qualified counsel.
+Source mode: fictional embedded example. This DPIA supports compliance workflows and does not constitute legal advice. Validate conclusions against current GDPR, supervisory guidance, and applicable law. If a DPO is designated, seek and document the DPO’s advice; DPO approval is not stated here as a universal GDPR requirement.

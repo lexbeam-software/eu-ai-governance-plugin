@@ -1,69 +1,39 @@
-# Legal Disclaimer
+# Legal and Use Notice
 
-## Important Notice
+Last reviewed: 6 August 2026
 
-This plugin is provided as an **orientation tool** for understanding the EU AI Act (Regulation (EU) 2024/1689) and related regulatory frameworks. It is **not legal advice** and does not constitute a lawyer-client relationship.
+## What this project is
 
-## No Rechtsdienstleistung (German Rechtsdienstleistungsgesetz / RDG)
+EU AI Governance is open-source workflow software and reference material. It helps users organise facts, retrieve legal sources, structure assessments, and draft governance artifacts. It is not a law firm, legal opinion, compliance certification, conformity assessment, or substitute for professional judgment.
 
-**Lexbeam Software erbringt keine Rechtsdienstleistungen im Sinne des § 2 Rechtsdienstleistungsgesetz (RDG).** Das Plugin ist eine technische Analyseunterstützung zur allgemeinen Orientierung im Regulierungsrahmen des AI Acts und verwandter Rechtsvorschriften. Es ist **keine Rechtsberatung im Einzelfall**, sondern eine standardisierte, regelbasierte Auswertung durch Software, die der Nutzer in seiner eigenen Umgebung auf eigene Sachverhalte anwendet.
+Outputs depend on the facts and source material supplied. They may be incomplete, outdated, or wrong. Before relying on an output, verify the cited provision against an official source, confirm the system role and intended purpose, and obtain review appropriate to the decision and jurisdiction.
 
-**Die Nutzung des Plugins begründet kein Mandatsverhältnis.** Für die rechtliche Prüfung konkreter Einzelfälle, insbesondere Einstufungen als Hochrisiko-KI-System, Vertragsverhandlungen unter dem AI Act, Grundrechte-Folgenabschätzungen (Art. 27), und regulatorische Stellungnahmen, ist qualifizierter Rechtsrat durch eine zugelassene Rechtsanwältin oder einen zugelassenen Rechtsanwalt erforderlich. Lexbeam Software ist keine Rechtsanwaltsgesellschaft und ist auch nicht nach § 10 RDG registriert.
+## German legal-services boundary
 
-**English summary.** Lexbeam Software does not provide Rechtsdienstleistungen within the meaning of § 2 RDG (German Legal Services Act). The plugin is a technical, rule-based analysis tool that the user runs in their own environment against their own facts. Use of the plugin does not establish an attorney-client relationship. For case-specific legal analysis, engage a registered Rechtsanwalt / licensed attorney.
+The project is designed as general information and working support for professional users. Whether a particular use constitutes a legal service under the German Rechtsdienstleistungsgesetz depends on the facts, the user, the workflow, and the degree of individual legal assessment. This notice does not make a categorical determination under the RDG.
 
-## No Product Liability under Produkthaftungsgesetz (PHG / EU Directive 2024/2853)
+Do not use generated output as an unreviewed legal opinion, external filing, regulator submission, employee decision, credit decision, or other consequential determination.
 
-**Die EU-Produkthaftungsrichtlinie 2024/2853** wird in Deutschland durch das novellierte Produkthaftungsgesetz (PHG) mit Wirkung zum **9. Dezember 2026** umgesetzt. Nach dem neuen Rahmen kann Software als "Produkt" im Sinne des PHG qualifizieren.
+## No certification or continuing-update promise
 
-**Dieses Plugin wird als freie Open-Source-Software unter Apache 2.0 bereitgestellt.** Es wird nicht als kommerzielles Produkt in den Verkehr gebracht. Lexbeam tritt bei der Bereitstellung dieses Plugins nicht als Wirtschaftsakteur im Sinne von § 2 PHG-neu auf. Nutzer laden das Plugin selbst herunter, installieren es in ihrer eigenen Umgebung und betreiben es auf eigene Verantwortung für eigene Zwecke.
+The project does not certify that an organisation, AI system, model, policy, contract, or evidence pack complies with Regulation (EU) 2024/1689, the GDPR, national law, technical standards, or sector rules. A source date records the material reviewed; it is not a promise of continuous monitoring.
 
-**Das Plugin wird "wie besehen" bereitgestellt, ohne jede Gewährleistung hinsichtlich Zweckerfüllung, regulatorischer Konformität oder fortlaufender inhaltlicher Richtigkeit.** Die Nutzer sind allein verantwortlich dafür, Ergebnisse gegen aktuelle amtliche Quellen zu validieren, auf ihren konkreten Sachverhalt anzupassen und in ihre eigenen Kontroll- und Aufsichtsverfahren einzubinden.
+The GitHub release is the source of truth for this project. Copies distributed through third-party platforms may lag behind it. Check the version and changelog before use.
 
-**Aus der Nutzung dieses Plugins entstehen keine Ansprüche nach PHG gegen Lexbeam.** Die Haftungsausschluss- und Haftungsbegrenzungsklauseln der Apache-2.0-Lizenz gelten uneingeschränkt. Lexbeam übernimmt keine Produkthaftung für Klassifikations- oder Analyseergebnisse, für Schäden aus dem Vertrauen auf solche Ergebnisse, oder für etwaige Mängel des Plugins selbst.
+## License, warranty, and liability
 
-**Für den produktiven Einsatz in regulierten Umgebungen**, zum Beispiel innerhalb einer Compliance-Funktion eines beaufsichtigten Finanzinstituts, eines Gesundheitsdienstleisters oder einer öffentlichen Stelle, sollte vor Nutzung dieses Plugins für Entscheidungen mit Außenwirkung qualifizierter Rechtsrat und eine interne Freigabe eingeholt werden.
+The project is licensed under the Apache License 2.0. The warranty disclaimer and limitation of liability in [LICENSE](LICENSE) apply according to their terms and only to the extent permitted by applicable law. Nothing in this notice excludes, limits, or predetermines liability where applicable law does not permit that result. This project makes no categorical claim about whether product-liability, professional-liability, consumer-protection, or other rules apply to a particular distribution or use.
 
-**English summary.** The EU Product Liability Directive 2024/2853 is transposed in Germany as the revised Produkthaftungsgesetz (PHG), effective 9 December 2026. Software can qualify as a "product" under the new framework. This plugin is free open-source software under Apache 2.0. It is not placed on the market as a commercial product. Lexbeam does not act as an economic operator ("Wirtschaftsakteur") under § 2 PHG-neu in providing this plugin. The plugin is provided "as is" without warranty of fitness, regulatory compliance, or ongoing accuracy. No claim under PHG arises from use of this plugin. Users validate outputs, integrate them into their own controls, and accept sole responsibility for compliance decisions. For commercial deployment in regulated environments, engage qualified legal counsel and obtain internal sign-off before relying on any output.
+## Data and connected services
 
-## No Guarantee of Accuracy or Completeness
+Core workflow content can be used from local files. When a user enables or invokes an MCP connector, requests and selected context may be sent to that connector under its own terms and privacy practices. The bundled Lexbeam EU AI Act MCP is a public, no-auth service for source-grounded retrieval. Other connectors may require authentication. Review each connected service before sending personal, confidential, privileged, trade-secret, or regulated information.
 
-The classifications, assessments, and recommendations generated by this plugin:
+Apply data minimisation. Redact or pseudonymise materials where possible, follow organisational retention rules, and do not upload information that the selected service is not authorised to process.
 
-- Are based on a simplified interpretation of complex regulatory requirements
-- May not reflect the latest amendments, delegated acts, or implementing regulations
-- Do not account for Member State-specific transpositions or sector-specific rules
-- Cannot replace a case-by-case legal analysis of your specific situation
+## Official sources
 
-The EU AI Act framework is actively evolving. Standards, guidelines, and enforcement practices change regularly. Verify against the current official sources before relying on any output.
+- [Regulation (EU) 2024/1689, official EUR-Lex record](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+- [Regulation (EU) 2026/1744, official EUR-Lex record](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32026R1744)
+- [Consolidated EU AI Act used for this release, CELEX 02024R1689-20260727](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02024R1689-20260727)
 
-## Use at Your Own Risk
-
-You are solely responsible for any compliance decisions made based on this tool's output. Lexbeam Software and its contributors accept no liability for:
-
-- Incorrect or incomplete risk classifications
-- Regulatory penalties, fines, or enforcement actions
-- Business decisions based on the tool's assessments
-- Damages of any kind arising from use of this plugin
-
-## Professional Advice Required
-
-Before making any compliance decisions based on this tool's output, **consult qualified legal counsel** with expertise in EU AI regulation. This is especially important for:
-
-- High-risk AI system classifications that trigger mandatory obligations
-- Fundamental rights impact assessments (Art. 27)
-- Vendor contract negotiations involving AI Act deployer obligations
-- Evidence packs intended for regulatory audits or conformity assessments
-
-## Open Source License
-
-This plugin is licensed under Apache 2.0, which includes a warranty disclaimer and limitation of liability. See the [LICENSE](LICENSE) file for the full legal text.
-
-## Contact
-
-For questions about this disclaimer or the plugin's limitations:
-**Lexbeam Software**, [lexbeam.com](https://lexbeam.com)
-
----
-
-*This disclaimer applies to all versions of the EU AI Governance Plugin and all output generated by its commands and skills.*
+Report suspected legal or technical errors through the repository’s [issue tracker](https://github.com/lexbeam-software/eu-ai-governance-plugin/issues).
