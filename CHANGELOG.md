@@ -2,6 +2,19 @@
 
 All notable changes are documented here.
 
+## [1.1.1] - 2026-09-28
+
+### Added
+
+- Data and privacy section in the README: what the plugin runs and what reaches the connected server
+- Display name "Lexbeam EU AI Governance", homepage, repository and keywords in the plugin manifest
+- `.codex-plugin/plugin.json` and `.codex-plugin/mcp.json`, so the same skills and server install in ChatGPT and Codex
+- Plugin logo and icon under `assets/`
+
+### Changed
+
+- CONNECTORS.md names the checked service version (1.6.0) and links the server's privacy policy
+
 ## [1.1.0] - 2026-08-06
 
 ### Added
