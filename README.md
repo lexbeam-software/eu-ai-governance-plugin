@@ -1,6 +1,6 @@
 # EU AI Governance Plugin
 
-![Version](https://img.shields.io/badge/version-1.1.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.1-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![EU AI Act](https://img.shields.io/badge/legal%20baseline-6%20Aug%202026-purple)
 ![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%2B%20Cowork-black)
@@ -121,6 +121,22 @@ The local validator checks component structure, versions, links, license presenc
 ## Distribution and version integrity
 
 GitHub releases are the source of truth. Before using a Lawve or other third-party copy, compare its version, license, and legal baseline with this repository. Distribution packages should be produced from a validated release commit.
+
+## Data and privacy
+
+What the plugin runs and sends:
+
+- Skills and commands are Markdown instructions for Claude. The plugin ships no hooks and runs no scripts on
+  your machine; `scripts/validate.mjs` is a contributor check, not part of the plugin.
+- The one bundled connection is the Lexbeam EU AI Act MCP at `https://mcp.lexbeam.com/mcp`, with no login.
+  When Claude calls one of its tools, the tool arguments (for example a description of the AI system to
+  classify) and the request data (IP address, time, URL, user agent) reach that endpoint. It runs
+  statelessly: it stores no tool arguments or results, sets no cookies and runs no analytics. It is hosted
+  by Railway. Privacy policy: [PRIVACY.md](https://github.com/lexbeam-software/eu-ai-act-mcp/blob/main/PRIVACY.md).
+- Nothing else leaves your session through the plugin. Organisational sources such as Slack or Microsoft 365
+  are never connected by the plugin; see [CONNECTORS.md](CONNECTORS.md).
+- Keep personal, confidential and privileged information out of tool arguments; the tools do not need it.
+  Without the connection the skills work from their embedded references, and nothing reaches Lexbeam.
 
 ## License and attribution
 
