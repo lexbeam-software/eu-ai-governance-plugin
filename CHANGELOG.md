@@ -2,6 +2,12 @@
 
 All notable changes are documented here.
 
+## [1.1.2] - 2026-09-29
+
+### Added
+
+- Impressum and Datenschutz links in the plugin site's footer (lexbeam.com legal pages)
+
 ## [1.1.1] - 2026-09-28
 
 ### Added

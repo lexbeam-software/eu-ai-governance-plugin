@@ -1,6 +1,6 @@
 # EU AI Governance Plugin
 
-![Version](https://img.shields.io/badge/version-1.1.1-blue)
+![Version](https://img.shields.io/badge/version-1.1.2-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![EU AI Act](https://img.shields.io/badge/legal%20baseline-6%20Aug%202026-purple)
 ![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%2B%20Cowork-black)
