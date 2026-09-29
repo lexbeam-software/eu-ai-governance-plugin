@@ -8,6 +8,12 @@ All notable changes are documented here.
 
 - Impressum and Datenschutz links in the plugin site's footer (lexbeam.com legal pages)
 
+### Changed
+
+- ChatGPT and Codex packaging follows OpenAI's portable layout: `plugin.json` (agent-plugins 1.0.0) and `mcp.json` at
+  the plugin root, the interface block under `extensions.com.openai`; `.codex-plugin/` is removed, since the root
+  manifest supersedes that compatibility fallback
+
 ## [1.1.1] - 2026-09-28
 
 ### Added
