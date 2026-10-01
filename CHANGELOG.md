@@ -7,6 +7,8 @@ All notable changes are documented here.
 ### Added
 
 - Impressum and Datenschutz links in the plugin site's footer (lexbeam.com legal pages)
+- CONNECTORS.md names the checked service version 1.6.2 (tool results without links, the Art. 50(2) transition
+  answer); every tool the skills reference is live
 
 ### Changed
 
