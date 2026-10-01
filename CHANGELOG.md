@@ -2,6 +2,14 @@
 
 All notable changes are documented here.
 
+## [1.1.3] - 2026-10-01
+
+### Changed
+
+- CONNECTORS.md names the checked service version 1.7.0: every tool rejects arguments its schema does not name,
+  FAQ answers state whether they matched, and `Artikel 4` resolves. Every tool the skills reference is live under
+  the same name
+
 ## [1.1.2] - 2026-09-29
 
 ### Added

@@ -1,7 +1,7 @@
 {
   "name": "eu-ai-governance",
   "displayName": "Lexbeam EU AI Governance",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Source-grounded EU AI Act governance for European legal, compliance, privacy, security, and AI governance teams: classification, DPIA and FRIA workflows, vendor review, policy review, and evidence packs.",
   "author": {
     "name": "Lexbeam Software",
