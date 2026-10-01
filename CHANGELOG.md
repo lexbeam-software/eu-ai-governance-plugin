@@ -2,6 +2,20 @@
 
 All notable changes are documented here.
 
+## [1.1.2] - 2026-09-29
+
+### Added
+
+- Impressum and Datenschutz links in the plugin site's footer (lexbeam.com legal pages)
+- CONNECTORS.md names the checked service version 1.6.2 (tool results without links, the Art. 50(2) transition
+  answer); every tool the skills reference is live
+
+### Changed
+
+- ChatGPT and Codex packaging follows OpenAI's portable layout: `plugin.json` (agent-plugins 1.0.0) and `mcp.json` at
+  the plugin root, the interface block under `extensions.com.openai`; `.codex-plugin/` is removed, since the root
+  manifest supersedes that compatibility fallback
+
 ## [1.1.1] - 2026-09-28
 
 ### Added
