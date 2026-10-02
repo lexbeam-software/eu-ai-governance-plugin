@@ -9,6 +9,8 @@
   },
   "homepage": "https://lexbeam-software.github.io/eu-ai-governance-plugin/",
   "privacyPolicyUrl": "https://github.com/lexbeam-software/eu-ai-act-mcp/blob/main/PRIVACY.md",
+  "documentationUrl": "https://github.com/lexbeam-software/eu-ai-governance-plugin#readme",
+  "termsOfServiceUrl": "https://github.com/lexbeam-software/eu-ai-governance-plugin/blob/main/LEGAL-DISCLAIMER.md",
   "repository": "https://github.com/lexbeam-software/eu-ai-governance-plugin",
   "license": "Apache-2.0",
   "keywords": [
