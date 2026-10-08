@@ -2,6 +2,13 @@
 
 All notable changes are documented here.
 
+## [1.1.4] - 2026-10-08
+
+### Changed
+
+- The manifest names `./assets/logo.png` as the directory listing icon (`icon`); until now the listing depended on an icon uploaded in the developer portal.
+- `assets/icon.png` now holds the same 512 x 512 logo as `assets/logo.png` (was 256 x 256).
+
 ## [1.1.3] - 2026-10-01
 
 ### Changed
