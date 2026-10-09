@@ -2,6 +2,14 @@
 
 All notable changes are documented here.
 
+## [1.1.4] - 2026-10-09
+
+### Changed
+
+- The directory listing gets its product icon: `.claude-plugin/plugin.json` names `./assets/logo.png` as `icon`, and
+  `assets/icon.png`, which the developer portal shows and the OpenAI `composerIcon` names, now holds the same
+  512 x 512 PNG instead of the 256 x 256 one.
+
 ## [1.1.3] - 2026-10-01
 
 ### Changed
