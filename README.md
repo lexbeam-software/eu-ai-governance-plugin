@@ -1,6 +1,6 @@
 # EU AI Governance Plugin
 
-![Version](https://img.shields.io/badge/version-1.2.0-blue)
+![Version](https://img.shields.io/badge/version-1.2.1-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![EU AI Act](https://img.shields.io/badge/legal%20baseline-6%20Aug%202026%20%C2%B7%20standards%2020%20Oct%202026-purple)
 ![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%2B%20Cowork-black)
@@ -8,7 +8,7 @@
 
 Source-grounded EU AI Act governance for European in-house legal, compliance, privacy, security, and AI governance teams. Classify systems, coordinate DPIA and FRIA workflows, review vendors and policies, and assemble traceable evidence packs.
 
-[Website](https://lexbeam-software.github.io/eu-ai-governance-plugin/) · [Lawve](https://lawve.ai/%40werner-plutat/plugin/eu-ai-governance) · [Issues](https://github.com/lexbeam-software/eu-ai-governance-plugin/issues)
+[Website](https://lexbeam-software.github.io/eu-ai-governance-plugin/) · [Lawve](https://lawve.ai/@werner-plutat/plugin/eu-ai-governance) · [Issues](https://github.com/lexbeam-software/eu-ai-governance-plugin/issues)
 
 ## Why it is useful
 
@@ -45,7 +45,7 @@ Requires Claude Code or Cowork with plugin support. The embedded workflow conten
 2. In Claude, open **Settings → Plugins → Add → Create plugin → Upload a plugin**.
 3. Upload the ZIP and start with `/eu-ai-governance:ai-act-status`.
 
-Verify that the uploaded package shows version `1.2.0`, Apache 2.0, the 6 August 2026 legal baseline, and the 20 October 2026 review of standards and guidance. Do not upload the stale Lawve v1 package.
+Verify that the uploaded package shows version `1.2.1`, Apache 2.0, the 6 August 2026 legal baseline, and the 20 October 2026 review of standards and guidance. Do not upload the stale Lawve v1 package.
 
 ## Commands
 

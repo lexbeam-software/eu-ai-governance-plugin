@@ -2,6 +2,21 @@
 
 All notable changes are documented here.
 
+## [1.2.1] - 2026-10-20
+
+### Fixed
+
+- The Lawve link in the README and the site footer used `%40werner-plutat`, which Lawve answers with 404; it now
+  uses `@werner-plutat`
+
+### Changed
+
+- `.claude-plugin/plugin.json` names `./assets/logo.png` as the plugin icon, the field Anthropic's directory reads
+  for a listing; `assets/icon.png` (the OpenAI composer icon) holds the same 512 x 512 PNG instead of 256 x 256.
+  Folded in from PR 10, which had prepared it as 1.1.4
+- DISTRIBUTION-CHECKLIST.md compares the Lawve download with the release file by file, since Lawve repacks uploaded
+  archives and its download never carries the release asset's SHA-256
+
 ## [1.2.0] - 2026-10-20
 
 ### Added

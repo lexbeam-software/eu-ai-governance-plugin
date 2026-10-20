@@ -1,6 +1,6 @@
 {
   "name": "eu-ai-governance-plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "description": "Validation harness for the Lexbeam EU AI Governance plugin",
   "license": "Apache-2.0",
