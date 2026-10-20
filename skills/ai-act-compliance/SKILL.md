@@ -19,10 +19,10 @@ Score each control `effective`, `partly effective`, `absent`, or `not establishe
 2. **Prohibited-practice control**: complete Article 5 screening, approval gate, monitoring, and escalation.
 3. **AI literacy**: proportionate measures for providers’ and deployers’ staff and other operators under Article 4; do not invent a prescribed curriculum or guarantee.
 4. **Classification and change control**: Article 6 analysis, Article 6(3) evidence where used, Article 25 role-change triggers, and periodic reclassification.
-5. **High-risk provider controls**: Articles 9 to 17, 18 to 21, conformity assessment, declaration, CE marking, registration, post-market monitoring, and incident reporting, where applicable.
+5. **High-risk provider controls**: Articles 9 to 17, 18 to 21, conformity assessment, declaration, CE marking, registration, post-market monitoring, and incident reporting, where applicable. For Article 17, record whether EN 18286:2026 is applied (harmonised standard, voluntary, presumption of conformity for the Article 17 requirements it covers) or another approach, and treat an ISO/IEC 42001 certificate as evidence of a management system, not as AI Act conformity. For Annex III point 1 systems, check the Article 43(1) route: no harmonised standard covers the Section 2 requirements yet.
 6. **High-risk deployer controls**: Article 26 instructions, oversight, input-data relevance, monitoring, logs, workplace notice, affected-person notice, cooperation, DPIA linkage, and FRIA only where Article 27 applies.
 7. **GPAI controls**: distinguish Article 53 baseline duties from Article 55 systemic-risk duties and record the model-provider evidence relied upon.
-8. **Transparency**: assess each Article 50 obligation and transition separately.
+8. **Transparency**: assess each Article 50 obligation and transition separately. Record whether the organisation adheres to the Code of Practice on Transparency of AI-generated Content (found adequate for Article 50(2), (4) and (5) on 8 July 2026); without adherence, document the alternative, equivalently adequate means for marking and labelling that the Commission's guidelines of 20 July 2026 expect.
 9. **Evidence and assurance**: approvals, versioning, change logs, testing, complaints, incidents, supplier evidence, and retention rules.
 
 ## Assess by operative date
@@ -32,7 +32,8 @@ Use `euaiact_check_deadlines`; do not reuse proposal-era backstop language. At m
 - duties already applicable by 2 February 2025 and 2 August 2025
 - Regulation (EU) 2026/1744 changes in force from 27 July 2026
 - Article 50 and Commission GPAI enforcement from 2 August 2026
-- new Article 5 points from 2 December 2026
+- new Article 5 points from 2 December 2026, and the Article 111(4) date for synthetic-content systems already on the market to meet Article 50(2)
+- the EN 18286:2026 reference in force since 14 October 2026 (a presumption-of-conformity date for Article 17, not an application date)
 - legacy GPAI date of 2 August 2027
 - Annex III high-risk date of 2 December 2027
 - Annex I high-risk date of 2 August 2028

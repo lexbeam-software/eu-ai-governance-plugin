@@ -20,5 +20,11 @@ Use this matrix during substantive review. Read the cited provision in full; the
 | LOG-19 | Article 19 is provider retention of automatically generated logs under its control, generally at least six months | Consolidated Article 19 |
 | CONFORMITY | Conformity assessment, declaration, CE marking, and registration are Articles 43, 47, 48, and 49 | Consolidated Articles 43, 47, 48, and 49 |
 | DATE-HR | Annex III and Annex I high-risk dates are unconditional 2 December 2027 and 2 August 2028 dates | Regulation (EU) 2026/1744, Article 1(40)(b); consolidated Article 113 |
+| HS-EN18286 | The reference of EN 18286:2026 (Article 17 quality management system) was published on 14 October 2026, without a restriction, by an implementing decision in force that day | Commission Implementing Decision (EU) 2026/2274, Articles 1 and 2 and Annex |
+| HS-SCOPE | EN 18286 covers Article 17, not the Chapter III, Section 2 requirements; a harmonised standard is voluntary and presumes conformity only as far as it covers a requirement | Consolidated Article 40(1); Implementing Decision (EU) 2026/2274, recitals 1 and 3 |
+| A43-BIO | For Annex III point 1, Annex VI is available only where harmonised standards or common specifications were applied for Section 2; otherwise Annex VII | Consolidated Article 43(1) |
+| ISO-42001 | ISO/IEC 42001 is not a harmonised standard under the AI Act and gives no presumption of conformity | Implementing Decision (EU) 2026/2274, Annex; Commission announcement of 19 October 2026 |
+| A17-SMC | Article 17(2) names SMEs, start-ups and SMCs for proportionate implementation; Article 63(1) lets SMEs without partner or linked enterprises meet certain elements in a simplified manner | Consolidated Articles 17(2) and 63(1) |
+| GUIDE-STATUS | The Article 6(5) classification guidelines exist only as a draft (19 May 2026); the Article 50 guidelines are final (20 July 2026); the transparency code was found adequate on 8 July 2026; none is binding law | Consolidated Articles 6(5) and 50(7); Commission pages updated 19 October 2026 |
 
-Release baseline: CELEX `02024R1689-20260727` and CELEX `32026R1744`, reviewed 6 August 2026.
+Release baseline: CELEX `02024R1689-20260727` and CELEX `32026R1744`, reviewed 6 August 2026; CELEX `32026D2274` and the Commission's AI Act pages of 19 October 2026, reviewed 20 October 2026.

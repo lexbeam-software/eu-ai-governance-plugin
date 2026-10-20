@@ -24,6 +24,7 @@ Create:
 - evidence index linking each requirement to an artifact and owner
 - selected artifacts or stable references to them
 - decision and change log
+- standards register: per requirement, the harmonised standard applied (reference and Official Journal act), other standards, or the solution adopted
 - missing-evidence action list
 - source note
 

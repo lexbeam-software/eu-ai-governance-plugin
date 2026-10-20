@@ -2,6 +2,30 @@
 
 All notable changes are documented here.
 
+## [1.2.0] - 2026-10-20
+
+### Added
+
+- Section 7 of the decision map: the status of harmonised standards and Commission guidance as of 20 October 2026.
+  EN 18286:2026, the quality management system standard for Article 17, is the first harmonised standard with an
+  Official Journal reference (Commission Implementing Decision (EU) 2026/2274, published and in force on
+  14 October 2026); no harmonised standard covers the Chapter III, Section 2 requirements yet. The draft Article 6(5)
+  classification guidelines, the final Article 50 guidelines and the transparency code of practice carry their status
+- Six protected claims in the legal claim matrix (EN 18286 publication and scope, the Article 43(1) biometric route,
+  ISO/IEC 42001, Article 17(2) and 63(1), the guidance status)
+- A standards field in the evidence index and a "Record the standards applied" step in `governance-documentation`;
+  the evidence pack lists a standards register
+
+### Changed
+
+- `governance-documentation`, `ai-act-compliance` and `ai-act-classification` name EN 18286:2026 for Article 17,
+  the Annex VI condition for Annex III point 1 systems, the code of practice for Article 50 and the draft status of
+  the classification guidelines; an ISO/IEC 42001 certificate is never presented as AI Act conformity
+- The legal source protocol treats harmonised standards as their own category (verify the implementing decision;
+  voluntary; presumption only as far as covered) and keeps draft guidelines labelled as drafts
+- README and CONNECTORS.md: the 14 October 2026 standards date, the Article 111(4) transition, and the
+  `euaiact://standards` resource from service version 1.7.3, with section 7 of the decision map as the fallback
+
 ## [1.1.3] - 2026-10-01
 
 ### Changed

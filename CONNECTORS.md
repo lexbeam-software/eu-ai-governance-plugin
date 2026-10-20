@@ -11,7 +11,7 @@ The plugin bundles one read-only legal source connection. Commands must disclose
 - Package: `@lexbeam-software/eu-ai-act-mcp`
 - Repository: <https://github.com/lexbeam-software/eu-ai-act-mcp>
 
-Use it to classify systems, retrieve versioned article summaries with official EUR-Lex URLs, check deadlines and obligations, assess the Article 6(3) exception, and build Annex IV documentation checklists. `euaiact_get_article` does not return the full provision; follow its official URL and read the complete text before making a negative legal claim or relying on exact wording. Record the MCP package or server version reported by the tool when available.
+Use it to classify systems, retrieve versioned article summaries with official EUR-Lex URLs, check deadlines and obligations, assess the Article 6(3) exception, and build Annex IV documentation checklists. From service version 1.7.3 the `euaiact://standards` resource lists the harmonised standards with an Official Journal reference and the status of Commission guidance; with an earlier service, use section 7 of the decision map. `euaiact_get_article` does not return the full provision; follow its official URL and read the complete text before making a negative legal claim or relying on exact wording. Record the MCP package or server version reported by the tool when available.
 
 The server connects automatically when the plugin is enabled. Tool invocation remains under Claude’s normal permission model. The endpoint receives the arguments submitted to its tools; do not include confidential or personal information that is unnecessary for the legal query.
 
@@ -30,6 +30,6 @@ Slack, Atlassian, Microsoft 365, Box, and similar work systems are not auto-conn
 
 The embedded skills and commands remain usable without MCP. Local-only results must state:
 
-> Source mode: embedded fallback. Legal reference reviewed 6 August 2026 against CELEX 02024R1689-20260727. Verify current law before reliance.
+> Source mode: embedded fallback. Legal reference reviewed 6 August 2026 against CELEX 02024R1689-20260727; standards and guidance status reviewed 20 October 2026. Verify current law before reliance.
 
 Connected services are governed by their own terms and privacy practices. See [LEGAL-DISCLAIMER.md](LEGAL-DISCLAIMER.md).

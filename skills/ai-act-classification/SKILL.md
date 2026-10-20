@@ -19,6 +19,8 @@ Read [AI-ACT-DECISION-MAP.md](../../references/AI-ACT-DECISION-MAP.md) and follo
 
 If MCP is unavailable, use the embedded decision map, disclose fallback mode, and mark current-law verification as required.
 
+The Commission's Article 6(5) guidelines on high-risk classification exist only as a draft (published 19 May 2026). Use their examples as interpretive support labelled `draft Commission guidance`, and never let an example override Article 6 or Annex III.
+
 ## Gather facts
 
 Ask only for facts that can change the outcome:

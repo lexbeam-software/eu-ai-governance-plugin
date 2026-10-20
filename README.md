@@ -1,6 +1,6 @@
 # EU AI Governance Plugin
 
-![Version](https://img.shields.io/badge/version-1.1.3-blue)
+![Version](https://img.shields.io/badge/version-1.2.0-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![EU AI Act](https://img.shields.io/badge/legal%20baseline-6%20Aug%202026-purple)
 ![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%2B%20Cowork-black)
@@ -86,7 +86,7 @@ The connected server is also available independently:
 
 ## Current legal baseline
 
-Embedded content was reviewed on **6 August 2026** against CELEX `02024R1689-20260727` and Regulation (EU) 2026/1744.
+Embedded content was reviewed on **6 August 2026** against CELEX `02024R1689-20260727` and Regulation (EU) 2026/1744. The status of harmonised standards and Commission guidance was reviewed on **20 October 2026** against Commission Implementing Decision (EU) 2026/2274 and the Commission's AI Act pages of 19 October 2026.
 
 | Date | Milestone |
 |---|---|
@@ -94,12 +94,13 @@ Embedded content was reviewed on **6 August 2026** against CELEX `02024R1689-202
 | 2 August 2025 | GPAI duties and most penalty provisions apply |
 | 27 July 2026 | Regulation (EU) 2026/1744 enters into force |
 | 2 August 2026 | Article 50 and Commission GPAI enforcement apply |
-| 2 December 2026 | New Article 5(1)(ba), (bb), 5(1a), and 5(1b) apply |
+| 14 October 2026 | The reference of EN 18286:2026, the harmonised standard for the Article 17 quality management system, is published in the Official Journal |
+| 2 December 2026 | New Article 5(1)(ba), (bb), 5(1a), and 5(1b) apply; synthetic-content systems already on the market must meet Article 50(2) (Article 111(4)) |
 | 2 August 2027 | Legacy GPAI transition date |
 | 2 December 2027 | Article 6(2)/Annex III high-risk rules apply |
 | 2 August 2028 | Article 6(1)/Annex I high-risk rules apply |
 
-The 2027 and 2028 dates are enacted, unconditional calendar dates. They are not proposal-era backstops.
+The 2027 and 2028 dates are enacted, unconditional calendar dates. They are not proposal-era backstops. The 14 October 2026 date starts a presumption of conformity for the Article 17 requirements EN 18286 covers; applying the standard is voluntary, and no harmonised standard covers the Chapter III, Section 2 requirements yet.
 
 ## Examples
 

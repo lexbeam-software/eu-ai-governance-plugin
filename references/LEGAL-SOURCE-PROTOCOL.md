@@ -8,20 +8,22 @@ Use this protocol for every legal classification, deadline, duty, exception, pro
 2. Follow the official URL and read the complete decisive provision. The MCP article tool is a locator and summary, not a reproduction of the article text.
 3. Prefer the consolidated official text and identify the consolidation date.
 4. For amended wording, verify the amending act in the Official Journal.
-5. Treat Commission proposals, press releases, FAQs, and guidance as non-law unless the question concerns them specifically.
-6. Label guidance, national law, organisational policy, and recommended practice separately from binding EU AI Act duties.
+5. For a harmonised standard, verify the Commission implementing decision that publishes its reference in the Official Journal, its date, and any restriction. A harmonised standard is voluntary and presumes conformity only for the requirements it covers; its text is not law.
+6. Treat Commission proposals, press releases, FAQs, and guidance as non-law unless the question concerns them specifically. Draft guidelines stay labelled as drafts.
+7. Label harmonised standards, guidance, national law, organisational policy, and recommended practice separately from binding EU AI Act duties.
 
 Release baseline:
 
 - Regulation (EU) 2024/1689 as consolidated on 27 July 2026, CELEX `02024R1689-20260727`
 - Regulation (EU) 2026/1744, CELEX `32026R1744`, in force since 27 July 2026
-- Embedded content reviewed: 6 August 2026
+- Commission Implementing Decision (EU) 2026/2274, CELEX `32026D2274`: reference of EN 18286:2026, in force since 14 October 2026
+- Embedded content reviewed: 6 August 2026; standards and guidance status reviewed: 20 October 2026
 
 ## Required output discipline
 
 - Cite the exact article, paragraph, point, and Annex item where relevant.
 - State the actor: provider, deployer, importer, distributor, authorised representative, product manufacturer, or GPAI model provider.
-- State whether the conclusion is binding law, guidance, national-law issue, contractual control, or recommended practice.
+- State whether the conclusion is binding law, a harmonised standard (voluntary, with a presumption of conformity as far as it covers the requirement), guidance, national-law issue, contractual control, or recommended practice.
 - Separate facts supplied by the user from assumptions and unresolved facts.
 - Give an `as of` date and source mode.
 - Never infer that a duty, exception, or prohibition does not exist from a failed search. Read the complete relevant provision before making a negative legal claim.
