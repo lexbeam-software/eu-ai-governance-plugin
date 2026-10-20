@@ -6,7 +6,7 @@ The plugin bundles one read-only legal source connection. Commands must disclose
 
 - Endpoint: `https://mcp.lexbeam.com/mcp`
 - Authentication: none
-- Service version checked for this release: `1.7.0` (1 October 2026)
+- Service version checked for this release: `1.7.3` (20 October 2026; adds the `euaiact://standards` resource)
 - Privacy policy: <https://github.com/lexbeam-software/eu-ai-act-mcp/blob/main/PRIVACY.md>
 - Package: `@lexbeam-software/eu-ai-act-mcp`
 - Repository: <https://github.com/lexbeam-software/eu-ai-act-mcp>

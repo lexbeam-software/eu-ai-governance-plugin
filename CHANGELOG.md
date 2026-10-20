@@ -24,7 +24,8 @@ All notable changes are documented here.
 - The legal source protocol treats harmonised standards as their own category (verify the implementing decision;
   voluntary; presumption only as far as covered) and keeps draft guidelines labelled as drafts
 - README and CONNECTORS.md: the 14 October 2026 standards date, the Article 111(4) transition, and the
-  `euaiact://standards` resource from service version 1.7.3, with section 7 of the decision map as the fallback
+  `euaiact://standards` resource from service version 1.7.3, with section 7 of the decision map as the fallback;
+  CONNECTORS.md names 1.7.3 as the checked service version (live on mcp.lexbeam.com since 20 October 2026)
 
 ## [1.1.3] - 2026-10-01
 
