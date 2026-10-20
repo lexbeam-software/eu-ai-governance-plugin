@@ -13,7 +13,7 @@ Use this checklist for every release so GitHub, GitHub Pages, Lawve, and uploade
 ## Publish and reconcile
 
 1. Publish the reviewed commit and GitHub release, then verify GitHub Pages serves the same version and wording.
-2. Upload the exact validated ZIP to Lawve. Set the listing to version `1.1.0`, license `Apache-2.0`, and legal baseline `6 August 2026`.
+2. Upload the exact validated ZIP to Lawve. Set the listing to the release version, license `Apache-2.0`, and the legal baseline and review dates stated in the README.
 3. Compare the Lawve download hash with the GitHub release asset. Do not publish a rebuilt or edited archive under the same version.
 4. Test one command from each installation route, including the namespaced form `/eu-ai-governance:ai-act-status`.
 5. Record the live URLs, hashes, checks, and any known limitations in the release notes.
