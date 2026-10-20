@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-1.2.0-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
-![EU AI Act](https://img.shields.io/badge/legal%20baseline-6%20Aug%202026-purple)
+![EU AI Act](https://img.shields.io/badge/legal%20baseline-6%20Aug%202026%20%C2%B7%20standards%2020%20Oct%202026-purple)
 ![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%2B%20Cowork-black)
 ![Validate](https://github.com/lexbeam-software/eu-ai-governance-plugin/actions/workflows/validate.yml/badge.svg)
 
@@ -15,7 +15,8 @@ Source-grounded EU AI Act governance for European in-house legal, compliance, pr
 - Six bounded commands for recurring governance work
 - Six reusable skills with role-specific workflows
 - Current enacted-law map for Regulation (EU) 2024/1689 as amended by Regulation (EU) 2026/1744
-- Bundled connection to Lexbeam’s open EU AI Act MCP, when connected tools are supported and permitted, for versioned article summaries and official links, classification, deadlines, obligations, Article 6(3), and Annex IV checks
+- Bundled connection to Lexbeam’s open EU AI Act MCP, when connected tools are supported and permitted, for versioned article summaries and official links, classification, deadlines, obligations, Article 6(3), Annex IV checks, and the status of harmonised standards
+- Harmonised standards kept apart from law: EN 18286:2026 for the Article 17 quality management system (presumption of conformity as far as it covers the requirements, voluntary), the requirements still without a standard, and ISO/IEC 42001 without presumption
 - Embedded fallback for local-only work, with an explicit source-date warning
 - Fact-specific DACH escalation instead of treating Germany, Austria, and Switzerland as one legal regime
 - Deterministic validation of manifests, links, versions, legal anchors, and stale-law regressions
@@ -44,7 +45,7 @@ Requires Claude Code or Cowork with plugin support. The embedded workflow conten
 2. In Claude, open **Settings → Plugins → Add → Create plugin → Upload a plugin**.
 3. Upload the ZIP and start with `/eu-ai-governance:ai-act-status`.
 
-Verify that the uploaded package shows version `1.1.0`, Apache 2.0, and the 6 August 2026 legal baseline. Do not upload the stale Lawve v1 package.
+Verify that the uploaded package shows version `1.2.0`, Apache 2.0, the 6 August 2026 legal baseline, and the 20 October 2026 review of standards and guidance. Do not upload the stale Lawve v1 package.
 
 ## Commands
 
@@ -65,7 +66,7 @@ Verify that the uploaded package shows version `1.1.0`, Apache 2.0, and the 6 Au
 | `ai-act-compliance` | Inventories, AI literacy, programme controls, gaps, and roadmaps |
 | `ai-vendor-assessment` | Provider evidence, DPA and contract review, model changes, incidents, and exit |
 | `dpia-ai` | DPIA triggers, people-centred risks, DPO advice, Article 36, and FRIA coordination |
-| `governance-documentation` | Annex IV, logs, conformity records, registrations, monitoring, and evidence indexes |
+| `governance-documentation` | Annex IV, logs, conformity records, registrations, monitoring, evidence indexes, and the standards applied (EN 18286 for Article 17) |
 | `risk-management` | Risk registers, controls, metrics, monitoring, and incident escalation |
 
 ## Source-grounding model
@@ -75,7 +76,7 @@ The plugin follows [a documented legal source protocol](references/LEGAL-SOURCE-
 1. Use the Lexbeam EU AI Act MCP when available.
 2. Use the MCP summary and official URL to locate the decisive provision, then read the complete official text before stating a prohibition, exception, duty, deadline, or negative legal conclusion.
 3. Prefer consolidated official text and verify amended wording against the amending act.
-4. Separate enacted law, guidance, national law, contractual controls, and recommended practice.
+4. Separate enacted law, harmonised standards, guidance, national law, contractual controls, and recommended practice.
 5. Report the source mode and as-of date.
 
 The connected server is also available independently:
