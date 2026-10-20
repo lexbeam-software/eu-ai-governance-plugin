@@ -72,7 +72,7 @@ An Annex III system is not high-risk only where it does not pose a significant r
 - 2 August 2025: GPAI obligations and the general penalties framework, except Article 101, apply
 - 27 July 2026: Regulation (EU) 2026/1744 enters into force; Articles 102 to 110 apply
 - 2 August 2026: Article 50 and Commission GPAI supervision/enforcement and Article 101 fines apply
-- 14 October 2026: Commission Implementing Decision (EU) 2026/2274 publishes the reference of EN 18286:2026 in the Official Journal and enters into force (a presumption-of-conformity date, not an application date of the Regulation)
+- 14 October 2026: Commission Implementing Decision (EU) 2026/2274 publishes the reference of EN 18286:2026 in the Official Journal and enters into force (per the Commission, the start of the Article 17 presumption of conformity; not an application date of the Regulation)
 - 2 December 2026: new Article 5(1)(ba), (bb), 5(1a), and 5(1b) apply; legacy systems under the Article 50(2) transition reach the marking date
 - 2 August 2027: legacy GPAI model obligations under Article 111(3)
 - 2 December 2027: Chapter III Sections 1 to 3 apply to Article 6(2)/Annex III high-risk systems
@@ -86,15 +86,15 @@ Status reviewed 20 October 2026 against Commission Implementing Decision (EU) 20
 
 ### Harmonised standards
 
-- EN 18286:2026, *Artificial intelligence - Quality management system for EU AI Act regulatory purposes* (CEN and CENELEC) is the first and only harmonised standard with an Official Journal reference. Commission Implementing Decision (EU) 2026/2274 of 12 October 2026 published the reference on 14 October 2026, without a restriction, and entered into force that day.
+- EN 18286:2026, *Artificial intelligence - Quality management system for EU AI Act regulatory purposes* (CEN and CENELEC) is, as of 20 October 2026, the first and only harmonised standard with an Official Journal reference. Commission Implementing Decision (EU) 2026/2274 of 12 October 2026 published the reference on 14 October 2026, without a restriction, and entered into force that day.
 - Scope: Article 17. Per the Commission, providers implementing it benefit from a presumption of conformity with the Article 17 requirements it covers. Article 40(1) itself names the Chapter III, Section 2 requirements and the GPAI obligations; the Digital Omnibus added to Article 40(2) a request for deliverables covering Sections 2 and 3. Cite the Article 17 presumption as the Commission's position.
 - Applying a harmonised standard is voluntary. The presumption reaches only as far as the standard covers a requirement.
-- No harmonised standard covers the Chapter III, Section 2 requirements (Articles 8 to 15) yet. Consequences: Annex IV point 7 requires a detailed description of the solutions adopted for them; for Annex III point 1 systems, Article 43(1) leaves only Annex VII unless common specifications were applied.
-- EN 18286 is built around the AI system lifecycle and designed to be layered on ISO/IEC 42001, ISO 9001 or a sectoral system such as ISO 13485. ISO/IEC 42001 is not a harmonised standard under the AI Act and gives no presumption of conformity.
+- As of 20 October 2026, no harmonised standard covers the Chapter III, Section 2 requirements (Articles 8 to 15). Consequences: Annex IV point 7 requires a detailed description of the solutions adopted for them; for Annex III point 1 systems, Article 43(1) leaves only Annex VII unless common specifications were applied.
+- EN 18286 is built around the AI system lifecycle and designed to be layered on ISO/IEC 42001, ISO 9001 or a sectoral system such as ISO 13485. None of these gives a presumption of conformity under the AI Act; EN ISO 13485 keeps the presumption it carries under the Medical Devices Regulation.
 - Article 17(4): financial institutions meeting the duty through internal-governance rules must take harmonised standards referred to in Article 40 into account. Article 43(3): for Annex I Section A products, the Article 17 quality management system is assessed within the sectoral procedure.
 
 ### Commission guidance (non-binding)
 
 - Draft guidelines on the classification of high-risk AI systems: Article 6(5) set 2 February 2026; the Commission published a draft on 19 May 2026 and still describes it as draft. Use its examples as interpretive support labelled `draft Commission guidance`; never let an example override Article 6 or Annex III.
-- Guidelines on the Article 50 transparency obligations: adopted 20 July 2026. Non-binding interpretation of roles, definitions and exceptions.
+- Guidelines on the Article 50 transparency obligations: published by the Commission on 20 July 2026 as final guidelines. Non-binding interpretation of roles, definitions and exceptions.
 - Code of Practice on Transparency of AI-generated Content: on 8 July 2026 the Commission found it adequate for Article 50(2), (4) and (5). Voluntary; adherence is not conclusive evidence of compliance. Providers and deployers of generative AI systems that do not adhere must show alternative, equivalently adequate means for marking and labelling.

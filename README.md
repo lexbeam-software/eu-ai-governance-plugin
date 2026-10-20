@@ -16,7 +16,7 @@ Source-grounded EU AI Act governance for European in-house legal, compliance, pr
 - Six reusable skills with role-specific workflows
 - Current enacted-law map for Regulation (EU) 2024/1689 as amended by Regulation (EU) 2026/1744
 - Bundled connection to Lexbeam’s open EU AI Act MCP, when connected tools are supported and permitted, for versioned article summaries and official links, classification, deadlines, obligations, Article 6(3), Annex IV checks, and the status of harmonised standards
-- Harmonised standards kept apart from law: EN 18286:2026 for the Article 17 quality management system (presumption of conformity as far as it covers the requirements, voluntary), the requirements still without a standard, and ISO/IEC 42001 without presumption
+- Harmonised standards kept apart from law: EN 18286:2026 for the Article 17 quality management system (per the Commission, a presumption of conformity as far as it covers the requirements; voluntary), the requirements still without a standard as of 20 October 2026, and ISO/IEC 42001 without an AI Act presumption
 - Embedded fallback for local-only work, with an explicit source-date warning
 - Fact-specific DACH escalation instead of treating Germany, Austria, and Switzerland as one legal regime
 - Deterministic validation of manifests, links, versions, legal anchors, and stale-law regressions
@@ -101,7 +101,7 @@ Embedded content was reviewed on **6 August 2026** against CELEX `02024R1689-202
 | 2 December 2027 | Article 6(2)/Annex III high-risk rules apply |
 | 2 August 2028 | Article 6(1)/Annex I high-risk rules apply |
 
-The 2027 and 2028 dates are enacted, unconditional calendar dates. They are not proposal-era backstops. The 14 October 2026 date starts a presumption of conformity for the Article 17 requirements EN 18286 covers; applying the standard is voluntary, and no harmonised standard covers the Chapter III, Section 2 requirements yet.
+The 2027 and 2028 dates are enacted, unconditional calendar dates. They are not proposal-era backstops. From 14 October 2026, per the Commission, EN 18286 gives a presumption of conformity for the Article 17 requirements it covers; applying it is voluntary. As of 20 October 2026, no harmonised standard covers the Chapter III, Section 2 requirements.
 
 ## Examples
 
