@@ -1,0 +1,150 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "eu-ai-governance",
+  "version": "0.0.0",
+  "description": "Source-grounded EU AI Act governance for European legal, compliance, privacy, security and AI governance teams: risk classification, DPIA and FRIA workflows, vendor and policy review, and evidence packs.",
+  "author": {
+    "name": "Lexbeam Software",
+    "email": "info@lexbeam.com",
+    "url": "https://lexbeam.com"
+  },
+  "homepage": "https://lexbeam-software.github.io/eu-ai-governance-plugin/",
+  "repository": "https://github.com/lexbeam-software/eu-ai-governance-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "eu-ai-act",
+    "ai-governance",
+    "compliance",
+    "dpia",
+    "fria",
+    "ai-risk-classification",
+    "evidence-pack",
+    "dach"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Lexbeam EU AI Governance",
+        "shortDescription": "EU AI Act compliance, sourced",
+        "longDescription": "For in-house legal, compliance, privacy, security and AI governance teams in Europe. Classify an AI system under the EU AI Act as amended by the Digital Omnibus (Regulation (EU) 2026/1744), check the deadlines and obligations that apply, run DPIA and FRIA workflows, review AI vendors and policies, and assemble a traceable evidence pack. Every legal statement names its source and as-of date; the connected Lexbeam EU AI Act server answers deterministically from the enacted text. General guidance, not legal advice.",
+        "developerName": "Lexbeam Software",
+        "category": "Productivity",
+        "capabilities": [
+          "Read"
+        ],
+        "websiteURL": "https://lexbeam.com",
+        "supportURL": "https://github.com/lexbeam-software/eu-ai-governance-plugin/issues",
+        "privacyPolicyURL": "https://github.com/lexbeam-software/eu-ai-act-mcp/blob/main/PRIVACY.md",
+        "termsOfServiceURL": "https://github.com/lexbeam-software/eu-ai-governance-plugin/blob/main/LEGAL-DISCLAIMER.md",
+        "defaultPrompt": [
+          "Classify our CV screening tool under the EU AI Act and list the obligations and deadlines.",
+          "Which Article 50 transparency duties apply to our customer-support chatbot, and since when?",
+          "Assess ChatGPT Enterprise as an AI vendor for our HR team and draft the evidence pack."
+        ],
+        "brandColor": "#0C263B",
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Annex III employment use case",
+              "prompt": "Classify a tool that screens and ranks job applicants' CVs for a German employer. We use it; we did not build it.",
+              "tools_triggered": [
+                "euaiact_classify_system"
+              ],
+              "expected_behavior": "High-risk under Annex III point 4 (employment). Lists deployer duties under Art. 26 (instructions, human oversight, logs, workplace notice, DPIA where required, FRIA where Art. 27 applies) and says the Annex III obligations apply from 2 December 2027 as deferred by the Digital Omnibus. Names sources and states it is general guidance."
+            },
+            {
+              "description": "Transparency duties and their date",
+              "prompt": "Which Article 50 transparency duties apply to our customer-support chatbot, and since when?",
+              "tools_triggered": [
+                "euaiact_check_deadlines",
+                "euaiact_get_article"
+              ],
+              "expected_behavior": "Says people must be informed that they are interacting with an AI system (Art. 50(1)) unless that is obvious, and that Art. 50 applies since 2 August 2026 and was not deferred by the Digital Omnibus."
+            },
+            {
+              "description": "Fine ceiling for an SME",
+              "prompt": "What is the maximum fine for an SME with 5 million EUR annual turnover that breaches high-risk obligations?",
+              "tools_triggered": [
+                "euaiact_calculate_penalty"
+              ],
+              "expected_behavior": "150,000 EUR: up to 15 million EUR or 3 percent of turnover, whichever is lower for an SME under Art. 99(4) and 99(6). Notes that actual fines depend on the Art. 99(7) factors."
+            },
+            {
+              "description": "GPAI systemic risk threshold",
+              "prompt": "We trained a general-purpose model with 2e25 FLOPs. Does it count as GPAI with systemic risk, and what do we have to do?",
+              "tools_triggered": [
+                "euaiact_check_gpai_systemic_risk"
+              ],
+              "expected_behavior": "Yes, presumed under Art. 51(2) because training compute is at or above 10^25 FLOPs. Notify the Commission without delay and within two weeks (Art. 52(1)); lists the Art. 53 and Art. 55 obligations."
+            },
+            {
+              "description": "Technical documentation checklist",
+              "prompt": "Give me the Annex IV technical documentation checklist for a high-risk system. We are an SME.",
+              "tools_triggered": [
+                "euaiact_annex_iv_checklist"
+              ],
+              "expected_behavior": "Returns the nine Annex IV items with their sub-items and mentions the simplified form SMEs may use under Art. 11(1), second subparagraph."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unrelated everyday question",
+              "prompt": "What is the weather in Munich today?"
+            },
+            {
+              "description": "Unrelated writing task",
+              "prompt": "Write a short birthday message for my colleague Anna."
+            },
+            {
+              "description": "Tax question outside the EU AI Act",
+              "prompt": "What VAT rate applies to restaurant meals in Germany?"
+            }
+          ]
+        },
+        "demo_recording_url": "REPLACE_WITH_DEMO_URL"
+      },
+      "publication": {
+        "countries": [
+          "AT",
+          "BE",
+          "BG",
+          "HR",
+          "CY",
+          "CZ",
+          "DK",
+          "EE",
+          "FI",
+          "FR",
+          "DE",
+          "GR",
+          "HU",
+          "IE",
+          "IT",
+          "LV",
+          "LT",
+          "LU",
+          "MT",
+          "NL",
+          "PL",
+          "PT",
+          "RO",
+          "SK",
+          "SI",
+          "ES",
+          "SE",
+          "IS",
+          "LI",
+          "NO",
+          "CH",
+          "GB",
+          "US"
+        ],
+        "release_notes": "First listing in the OpenAI Plugins Directory: EU AI Act classification, obligations, deadlines, fines, GPAI and Article 6(3) checks, Annex IV checklist, DPIA, FRIA and vendor workflows, answered by the Lexbeam EU AI Act server. General guidance, not legal advice."
+      }
+    }
+  }
+}

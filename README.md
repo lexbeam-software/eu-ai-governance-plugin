@@ -19,3 +19,18 @@ presence, the MCP configuration, exact legal anchors, known stale-law phrases an
 types the directory accepts. `claude-validate.sh` runs `claude plugin validate . --strict`.
 
 The workflow `.github/workflows/validate.yml` on `main` runs both on every push and pull request.
+
+## Build the OpenAI package
+
+`main` is the Claude plugin. The OpenAI Plugins Directory takes an uploaded ZIP in its own format, so its
+manifest (`openai/plugin.json`, with the listing, the review test cases and the publication settings) and its MCP
+configuration (`openai/mcp.json`) live here, not on `main`:
+
+```bash
+sh ../eu-ai-governance-tools/scripts/build-openai-zip.sh . dist
+```
+
+The script copies `skills/`, `references/`, `assets/`, `LICENSE` and `LEGAL-DISCLAIMER.md` from `main`, takes the
+version from `main`'s `.claude-plugin/plugin.json`, checks the result with `check-openai.mjs` against OpenAI's
+limits and writes `dist/lexbeam-eu-ai-governance-openai-VERSION.zip`. With `OPENAI_DRAFT=1` it builds a `-draft`
+ZIP before the demo recording URL exists.
