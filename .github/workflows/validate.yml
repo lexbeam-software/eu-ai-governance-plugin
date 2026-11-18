@@ -12,8 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: plugin
+      - uses: actions/checkout@v4
+        with:
+          ref: tools
+          path: tools
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm run validate
-      - run: npx --yes @anthropic-ai/claude-code@2.1.150 plugin validate . --strict
+      - run: node ../tools/scripts/validate.mjs
+        working-directory: plugin
+      - run: sh ../tools/scripts/claude-validate.sh
+        working-directory: plugin

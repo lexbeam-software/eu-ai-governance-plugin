@@ -2,6 +2,19 @@
 
 All notable changes are documented here.
 
+## [1.2.2] - 2026-11-18
+
+### Changed
+
+- The `main` branch holds the plugin only: Markdown, JSON, YAML and PNG files. Anthropic's plugin directory accepts
+  scripts, HTML pages and further SVG files in a plugin's folder only from Verified organisations, and its check in
+  November 2026 refused 1.2.1 for them. The website (`index.html`, `favicon.svg`) moved to the `gh-pages` branch
+  and is served from there at the same address; the contributor check (`scripts/validate.mjs`) moved to the `tools`
+  branch; `package.json` is gone, the check needs no packages
+- The `Validate plugin` workflow checks out `tools` next to the plugin and runs both checks from there. The check
+  now also fails when `main` gains a file type the directory does not accept
+- Skills, commands, references and the MCP connection are unchanged
+
 ## [1.2.1] - 2026-10-20
 
 ### Fixed

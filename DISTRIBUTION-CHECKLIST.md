@@ -4,7 +4,7 @@ Use this checklist for every release so GitHub, GitHub Pages, Lawve, and uploade
 
 ## Before publishing
 
-1. Run `npm run validate` and `claude plugin validate . --strict` from the release candidate.
+1. Run both contributor checks from the `tools` branch (`validate.mjs` and `claude-validate.sh`) against the release candidate.
 2. Verify the six skills with the skill validator and review every protected claim in `references/LEGAL-CLAIM-MATRIX.md` against the cited official provision.
 3. Confirm the version, Apache-2.0 license, legal baseline date, command namespace, and bundled MCP endpoint agree across the manifests, README, website, and ZIP.
 4. Open the website at desktop and mobile widths. Check every command name, external link, legal date, and disclaimer.

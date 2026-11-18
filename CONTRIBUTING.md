@@ -8,7 +8,7 @@ Contributions that improve legal accuracy, workflow quality, accessibility, sour
 2. Update [the legal claim matrix](references/LEGAL-CLAIM-MATRIX.md) when a protected claim changes.
 3. Keep actor, scope, paragraph, point, source status, and application date explicit.
 4. Preserve local-only fallback and disclose any connected-service data flow.
-5. Run `npm run validate` and `claude plugin validate .`.
+5. Run the contributor checks from the [`tools` branch](https://github.com/lexbeam-software/eu-ai-governance-plugin/tree/tools) against your checkout.
 
 For a negative legal claim, read the complete relevant provision. A missing search result is not evidence that a rule, exception, duty, or citation does not exist.
 

@@ -1,6 +1,6 @@
 # EU AI Governance Plugin
 
-![Version](https://img.shields.io/badge/version-1.2.1-blue)
+![Version](https://img.shields.io/badge/version-1.2.2-blue)
 ![License](https://img.shields.io/badge/license-Apache%202.0-green)
 ![EU AI Act](https://img.shields.io/badge/legal%20baseline-6%20Aug%202026%20%C2%B7%20standards%2020%20Oct%202026-purple)
 ![Platform](https://img.shields.io/badge/platform-Claude%20Code%20%2B%20Cowork-black)
@@ -45,7 +45,7 @@ Requires Claude Code or Cowork with plugin support. The embedded workflow conten
 2. In Claude, open **Settings → Plugins → Add → Create plugin → Upload a plugin**.
 3. Upload the ZIP and start with `/eu-ai-governance:ai-act-status`.
 
-Verify that the uploaded package shows version `1.2.1`, Apache 2.0, the 6 August 2026 legal baseline, and the 20 October 2026 review of standards and guidance. Do not upload the stale Lawve v1 package.
+Verify that the uploaded package shows version `1.2.2`, Apache 2.0, the 6 August 2026 legal baseline, and the 20 October 2026 review of standards and guidance. Do not upload the stale Lawve v1 package.
 
 ## Commands
 
@@ -113,12 +113,9 @@ The examples are fictional demonstrations, not current vendor findings or legal 
 
 ## Validate a contribution
 
-```bash
-npm run validate
-claude plugin validate .
-```
+The contributor checks live on the [`tools` branch](https://github.com/lexbeam-software/eu-ai-governance-plugin/tree/tools), which explains how to run them against a checkout of `main`. The `Validate plugin` workflow runs them on every push and pull request.
 
-The local validator checks component structure, versions, links, license presence, MCP configuration, exact legal anchors, and known stale-law phrases. Legal review remains necessary for substantive changes; use the [protected legal claim matrix](references/LEGAL-CLAIM-MATRIX.md). Maintainers should also complete the [distribution checklist](DISTRIBUTION-CHECKLIST.md) before publishing.
+The validator checks component structure, versions, links, license presence, MCP configuration, exact legal anchors, and known stale-law phrases. Legal review remains necessary for substantive changes; use the [protected legal claim matrix](references/LEGAL-CLAIM-MATRIX.md). Maintainers should also complete the [distribution checklist](DISTRIBUTION-CHECKLIST.md) before publishing.
 
 ## Distribution and version integrity
 
@@ -129,7 +126,8 @@ GitHub releases are the source of truth. Before using a Lawve or other third-par
 What the plugin runs and sends:
 
 - Skills and commands are Markdown instructions for Claude. The plugin ships no hooks and runs no scripts on
-  your machine; `scripts/validate.mjs` is a contributor check, not part of the plugin.
+  your machine. The `main` branch holds Markdown, JSON and images only; the contributor check lives on the
+  `tools` branch and the website on `gh-pages`.
 - The one bundled connection is the Lexbeam EU AI Act MCP at `https://mcp.lexbeam.com/mcp`, with no login.
   When Claude calls one of its tools, the tool arguments (for example a description of the AI system to
   classify) and the request data (IP address, time, URL, user agent) reach that endpoint. It runs
